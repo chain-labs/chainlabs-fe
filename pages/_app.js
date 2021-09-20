@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 const MyApp = ({ Component, pageProps }) => {
 	useEffect(() => {
 		// Set a custom CSS Property for Height
