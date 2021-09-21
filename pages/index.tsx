@@ -1,8 +1,11 @@
+import Box from 'components/Box';
+import OuterContainer from 'components/OuterContainer';
+
 const Home = () => {
 	return (
-		<div>
-			<h1>Home Page</h1>
-		</div>
+		<OuterContainer bg="purple-black">
+			<Box>Home</Box>
+		</OuterContainer>
 	);
 };
 
