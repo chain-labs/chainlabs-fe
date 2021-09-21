@@ -19,7 +19,7 @@ const Container = styled(Box).attrs(() => ({
 	width: 100%;
 
 	@media screen and (min-width: ${theme.breakpoints.deskM}) {
-		max-width: 112rem;
+		max-width: 116rem;
 		margin: 0 auto;
 	}
 
