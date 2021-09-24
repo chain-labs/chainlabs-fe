@@ -1,6 +1,7 @@
 import Box from './Box';
 import Container from './Container';
 import Text from 'components/Text';
+import theme from 'styleguide/theme';
 
 const OuterContainer = ({ children, bg }) => {
 	return (
