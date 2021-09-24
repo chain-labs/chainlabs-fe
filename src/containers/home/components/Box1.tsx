@@ -7,14 +7,12 @@ const Box1 = () => {
 	return (
 		<Box
 			row
-			// justifyContent="center"
 			alignItems="center"
 			mt="wl"
-			borderRadius="24px"
-			// boxShadow="inset 69.2667px -69.2667px 69.2667px rgba(149, 149, 149, 0.072), inset -69.2667px 69.2667px 69.2667px rgba(255, 255, 255, 0.072)"
+			borderRadius="2.4rem"
 			bg="rgba(196, 196, 196, 0.072)"
-			color="white"
-			border="1px solid white"
+			color="primary-white"
+			border="0.1rem solid white"
 			p="ml"
 		>
 			<Box>
@@ -26,27 +24,28 @@ const Box1 = () => {
 						Warriors
 					</Text>
 				</Box>
-				<Box mr="">
-					<Text as="b2" lineHeight="b2" fontWeight="regular">
+				<Box>
+					<Text as="b2">
 						Warriors is a generation-based NFT Project, with each warrior being unique and accompanied by a
 						story.
 					</Text>
 				</Box>
 				<Box row mt="ml">
-					<Box as="button" bg="rgba(4, 255, 164, 0.5)" borderRadius="8px" px="wm" py="ms" mr="mxxs">
-						<Text as="links">Learn More</Text>
+					<Box as="button" bg="rgba(4, 255, 164, 0.5)" borderRadius="0.8rem" px="wm" py="ms" mr="mxxs">
+						<Text as="links" color="primary-white">
+							Learn More
+						</Text>
 					</Box>
 					<Box
 						as="button"
-						borderRadius="8px"
+						borderRadius="0.8rem"
 						px="wm"
 						py="ms"
 						bg="rgba(196, 196, 196, 0.1)"
-						css={`
-							backdrop-filter: blur(16px);
-						`}
 					>
-						<Text as="links">Launch app</Text>
+						<Text as="links" color="primary-white">
+							Launch app
+						</Text>
 					</Box>
 				</Box>
 			</Box>

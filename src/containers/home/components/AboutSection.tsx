@@ -9,8 +9,8 @@ const AboutSection = () => {
 			<Box center>
 				<DownArrow />
 			</Box>
-			<Box display="flex" justifyContent="flex-end" mt="wxl" ml="750px">
-				<Box mr="">
+			<Box display="flex" justifyContent="flex-end" mt="wxl" ml="75rem">
+				<Box>
 					<Text color="primary-green">About Chain Labs</Text>
 					<Box mt="ml">
 						<Text as="b2" color="primary-white">

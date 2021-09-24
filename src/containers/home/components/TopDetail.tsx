@@ -4,44 +4,40 @@ import React from 'react';
 
 const TopDetail = () => {
 	return (
-		<Box display="flex">
-			<Box fontSize="72px" mt="wxxs">
-				<Text fontSize="inherit" mr="370px" lineHeight="h2">
+		<Box display="flex" color="primary-white">
+			<Box mt="20rem">
+				<Text as="h1" mr="37rem" lineHeight="h2">
 					Building
 				</Text>
-				<Box display="flex" fontSize="72px" mt="mxs">
-					<Text fontSize="inherit" color="accent-green" lineHeight="h2" mr="ml">
+				<Box display="flex" mt="mxs">
+					<Text as="h1" color="accent-green" lineHeight="h2" mr="ml">
 						decentralized
 					</Text>
-					<Text fontSize="inherit" lineHeight="h2">
+					<Text as="h1" lineHeight="h2">
 						apps
 					</Text>
 				</Box>
-				<Box display="flex" fontSize="72px" mt="mxs">
-					<Text fontSize="inherit" lineHeight="h2" mr="ml">
+				<Box display="flex" mt="mxs">
+					<Text as="h1" lineHeight="h2" mr="ml">
 						for the
 					</Text>
-					<Text fontSize="inherit" color="accent-green" lineHeight="h2">
+					<Text as="h1" lineHeight="h2" color="accent-green">
 						decentralized
 					</Text>
 				</Box>
-				<Text fontSize="inherit" mr="370px" lineHeight="h2" mt="mxs">
+				<Text as="h1" lineHeight="h2" mr="37rem" mt="mxs">
 					World
 				</Text>
-				<Text fontSize="24px" mr="450px" mt="mxl" lineHeight="h1" fontWeight="regular" fontStyle="normal">
-					A laboratory empowering the consumers by building truly transparent and decentralized products.
-				</Text>
-				<Text
-					fontSize="20px"
-					mr="510px"
-					mt="ml"
-					lineHeight="h1"
-					color="primary-green"
-					fontWeight="regular"
-					fontStyle="normal"
-				>
-					Sign up for our weekly newsletter for the latest updates about our products.
-				</Text>
+				<Box mr="50rem" mt="mxl">
+					<Text as="b2">
+						A laboratory empowering the consumers by building truly transparent and decentralized products.
+					</Text>
+				</Box>
+				<Box mt="ml">
+					<Text as="links" mr="51rem" color="primary-green">
+						Sign up for our weekly newsletter for the latest updates about our products.
+					</Text>
+				</Box>
 				<label>
 					<input type="text" name="name" />
 				</label>

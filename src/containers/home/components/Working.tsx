@@ -9,17 +9,11 @@ export const Working = () => {
 	return (
 		<Box>
 			<Box mt="wl">
-				<Text
-					as="h5"
-					lineHeight="h1"
-					color="primary-green"
-					fontWeight="bold"
-					fontFamily="'Epilogue', sans-serif"
-				>
+				<Text as="h5" color="primary-green">
 					Products we’ve been working on
 				</Text>
-				<Box mt="ml" mr="500px">
-					<Text as="b3">
+				<Box mt="ml" mr="50rem">
+					<Text as="b3" color="primary-white">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac ornare cursus risus arcu velit cras
 						fusce.
 					</Text>
@@ -29,18 +23,16 @@ export const Working = () => {
 			<Box2 />
 			<Box3 />
 			<Box mt="wl">
-				<Text
-					as="h5"
-					lineHeight="h1"
-					color="primary-green"
-					fontWeight="bold"
-					fontFamily="'Epilogue', sans-serif"
-				>
+				<Text as="h5" color="primary-green">
 					Have something to talk about?
 				</Text>
-				<Box mt="ml" mr="500px">
-					<Text as="b3">
-						Reach out to us at contact@chainlabs.in or shoot us a message at any of our social handles.
+				<Box mt="ml" mr="50rem">
+					<Text as="b2" color="primary-white">
+						Reach out to us at{' '}
+						<Text as="b1" color="primary-green">
+							contact@chainlabs.in
+						</Text>{' '}
+						or shoot us a message at any of our social handles.
 					</Text>
 				</Box>
 			</Box>

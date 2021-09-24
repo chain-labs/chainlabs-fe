@@ -5,7 +5,7 @@ import System from '../../../svgs/system.svg';
 
 const ChainLabsInfo = () => {
 	return (
-		<Box mt="wxxl">
+		<Box mt="wxxl" color="primary-white">
 			<Box display="flex" justifyContent="space-between">
 				<Box mr="mxxl">
 					<System />
