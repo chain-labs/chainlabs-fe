@@ -40,13 +40,7 @@ export interface TextProps extends BoxProps {
 	onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const Text = ({
-	as = 'h6',
-	fontWeight = 'regular',
-	color = 'primary-white',
-	children,
-	...restProps
-}: TextProps): JSX.Element => {
+const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps }: TextProps): JSX.Element => {
 	const fs = fontSizes[as];
 	const fw = fontWeights[fontWeight];
 	const lh = lineHeights[as] ?? '150%';

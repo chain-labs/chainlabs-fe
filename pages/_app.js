@@ -40,7 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
 				<link rel="shortcut icon" href="/static/images/logo.png" />
 			</Head>
 			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />;
+				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
 	);
