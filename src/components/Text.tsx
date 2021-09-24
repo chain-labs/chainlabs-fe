@@ -15,7 +15,7 @@ export const fontSizes = {
 };
 
 export const lineHeights = {
-	h1: '115%',
+	h1: '150%',
 	h2: '115%',
 	h4: '125%',
 	b2: '165%',

@@ -1,6 +1,4 @@
 import Box from 'components/Box';
-import Container from 'components/Container';
-import Text from 'components/Text';
 import Navbar from 'components/Navbar';
 
 const OuterContainer = ({ children, bg }) => {
