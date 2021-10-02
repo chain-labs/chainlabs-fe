@@ -16,11 +16,10 @@ const Container = styled(Box).attrs(() => ({
 	({ theme }) => `
 	padding: 0;
 	margin: 0 auto;
-	// width: 100%;
+	width: 100%;
 
 	@media screen and (min-width: ${theme.breakpoints.deskM}) {
-		max-width: 116rem;
-		margin: 0 auto;
+		max-width: 130rem;
 	}
 
 	@media screen and (min-width: ${theme.breakpoints.deskM}) and (orientation: landscape) {
