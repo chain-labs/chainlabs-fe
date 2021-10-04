@@ -1,35 +1,54 @@
 import Box from 'components/Box';
 import Text from 'components/Text';
 import React from 'react';
-import Box1 from './Box1';
-import Box2 from './Box2';
-import Box3 from './Box3';
+
+import BoxComp from './BoxComp';
 
 export const Working = () => {
 	return (
-		<Box>
-			<Box mt="26rem">
-				<Text as="h3" fontWeight="bold" color="primary-green">
-					Products we’ve been working on
+		<Box id="products">
+			<Box mt={{ mobS: '12rem', tabL: '26rem' }} px={{ mobS: 'ml', tabL: '0' }}>
+				<Text as="h2" fontWeight="bold" color="primary-green">
+					What we’ve been working on
 				</Text>
-				<Box mt="mxl" mr="50rem">
-					<Text as="b2" fontWeight="thin" color="primary-white">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac ornare cursus risus arcu velit cras
-						fusce.
+				<Box mt={{ mobS: 'mm', tabS: 'mxl' }} maxWidth="64rem">
+					<Text as="b1" fontWeight="regular" color="primary-white">
+						These are some of the projects that the team is working on.
 					</Text>
 				</Box>
 			</Box>
-			<Box1 />
-			<Box2 />
-			<Box3 />
-			<Box mt="28rem">
-				<Text as="h3" fontWeight="bold" color="primary-green">
+			<BoxComp
+				title="Warriors"
+				subtext="Warriors is a generation-based NFT Project, with each warrior being unique and accompanied by a
+						story."
+				launched
+				image="/static/images/warriors.png"
+			></BoxComp>
+			<BoxComp
+				title="IPVC"
+				subtext="Inter-planetary vaccine certificate is a secure health-data interoperability layer for already
+						existing vaccine platforms."
+				image="/static/images/ipvc.png"
+			></BoxComp>
+			<BoxComp
+				title="Mystery project"
+				subtext={
+					<Box column>
+						<Text as="b2">???????????????????????????????</Text>
+						<Text as="b2">?????????????????????????????????</Text>
+						<Text as="b2">???????????????????????????????</Text>
+					</Box>
+				}
+				image="/static/images/mystery.png"
+			></BoxComp>
+			<Box mt={{ mobS: 'wl', tabL: '25rem' }} px={{ mobS: 'ml', tabL: '0' }}>
+				<Text as="h2" fontWeight="bold" color="primary-green">
 					Have something to talk about?
 				</Text>
-				<Box mt="mxl" mr="50rem">
-					<Text as="b2" fontWeight="thin" color="primary-white">
+				<Box mt="mxl" maxWidth="58rem">
+					<Text as="b1" fontWeight="regular" color="primary-white">
 						Reach out to us at{' '}
-						<Text as="b1" fontWeight="thin" color="primary-green">
+						<Text as="b1" fontWeight="regular" color="primary-green">
 							contact@chainlabs.in
 						</Text>{' '}
 						or shoot us a message at any of our social handles.

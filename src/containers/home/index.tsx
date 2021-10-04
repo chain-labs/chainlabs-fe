@@ -9,7 +9,7 @@ import { Working } from './components/Working';
 const ChainLabs = () => {
 	return (
 		<Container>
-			<Box>
+			<Box overflowX="hidden">
 				<TopDetail />
 				<AboutSection />
 				<ChainLabsInfo />
