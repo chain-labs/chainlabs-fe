@@ -1,0 +1,19 @@
+<svg viewBox="0 0 134 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b)">
+<path d="M2 24.0983C2 12.1321 11.7005 2.43164 23.6667 2.43164H110.333C122.3 2.43164 132 12.1321 132 24.0983V110.765C132 122.731 122.3 132.432 110.333 132.432H23.6667C11.7005 132.432 2 122.731 2 110.765V24.0983Z" fill="#C4C4C4" fill-opacity="0.1"/>
+<path d="M23.6667 1.68164C11.2863 1.68164 1.25 11.7179 1.25 24.0983V110.765C1.25 123.145 11.2863 133.182 23.6667 133.182H110.333C122.714 133.182 132.75 123.145 132.75 110.765V24.0983C132.75 11.7179 122.714 1.68164 110.333 1.68164H23.6667Z" stroke="url(#paint0_linear)" stroke-opacity="0.6" stroke-width="1.5"/>
+</g>
+<path d="M74.875 59.0566L66.75 63.1191M66.75 63.1191L58.625 59.0566M66.75 63.1191V73.2754M99.25 46.8691L91.125 50.9316M99.25 46.8691L91.125 42.8066M99.25 46.8691V57.0254M74.875 34.6816L66.75 30.6191L58.625 34.6816M34.25 46.8691L42.375 42.8066M34.25 46.8691L42.375 50.9316M34.25 46.8691V57.0254M66.75 103.744L58.625 99.6816M66.75 103.744L74.875 99.6816M66.75 103.744V93.5879M42.375 91.5566L34.25 87.4941V77.3379M91.125 91.5566L99.25 87.4941V77.3379" stroke="#33FF99" stroke-width="4.0625" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<filter id="filter0_b" x="-21.1667" y="-20.735" width="176.333" height="176.333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImage" stdDeviation="10.8333"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="139.583" y1="132.432" x2="2" y2="-38.735" gradientUnits="userSpaceOnUse">
+<stop stop-color="#04FFA4"/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

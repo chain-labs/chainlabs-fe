@@ -32,14 +32,13 @@ declare module 'styled-components' {
 	export interface DefaultTheme {
 		colors: {
 			'purple-black': string;
-            'secondary-black': string;
-            'primary-green': string;
-            'accent-green': string;
-            'primary-white': string;
-            'red':string
+			'secondary-black': string;
+			'primary-green': string;
+			'accent-green': string;
+			'primary-white': string;
+			'primary-red': string;
 		};
 		space: string[] & Partial<ISpace>;
 		breakpoints: string[] & Partial<IBreakpoints>;
-		colors: string[] & Partial<IColors>;
 	}
 }
