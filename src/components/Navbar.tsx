@@ -12,28 +12,40 @@ const Navbar = () => {
 
 	return (
 		<Box
-			py={{ mobS: 'mxs', tabS: 'mxxxl' }}
+			py={{ mobS: 'mxs', tabS: 'ml', deskL: 'mxxxl' }}
 			px={{ mobS: 'mm', tabS: 'wxs', desk: '0' }}
 			bg="rgba(236, 236, 236, 0.09)"
 			borderBottom="1px solid"
 			borderBottomColor="accent-green"
 			position="fixed"
 			width="100%"
+			zIndex={10}
+			css={`
+				backdrop-filter: blur(8px);
+			`}
 		>
 			<Container>
 				<Box between>
-					<Box center>
-						<Box as="img" src="/static/images/logo.png" mr={{ mobS: 'mxs', tabS: 'mxl' }} />
-						<Box as="img" src="/static/images/brand.png" />
-					</Box>
+					<a href="#top">
+						<Box center>
+							<Box as="img" src="/static/images/logo.png" mr={{ mobS: 'mxs', tabS: 'mxl' }} />
+							<Box as="img" src="/static/images/brand.png" />
+						</Box>
+					</a>
 					<Box color="primary-white" display={{ mobS: 'none', tabS: 'block' }}>
-						<Text as="links">Vision</Text>
-						<Text as="links" ml="wm">
-							Products
-						</Text>
-						<Text as="links" ml="wm">
-							Contact
-						</Text>
+						<a href="#vision">
+							<Text as="links">Vision</Text>
+						</a>
+						<a href="#products">
+							<Text as="links" ml={{ tabS: '0', deskM: 'wm' }}>
+								Products
+							</Text>
+						</a>
+						<a href="#contact">
+							<Text as="links" ml={{ tabS: '0', deskM: 'wm' }}>
+								Contact
+							</Text>
+						</a>
 					</Box>
 					<Box
 						color="primary-white"
@@ -77,15 +89,21 @@ const Menu = ({ setIsMenuOpen }) => {
 				<RightArrow />
 			</Box>
 			<Box ml="mxxxl" color="black" mt="17.5rem">
-				<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-					Vision
-				</Text>
-				<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-					Products
-				</Text>
-				<Text as="h5" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-					Contact
-				</Text>
+				<a href="#vision">
+					<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
+						Vision
+					</Text>
+				</a>
+				<a href="#products">
+					<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
+						Products
+					</Text>
+				</a>
+				<a href="#contact">
+					<Text as="h5" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
+						Contact
+					</Text>
+				</a>
 			</Box>
 		</Box>
 	);
