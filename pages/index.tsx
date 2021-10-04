@@ -1,8 +1,11 @@
+import OuterContainer from 'components/OuterContainer';
+import ChainLabs from 'containers/home';
+
 const Home = () => {
 	return (
-		<div>
-			<h1>Home Page</h1>
-		</div>
+		<OuterContainer bg="purple-black">
+			<ChainLabs />
+		</OuterContainer>
 	);
 };
 

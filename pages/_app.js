@@ -1,4 +1,11 @@
 import { useEffect } from 'react';
+import { debounce } from 'lodash';
+import Head from 'next/head';
+
+import theme from 'styleguide/theme';
+
+import 'styleguide/globalStyles.css';
+import { ThemeProvider } from 'styled-components';
 
 const MyApp = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -26,7 +33,17 @@ const MyApp = ({ Component, pageProps }) => {
 		}
 	});
 
-	return <Component {...pageProps} />;
+	return (
+		<>
+			<Head>
+				<title>ChainLabs</title>
+				<link rel="shortcut icon" href="/static/images/logo.png" />
+			</Head>
+			<ThemeProvider theme={theme}>
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</>
+	);
 };
 
 export default MyApp;
