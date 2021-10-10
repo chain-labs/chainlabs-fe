@@ -96,7 +96,7 @@ const TopDetail = () => {
 					borderRadius="4px"
 					border="1px solid"
 					borderColor={`${theme.colors['primary-green']}30`}
-					width={{ mobS: '20rem', tabL: '40rem', deskL: '72rem' }}
+					width={{ mobS: '25rem', tabL: '40rem', deskL: '72rem' }}
 					display="flex"
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
