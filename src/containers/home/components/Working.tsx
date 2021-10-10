@@ -7,7 +7,7 @@ import BoxComp from './BoxComp';
 export const Working = () => {
 	return (
 		<Box id="products">
-			<Box mt={{ mobS: '12rem', tabL: '26rem' }} px={{ mobS: 'ml', tabL: '0' }}>
+			<Box mt={{ mobS: '12rem', tabL: '13rem', deskL: '26rem' }} px={{ mobS: 'ml', tabL: '0' }} mb="wl">
 				<Text as="h2" fontWeight="bold" color="primary-green">
 					What we’ve been working on
 				</Text>
@@ -41,7 +41,7 @@ export const Working = () => {
 				}
 				image="/static/images/mystery.png"
 			></BoxComp>
-			<Box mt={{ mobS: 'wl', tabL: '25rem' }} px={{ mobS: 'ml', tabL: '0' }}>
+			<Box mt={{ mobS: 'wl', tabL: 'wxxl', deskL: '25rem' }} px={{ mobS: 'ml', tabL: '0' }}>
 				<Text as="h2" fontWeight="bold" color="primary-green">
 					Have something to talk about?
 				</Text>

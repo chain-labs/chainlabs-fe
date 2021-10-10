@@ -16,7 +16,7 @@ const BoxComp = ({ image, title, subtext, launched }: Props) => {
 	return (
 		<Box
 			row
-			mt={{ mobS: 'mxl', tabL: '16rem' }}
+			mb={{ mobS: 'mxl', tabL: '10rem', deskL: '16rem' }}
 			borderRadius="2.4rem"
 			bg="rgba(196, 196, 196, 0.072)"
 			color="primary-white"
@@ -30,8 +30,8 @@ const BoxComp = ({ image, title, subtext, launched }: Props) => {
 				// @ts-expect-error as img
 				as="img"
 				src={image}
-				height={{ mobS: '20.4rem', tabS: '30rem', deskM: '52rem' }}
-				width={{ mobS: '32rem', tabS: '39.2rem', deskM: '72rem' }}
+				height={{ mobS: '20.4rem', tabS: '30rem', deskL: '52rem' }}
+				width={{ mobS: 'auto', tabS: '39.2rem', deskL: '72rem' }}
 			></Box>
 			<Box mt={{ mobS: 'ml', tabL: '0' }} ml={{ mobS: '0', tabL: 'wxxl' }} overflow="hidden">
 				<Text as="h3" fontWeight="bold" textAlign="left" color="primary-green">

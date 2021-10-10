@@ -45,11 +45,11 @@ const SVGContainer = styled(Box)(
 		& svg {
 			width: 43.8rem;
 
-			@media screen and (min-width: ${theme.breakpoints.tabL} and max-width: ${theme.breakpoints.deskL}) {
+			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskL}) {
 				width: 32rem;
 			}
 
-			@media screen and (max-width: ${theme.breakpoints.tabL}) {
+			@media only screen and (max-width: ${theme.breakpoints.tabL}) {
 				width: 27rem;
 			}
 `

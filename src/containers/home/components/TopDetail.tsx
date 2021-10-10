@@ -46,13 +46,13 @@ const TopDetail = () => {
 	};
 
 	return (
-		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'column' }} id="top">
+		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'row' }} id="top">
 			<SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
 				<Illustration_Sm />
 			</SVGContainer>
 			<Box
 				column
-				mt={{ mobS: '35rem', tabS: '60rem', deskL: '25rem' }}
+				mt={{ mobS: '35rem', tabS: '60rem', tabL: '20rem' }}
 				alignItems={{ mobS: 'center', tabL: 'flex-start' }}
 				textAlign={{ mobS: 'center', tabL: 'start' }}
 			>
@@ -96,7 +96,7 @@ const TopDetail = () => {
 					borderRadius="4px"
 					border="1px solid"
 					borderColor={`${theme.colors['primary-green']}30`}
-					width={{ mobS: '20rem', tabS: '72rem' }}
+					width={{ mobS: '20rem', tabL: '40rem', deskL: '72rem' }}
 					display="flex"
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
@@ -136,6 +136,18 @@ const TopDetail = () => {
 					</Box>
 				</Box>
 			</Box>
+			{/* <Box width={{ tabS: '66rem', deskM: '83.5rem' }} border="1px solid white">
+				<Box
+					as="img"
+					src="/static/images/art1_web.png"
+					display={{ mobS: 'none', tabS: 'block' }}
+					position="absolute"
+					right="0"
+					top="0"
+					width="inherit"
+					height="auto"
+				></Box>
+			</Box> */}
 			<SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
 				<Illustration />
 			</SVGContainer>
@@ -165,19 +177,23 @@ const SVGContainer = styled(Box)(
 		position: absolute;
 		right: -20rem;
 
-		@media screen and (max-width: ${theme.breakpoints.tabL}) {
+		@media only screen and (max-width: ${theme.breakpoints.tabL}) {
 			top: 5rem;
 			right: 0;
+		}
+
+		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskL}) {
+			right: 0rem;
 		}
 
 		& svg {
 			width: 133.3rem;
 
-			@media screen and (min-width: ${theme.breakpoints.tabL} and max-width: ${theme.breakpoints.deskL}) {
+			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskL}) {
 				width: 80rem;
 			}
 
-			@media screen and (max-width: ${theme.breakpoints.tabL}) {
+			@media only screen and (max-width: ${theme.breakpoints.tabL}) {
 				width: 100vw;
 			}
 		}

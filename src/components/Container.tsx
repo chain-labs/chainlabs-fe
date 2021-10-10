@@ -21,7 +21,7 @@ const ContainerBox = styled(Box).attrs(() => ({
 	padding: 0;
 	margin: 0 auto;
 
-	@media screen and (min-width: ${theme.breakpoints.deskM}) and (orientation: landscape) {
+	@media only screen and (min-width: ${theme.breakpoints.deskM}) and (orientation: landscape) {
 		padding: 0;
 		margin: 0 auto;
 	}

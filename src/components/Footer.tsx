@@ -12,13 +12,13 @@ const Footer = () => {
 	return (
 		<Box
 			id="contact"
-			mt={{ mobS: 'wm', tabS: '15rem', deskM: '25rem' }}
+			mt={{ mobS: 'wm', tabS: '15rem', deskL: '25rem' }}
 			bg="rgba(236, 236, 236, 0.09)"
 			width="100vw"
 			css={`
 				backdrop-filter: blur(8px);
 			`}
-			py={{ mobS: 'wxxs', tabS: 'wxl', deskM: '14rem' }}
+			py={{ mobS: 'wxxs', tabS: 'wxl', deskL: '14rem' }}
 		>
 			<Container>
 				<Box
