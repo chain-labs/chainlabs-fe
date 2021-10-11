@@ -10,18 +10,41 @@ import ArrowRight from 'svgs/arrow-right.svg';
 
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
+	const [placeholder, setPlaceholder] = useState<string>('name@service.domain');
+	const [disable, setDisable] = useState<Boolean>(true);
 
-	function validateEmail(email) {
+	const setValues = () => {
+		setPlaceholder('name@service.domain');
+		setDisable(false);
+	};
+
+	const validateEmail = async (email) => {
 		const re =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(String(email).toLowerCase());
-	}
+		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
+			method: 'POST',
+			body: JSON.stringify({ email: email }),
+			mode: 'cors',
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'content-type': 'application/json',
+			},
+		});
+		console.log(res);
+		const json = await res.json();
+		console.log(json);
+		console.log(re.test(String(email).toLowerCase()));
+		console.log(re.test(String(email).toLowerCase()) && json.status);
+		return re.test(String(email).toLowerCase()) && json.status;
+	};
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
-
-		if (!validateEmail(email)) {
-			window.alert('Enter a valid email id');
+		const isEmailValid = await validateEmail(email);
+		if (!isEmailValid) {
+			setPlaceholder('The Entered is email is not valid');
+			setDisable(true);
+			// window.alert('Enter a valid email id');
 			setEmail('');
 			return;
 		}
@@ -93,7 +116,7 @@ const TopDetail = () => {
 				<Box
 					mt="mxl"
 					bg={`${theme.colors['primary-white']}10`}
-					borderRadius="4px"
+					borderRadius="15px"
 					border="1px solid"
 					borderColor={`${theme.colors['primary-green']}30`}
 					width={{ mobS: '25rem', tabL: '40rem', deskL: '72rem' }}
@@ -104,27 +127,37 @@ const TopDetail = () => {
 				>
 					<InputBox
 						as="input"
-						placeholder="name@service.domain"
+						placeholder={placeholder}
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 						type="email"
+						onFocus={setValues}
+						color="primary-red"
 					></InputBox>
 					<Box
 						as="button"
-						bg={{ mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }}
+						bg={
+							disable
+								? { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }
+								: { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.5)' }
+						}
 						color="primary-white"
 						border="none"
+						borderTopRightRadius="15px"
+						borderBottomRightRadius="15px"
 						px={{ mobS: 'mxs', tabS: 'wxs' }}
 						py={{ mobS: 'mxxs', tabS: 'ms', deskL: 'mm' }}
 						css={`
 							cursor: pointer;
 						`}
 						type="submit"
+						zIndex={1}
+						disabled={disable ? true : false}
 						onClick={sendEmail}
 					>
 						<Text
 							fontSize={{ tabS: '1.2rem', deskL: '1.6rem' }}
-							color="rgba(230, 231, 232, 0.4)"
+							color={disable ? 'rgba(230, 231, 232, 0.4)' : 'primary-white'}
 							fontWeight="regular"
 							display={{ mobS: 'none', tabS: 'block' }}
 						>
@@ -165,7 +198,7 @@ const InputBox = styled.input(
 		outline: none;
 		background: transparent;
 		& :placeholder {
-			color: ${theme.colors['primary-white']};
+			color: ${theme.colors['primary-red']};
 		}
 		font-family: inherit;
 		font-weight: 500;
