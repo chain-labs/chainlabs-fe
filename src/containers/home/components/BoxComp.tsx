@@ -41,12 +41,24 @@ const BoxComp = ({ image, title, subtext, launched }: Props) => {
 					{subtext}
 				</Text>
 				<Box row>
-					<BoxButton bg="rgba(4, 255, 164, 0.5)" text="Learn More" />
+					<BoxButton
+						bg="rgba(4, 255, 164, 0.1)"
+						text="Learn More"
+						color="rgba(255, 255, 255, 0.4)"
+						hoverBg="rgba(4, 255, 164, 0.5)"
+						hoverColor="#ffffff"
+					/>
 					<If
 						condition={launched}
 						then={
 							<a href="https://warriors.chainlabs.in">
-								<BoxButton bg="rgba(196, 196, 196, 0.1)" text="Launch app" />
+								<BoxButton
+									bg="rgba(196, 196, 196, 0.1)"
+									color="rgba(255, 255, 255, 0.4)"
+									text="Launch app"
+									hoverBg=""
+									hoverColor="#ffffff"
+								/>
 							</a>
 						}
 					/>

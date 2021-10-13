@@ -12,10 +12,14 @@ const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
 	const [placeholder, setPlaceholder] = useState<string>('name@service.domain');
 	const [disable, setDisable] = useState<Boolean>(true);
+	const [emailValid, setEmailValid] = useState<Boolean>(false);
+	const [loading, setLoading] = useState<Boolean>(false);
+	const [placeholderColor, setPlaceholderColor] = useState<String>('');
 
 	const setValues = () => {
 		setPlaceholder('name@service.domain');
 		setDisable(false);
+		setPlaceholderColor('');
 	};
 
 	const validateEmail = async (email) => {
@@ -43,15 +47,16 @@ const TopDetail = () => {
 		const isEmailValid = await validateEmail(email);
 		if (!isEmailValid) {
 			setPlaceholder('The Entered is email is not valid');
+			setPlaceholderColor('primary-red');
 			setDisable(true);
-			// window.alert('Enter a valid email id');
+			setEmailValid(false);
 			setEmail('');
 			return;
 		}
 		const data = {
 			email: email,
 		};
-		e.preventDefault();
+
 		try {
 			const res = await fetch('https://sheet.best/api/sheets/d8f5a38d-3edb-4f15-8395-7fc805ff5c56', {
 				method: 'POST',
@@ -60,8 +65,13 @@ const TopDetail = () => {
 				},
 				body: JSON.stringify(data),
 			});
+
 			if (res.ok) {
-				window.alert('Submitted Successfully');
+				console.log('inside ok');
+				setEmailValid(true);
+				setPlaceholder('Email Submitted Successfully');
+				setPlaceholderColor('accent-green');
+				setEmail('');
 			}
 		} catch (err) {
 			console.log(err);
@@ -132,7 +142,7 @@ const TopDetail = () => {
 						value={email}
 						type="email"
 						onFocus={setValues}
-						color="primary-red"
+						color={`${placeholderColor}`}
 					></InputBox>
 					<Box
 						as="button"
@@ -191,14 +201,14 @@ const TopDetail = () => {
 export default TopDetail;
 
 const InputBox = styled.input(
-	({ theme }) => `
+	({ theme, color }: { theme: any; color: string }) => `
 		color: ${theme.colors['primary-white']};
 		border: none;
 		flex: 1;
 		outline: none;
 		background: transparent;
-		& :placeholder {
-			color: ${theme.colors['primary-red']};
+		&::placeholder {
+			color: ${theme.colors[color]};
 		}
 		font-family: inherit;
 		font-weight: 500;
