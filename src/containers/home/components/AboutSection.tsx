@@ -21,7 +21,7 @@ const AboutSection = () => {
 				<Illustration />
 			</SVGContainer>
 			<Box
-				mt={{ mobS: 'ml', tabL: '20rem' }}
+				mt={{ mobS: 'ml', tabL: '15rem' }}
 				maxWidth={{ mobS: '30rem', tabL: '50rem' }}
 				textAlign={{ mobS: 'center', tabS: 'left' }}
 			>

@@ -24,6 +24,7 @@ interface IBreakpoints {
 	mobL: string;
 	tabS: string;
 	tabL: string;
+	deskS: string;
 	deskM: string;
 	deskL: string;
 }

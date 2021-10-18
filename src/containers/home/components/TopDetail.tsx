@@ -11,10 +11,10 @@ import ArrowRight from 'svgs/arrow-right.svg';
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
 	const [placeholder, setPlaceholder] = useState<string>('name@service.domain');
-	const [disable, setDisable] = useState<Boolean>(true);
-	const [emailValid, setEmailValid] = useState<Boolean>(false);
-	const [loading, setLoading] = useState<Boolean>(false);
-	const [placeholderColor, setPlaceholderColor] = useState<String>('');
+	const [disable, setDisable] = useState<boolean>(true);
+	const [emailValid, setEmailValid] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(false);
+	const [placeholderColor, setPlaceholderColor] = useState<string>('');
 
 	const setValues = () => {
 		setPlaceholder('name@service.domain');
@@ -126,10 +126,10 @@ const TopDetail = () => {
 				<Box
 					mt="mxl"
 					bg={`${theme.colors['primary-white']}10`}
-					borderRadius="15px"
+					borderRadius="8px"
 					border="1px solid"
 					borderColor={`${theme.colors['primary-green']}30`}
-					width={{ mobS: '25rem', tabL: '40rem', deskL: '72rem' }}
+					width={{ mobS: '25rem', tabL: '40rem', deskM: '72rem' }}
 					display="flex"
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
@@ -153,8 +153,8 @@ const TopDetail = () => {
 						}
 						color="primary-white"
 						border="none"
-						borderTopRightRadius="15px"
-						borderBottomRightRadius="15px"
+						borderTopRightRadius="8px"
+						borderBottomRightRadius="8px"
 						px={{ mobS: 'mxs', tabS: 'wxs' }}
 						py={{ mobS: 'mxxs', tabS: 'ms', deskL: 'mm' }}
 						css={`
@@ -225,14 +225,18 @@ const SVGContainer = styled(Box)(
 			right: 0;
 		}
 
-		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskL}) {
+		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
 			right: 0rem;
 		}
 
 		& svg {
 			width: 133.3rem;
 
-			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskL}) {
+			@media only screen and (min-width: ${theme.breakpoints.deskM}) and (max-width: ${theme.breakpoints.deskL}) {
+				width: 100rem;
+			}
+
+			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
 				width: 80rem;
 			}
 
