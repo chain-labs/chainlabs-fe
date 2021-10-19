@@ -13,7 +13,7 @@ const Navbar = () => {
 	return (
 		<Box
 			py={{ mobS: 'mxs', tabS: 'ml', deskL: 'mxxxl' }}
-			px={{ mobS: 'mm', tabS: 'wxs', desk: '0' }}
+			px={{ mobS: 'mm', tabS: 'wxs', deskL: '0' }}
 			bg="rgba(236, 236, 236, 0.09)"
 			borderBottom="1px solid"
 			borderBottomColor="accent-green"

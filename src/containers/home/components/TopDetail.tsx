@@ -10,25 +10,53 @@ import ArrowRight from 'svgs/arrow-right.svg';
 
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
+	const [placeholder, setPlaceholder] = useState<string>('name@service.domain');
+	const [disable, setDisable] = useState<boolean>(true);
+	const [emailValid, setEmailValid] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(false);
+	const [placeholderColor, setPlaceholderColor] = useState<string>('');
 
-	function validateEmail(email) {
+	const setValues = () => {
+		setPlaceholder('name@service.domain');
+		setDisable(false);
+		setPlaceholderColor('');
+	};
+
+	const validateEmail = async (email) => {
 		const re =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(String(email).toLowerCase());
-	}
+		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
+			method: 'POST',
+			body: JSON.stringify({ email: email }),
+			mode: 'cors',
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'content-type': 'application/json',
+			},
+		});
+		console.log(res);
+		const json = await res.json();
+		console.log(json);
+		console.log(re.test(String(email).toLowerCase()));
+		console.log(re.test(String(email).toLowerCase()) && json.status);
+		return re.test(String(email).toLowerCase()) && json.status;
+	};
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
-
-		if (!validateEmail(email)) {
-			window.alert('Enter a valid email id');
+		const isEmailValid = await validateEmail(email);
+		if (!isEmailValid) {
+			setPlaceholder('The Entered is email is not valid');
+			setPlaceholderColor('primary-red');
+			setDisable(true);
+			setEmailValid(false);
 			setEmail('');
 			return;
 		}
 		const data = {
 			email: email,
 		};
-		e.preventDefault();
+
 		try {
 			const res = await fetch('https://sheet.best/api/sheets/d8f5a38d-3edb-4f15-8395-7fc805ff5c56', {
 				method: 'POST',
@@ -37,8 +65,13 @@ const TopDetail = () => {
 				},
 				body: JSON.stringify(data),
 			});
+
 			if (res.ok) {
-				window.alert('Submitted Successfully');
+				console.log('inside ok');
+				setEmailValid(true);
+				setPlaceholder('Email Submitted Successfully');
+				setPlaceholderColor('accent-green');
+				setEmail('');
 			}
 		} catch (err) {
 			console.log(err);
@@ -46,13 +79,13 @@ const TopDetail = () => {
 	};
 
 	return (
-		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'column' }} id="top">
+		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'row' }} id="top">
 			<SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
 				<Illustration_Sm />
 			</SVGContainer>
 			<Box
 				column
-				mt={{ mobS: '35rem', tabS: '60rem', deskL: '25rem' }}
+				mt={{ mobS: '35rem', tabS: '60rem', tabL: '20rem' }}
 				alignItems={{ mobS: 'center', tabL: 'flex-start' }}
 				textAlign={{ mobS: 'center', tabL: 'start' }}
 			>
@@ -93,10 +126,10 @@ const TopDetail = () => {
 				<Box
 					mt="mxl"
 					bg={`${theme.colors['primary-white']}10`}
-					borderRadius="4px"
+					borderRadius="8px"
 					border="1px solid"
 					borderColor={`${theme.colors['primary-green']}30`}
-					width={{ mobS: '20rem', tabS: '72rem' }}
+					width={{ mobS: '25rem', tabL: '40rem', deskM: '72rem' }}
 					display="flex"
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
@@ -104,27 +137,37 @@ const TopDetail = () => {
 				>
 					<InputBox
 						as="input"
-						placeholder="name@service.domain"
+						placeholder={placeholder}
 						onChange={(e) => setEmail(e.target.value)}
 						value={email}
 						type="email"
+						onFocus={setValues}
+						color={`${placeholderColor}`}
 					></InputBox>
 					<Box
 						as="button"
-						bg={{ mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }}
+						bg={
+							disable
+								? { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }
+								: { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.5)' }
+						}
 						color="primary-white"
 						border="none"
+						borderTopRightRadius="8px"
+						borderBottomRightRadius="8px"
 						px={{ mobS: 'mxs', tabS: 'wxs' }}
 						py={{ mobS: 'mxxs', tabS: 'ms', deskL: 'mm' }}
 						css={`
 							cursor: pointer;
 						`}
 						type="submit"
+						zIndex={1}
+						disabled={disable ? true : false}
 						onClick={sendEmail}
 					>
 						<Text
 							fontSize={{ tabS: '1.2rem', deskL: '1.6rem' }}
-							color="rgba(230, 231, 232, 0.4)"
+							color={disable ? 'rgba(230, 231, 232, 0.4)' : 'primary-white'}
 							fontWeight="regular"
 							display={{ mobS: 'none', tabS: 'block' }}
 						>
@@ -136,6 +179,18 @@ const TopDetail = () => {
 					</Box>
 				</Box>
 			</Box>
+			{/* <Box width={{ tabS: '66rem', deskM: '83.5rem' }} border="1px solid white">
+				<Box
+					as="img"
+					src="/static/images/art1_web.png"
+					display={{ mobS: 'none', tabS: 'block' }}
+					position="absolute"
+					right="0"
+					top="0"
+					width="inherit"
+					height="auto"
+				></Box>
+			</Box> */}
 			<SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
 				<Illustration />
 			</SVGContainer>
@@ -146,14 +201,14 @@ const TopDetail = () => {
 export default TopDetail;
 
 const InputBox = styled.input(
-	({ theme }) => `
+	({ theme, color }: { theme: any; color: string }) => `
 		color: ${theme.colors['primary-white']};
 		border: none;
 		flex: 1;
 		outline: none;
 		background: transparent;
-		& :placeholder {
-			color: ${theme.colors['primary-white']};
+		&::placeholder {
+			color: ${theme.colors[color]};
 		}
 		font-family: inherit;
 		font-weight: 500;
@@ -165,19 +220,27 @@ const SVGContainer = styled(Box)(
 		position: absolute;
 		right: -20rem;
 
-		@media screen and (max-width: ${theme.breakpoints.tabL}) {
+		@media only screen and (max-width: ${theme.breakpoints.tabL}) {
 			top: 5rem;
 			right: 0;
+		}
+
+		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
+			right: 0rem;
 		}
 
 		& svg {
 			width: 133.3rem;
 
-			@media screen and (min-width: ${theme.breakpoints.tabL} and max-width: ${theme.breakpoints.deskL}) {
+			@media only screen and (min-width: ${theme.breakpoints.deskM}) and (max-width: ${theme.breakpoints.deskL}) {
+				width: 100rem;
+			}
+
+			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
 				width: 80rem;
 			}
 
-			@media screen and (max-width: ${theme.breakpoints.tabL}) {
+			@media only screen and (max-width: ${theme.breakpoints.tabL}) {
 				width: 100vw;
 			}
 		}

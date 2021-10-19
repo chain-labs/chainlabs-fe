@@ -2,7 +2,7 @@ import Box from 'components/Box';
 import Text from 'components/Text';
 import React from 'react';
 
-const BoxButton = ({ bg, text }) => {
+const BoxButton = ({ bg, text, hoverBg, hoverColor, color }) => {
 	return (
 		<Box row mt="ml">
 			<Box
@@ -13,8 +13,27 @@ const BoxButton = ({ bg, text }) => {
 				py="ms"
 				mr="mxxs"
 				border="none"
+				color="rgba(255, 255, 255, 0.4)"
+				cursor="pointer"
+				css={`
+					&:hover {
+						background-color: ${hoverBg};
+					}
+					&:hover {
+						color: #ffffff;
+					}
+				`}
 			>
-				<Text as="links" fontWeight="regular" color="primary-white">
+				<Text
+					as="links"
+					fontWeight="regular"
+					color="primary-white"
+					css={`
+						&:hover {
+							color: ${hoverColor};
+						}
+					`}
+				>
 					{text}
 				</Text>
 			</Box>

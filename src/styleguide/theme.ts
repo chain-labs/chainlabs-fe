@@ -1,14 +1,15 @@
 import { DefaultTheme } from 'styled-components';
 
 //Breakpoints
-const breakpoints: DefaultTheme['breakpoints'] = ['319px', '410px', '767px', '1024px', '1199px', '1440px'];
+const breakpoints: DefaultTheme['breakpoints'] = ['319px', '410px', '767px', '1024px', '1199px', '1440px', '1600px'];
 
 breakpoints.mobS = breakpoints[0]; // 319px
 breakpoints.mobL = breakpoints[1]; // 424px
 breakpoints.tabS = breakpoints[2]; // 767px
 breakpoints.tabL = breakpoints[3]; // 1023px
-breakpoints.deskM = breakpoints[4]; //1199px
-breakpoints.deskL = breakpoints[5]; //1440px
+breakpoints.deskS = breakpoints[4]; //1199px
+breakpoints.deskM = breakpoints[5]; //1440px
+breakpoints.deskL = breakpoints[6]; //1600px
 
 //Spacing
 const space: DefaultTheme['space'] = [
