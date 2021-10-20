@@ -3,10 +3,11 @@ import Text from 'components/Text';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import theme from 'styleguide/theme';
-
+import { db } from 'src/firebase';
 import Illustration from 'svgs/art1.svg';
 import Illustration_Sm from 'svgs/art1.001.svg';
 import ArrowRight from 'svgs/arrow-right.svg';
+import ReactLoading from 'react-loading';
 
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
@@ -23,8 +24,7 @@ const TopDetail = () => {
 	};
 
 	const validateEmail = async (email) => {
-		const re =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		let emailValid = false;
 		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
 			method: 'POST',
 			body: JSON.stringify({ email: email }),
@@ -37,13 +37,18 @@ const TopDetail = () => {
 		console.log(res);
 		const json = await res.json();
 		console.log(json);
-		console.log(re.test(String(email).toLowerCase()));
-		console.log(re.test(String(email).toLowerCase()) && json.status);
-		return re.test(String(email).toLowerCase()) && json.status;
+		let emailDocs = await db.collection('emails').get();
+		emailDocs.forEach((doc) => {
+			const data = doc.data();
+			if (email == data.email) emailValid = false;
+		});
+		return json.status && emailValid;
 	};
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
+		let emailsInFirestore = await db.collection('emails');
+		setLoading(true);
 		const isEmailValid = await validateEmail(email);
 		if (!isEmailValid) {
 			setPlaceholder('The Entered is email is not valid');
@@ -51,6 +56,7 @@ const TopDetail = () => {
 			setDisable(true);
 			setEmailValid(false);
 			setEmail('');
+			setLoading(false);
 			return;
 		}
 		const data = {
@@ -58,21 +64,13 @@ const TopDetail = () => {
 		};
 
 		try {
-			const res = await fetch('https://sheet.best/api/sheets/d8f5a38d-3edb-4f15-8395-7fc805ff5c56', {
-				method: 'POST',
-				headers: {
-					'Content-type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			});
-
-			if (res.ok) {
-				console.log('inside ok');
-				setEmailValid(true);
-				setPlaceholder('Email Submitted Successfully');
-				setPlaceholderColor('accent-green');
-				setEmail('');
-			}
+			const docRef = emailsInFirestore.doc();
+			docRef.set(data);
+			setEmailValid(true);
+			setPlaceholder('Email Submitted Successfully');
+			setPlaceholderColor('accent-green');
+			setEmail('');
+			setLoading(false);
 		} catch (err) {
 			console.log(err);
 		}
@@ -146,6 +144,7 @@ const TopDetail = () => {
 					></InputBox>
 					<Box
 						as="button"
+						display="flex"
 						bg={
 							disable
 								? { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }
@@ -173,6 +172,13 @@ const TopDetail = () => {
 						>
 							Signup
 						</Text>
+						{loading ? (
+							<Box ml="mxs" alignItems="center">
+								<ReactLoading type="spin" color="white" height={20} width={15} />
+							</Box>
+						) : (
+							''
+						)}
 						<Box color="accent-green" height="32px" width="auto" display={{ mobS: 'block', tabS: 'none' }}>
 							<ArrowRight />
 						</Box>
