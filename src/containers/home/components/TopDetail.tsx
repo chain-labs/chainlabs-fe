@@ -37,19 +37,14 @@ const TopDetail = () => {
 		console.log(res);
 		const json = await res.json();
 		console.log(json);
-		let emailDocs = await db.collection('emails').get();
-		emailDocs.forEach((doc) => {
-			const data = doc.data();
-			if (email == data.email) emailValid = false;
-		});
-		return json.status && emailValid;
+		return json.status;
 	};
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
 		let emailsInFirestore = await db.collection('emails');
 		setLoading(true);
-		const isEmailValid = await validateEmail(email);
+		let isEmailValid = await validateEmail(email);
 		if (!isEmailValid) {
 			setPlaceholder('The Entered is email is not valid');
 			setPlaceholderColor('primary-red');
@@ -59,20 +54,36 @@ const TopDetail = () => {
 			setLoading(false);
 			return;
 		}
-		const data = {
-			email: email,
-		};
-
-		try {
-			const docRef = emailsInFirestore.doc();
-			docRef.set(data);
-			setEmailValid(true);
-			setPlaceholder('Email Submitted Successfully');
-			setPlaceholderColor('accent-green');
+		let emailDocs = await db.collection('emails').get();
+		emailDocs.forEach((doc) => {
+			const data = doc.data();
+			if (email == data.email) 
+			isEmailValid = false;
+		});
+		if(!isEmailValid){
+			setEmailValid(false);
+			setPlaceholder('Email already registered');
+			setPlaceholderColor('primary-red');
 			setEmail('');
 			setLoading(false);
-		} catch (err) {
-			console.log(err);
+			return;
+		}
+		else{
+			const data = {
+				email: email,
+			};
+	
+			try {
+				const docRef = emailsInFirestore.doc();
+				docRef.set(data);
+				setEmailValid(true);
+				setPlaceholder('Email Submitted Successfully');
+				setPlaceholderColor('accent-green');
+				setEmail('');
+				setLoading(false);
+			} catch (err) {
+				console.log(err);
+			}
 		}
 	};
 
