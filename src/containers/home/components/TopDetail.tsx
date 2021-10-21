@@ -24,7 +24,7 @@ const TopDetail = () => {
 	};
 
 	const validateEmail = async (email) => {
-		let emailValid = false;
+		let emailValid = true;
 		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
 			method: 'POST',
 			body: JSON.stringify({ email: email }),
