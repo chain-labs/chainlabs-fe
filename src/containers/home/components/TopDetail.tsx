@@ -6,6 +6,7 @@ import theme from 'styleguide/theme';
 import { db } from 'src/firebase';
 import ArrowRight from 'svgs/arrow-right.svg';
 import ReactLoading from 'react-loading';
+import If from 'src/components/If';
 
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
@@ -90,9 +91,6 @@ const TopDetail = () => {
 			id="top"
 			overflowX="hidden"
 		>
-			{/* <SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
-				<Illustration_Sm />
-			</SVGContainer> */}
 			<Box
 				width="100vw"
 				css={`
@@ -164,6 +162,7 @@ const TopDetail = () => {
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
 					fontSize={{ mobS: '1rem', tabS: '1.2rem', deskL: '1.6rem' }}
+					zIndex={10}
 				>
 					<InputBox
 						as="input"
@@ -195,6 +194,7 @@ const TopDetail = () => {
 						zIndex={1}
 						disabled={disable ? true : false}
 						onClick={sendEmail}
+						alignItems="center"
 					>
 						<Text
 							fontSize={{ tabS: '1.2rem', deskL: '1.6rem' }}
@@ -204,16 +204,27 @@ const TopDetail = () => {
 						>
 							Signup
 						</Text>
-						{loading ? (
-							<Box ml="mxs" alignItems="center">
-								<ReactLoading type="spin" color="white" height={20} width={15} />
-							</Box>
-						) : (
-							''
-						)}
-						<Box color="accent-green" height="32px" width="auto" display={{ mobS: 'block', tabL: 'none' }}>
-							<ArrowRight />
-						</Box>
+						<If
+							condition={loading}
+							then={
+								<Box ml="mxs" my="mxxs" alignItems="center">
+									<ReactLoading type="spin" color="white" height={22} width={22} />
+								</Box>
+							}
+						/>
+						<If
+							condition={!loading}
+							then={
+								<Box
+									color="accent-green"
+									height="32px"
+									width="auto"
+									display={{ mobS: 'block', tabL: 'none' }}
+								>
+									<ArrowRight />
+								</Box>
+							}
+						/>
 					</Box>
 				</Box>
 			</Box>
@@ -224,13 +235,9 @@ const TopDetail = () => {
 				right={-300}
 				top={-50}
 				overflow="hidden"
-				// border="1px solid blue"
 			>
 				<Box as="img" width="inherit" src="/static/images/ill_1.png"></Box>
 			</Box>
-			{/* <SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
-				<Illustration />
-			</SVGContainer> */}
 		</Box>
 	);
 };
@@ -249,37 +256,5 @@ const InputBox = styled.input(
 		}
 		font-family: inherit;
 		font-weight: 500;
-`
-);
-
-const SVGContainer = styled(Box)(
-	() => `
-		position: absolute;
-		right: -20rem;
-
-		@media only screen and (max-width: ${theme.breakpoints.tabL}) {
-			top: 5rem;
-			right: 0;
-		}
-
-		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
-			right: 0rem;
-		}
-
-		& svg {
-			width: 133.3rem;
-
-			@media only screen and (min-width: ${theme.breakpoints.deskM}) and (max-width: ${theme.breakpoints.deskL}) {
-				width: 100rem;
-			}
-
-			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
-				width: 80rem;
-			}
-
-			@media only screen and (max-width: ${theme.breakpoints.tabL}) {
-				width: 100vw;
-			}
-		}
 `
 );
