@@ -1,6 +1,7 @@
 import Box from 'components/Box';
 import Text from 'components/Text';
 import React from 'react';
+import { EMAIL_CONTACT } from 'src/constants';
 
 import BoxComp from './BoxComp';
 
@@ -48,9 +49,15 @@ export const Working = () => {
 				<Box mt="mxl" maxWidth="58rem">
 					<Text as="b1" fontWeight="regular" color="primary-white">
 						Reach out to us at{' '}
-						<Text as="b1" fontWeight="regular" color="primary-green">
-							contact@chainlabs.in
-						</Text>{' '}
+						<Box
+							fontSize="inherit"
+							as="a"
+							href={`mailto:${EMAIL_CONTACT}`}
+							fontWeight="regular"
+							color="primary-green"
+						>
+							{EMAIL_CONTACT}
+						</Box>{' '}
 						or shoot us a message at any of our social handles.
 					</Text>
 				</Box>

@@ -24,8 +24,8 @@ const AboutSection = () => {
 			<Box
 				position="absolute"
 				left={{ mobS: '0', tabS: '-25rem' }}
-				top={{ mobS: '0', tabS: '-30rem', deskM: '-15rem' }}
-				width={{ mobS: '100%', tabS: '96rem' }}
+				top={{ mobS: '0', tabS: '-30rem', deskM: '-15rem', deskL: '-30rem' }}
+				width={{ mobS: '100%', tabS: '96rem', deskL: '120rem' }}
 				transform={{ mobS: 'scale(2)', tabS: 'scale(1)' }}
 			>
 				<Box width="inherit" as="img" src="/static/images/ill_2.png"></Box>
