@@ -5,7 +5,7 @@ import InfoBox from './InfoBox';
 const ChainLabsInfo = () => {
 	return (
 		<Box mt={{ mobS: 'ml', tabS: 'wxl' }} color="primary-white">
-			<Box display="flex" justifyContent="center" flexDirection={{ mobS: 'column', tabS: 'row' }} px="mm">
+			<Box display="flex" justifyContent="center" flexDirection={{ mobS: 'column', tabS: 'row' }}>
 				<InfoBox
 					icon="/static/images/icon_1.png"
 					text="Creating transparent systems where nothing can be kept under the carpet."

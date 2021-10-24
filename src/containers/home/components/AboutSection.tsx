@@ -10,18 +10,29 @@ const AboutSection = () => {
 		<Box
 			id="vision"
 			display="flex"
-			flexDirection={{ mobS: 'column', tabS: 'row' }}
+			flexDirection={{ mobS: 'column', tabS: 'row-reverse' }}
 			justifyContent="space-between"
 			alignItems={{ mobS: 'center', tabS: 'flex-start' }}
 			mt={{ mobS: 'ml', tabS: '10rem' }}
 			pr={{ mobS: '0', tabL: 'wl' }}
 			px={{ tabS: 'ws', tabL: '0' }}
+			position="relative"
 		>
-			<SVGContainer ml={{ mobS: '0', deskM: '15rem' }}>
+			{/* <SVGContainer ml={{ mobS: '0', deskM: '15rem' }}>
 				<Illustration />
-			</SVGContainer>
+			</SVGContainer> */}
 			<Box
-				mt={{ mobS: 'ml', tabL: '15rem' }}
+				position="absolute"
+				left={{ mobS: '0', tabS: '-25rem' }}
+				top={{ mobS: '0', tabS: '-30rem', deskM: '-15rem', deskL: '-30rem' }}
+				width={{ mobS: '100%', tabS: '96rem', deskL: '120rem' }}
+				transform={{ mobS: 'scale(2)', tabS: 'scale(1)' }}
+			>
+				<Box width="inherit" as="img" src="/static/images/ill_2.png"></Box>
+			</Box>
+			<Box
+				mt={{ mobS: '40rem', tabS: '0rem', tabL: '15rem' }}
+
 				maxWidth={{ mobS: '30rem', tabL: '50rem' }}
 				textAlign={{ mobS: 'center', tabS: 'left' }}
 			>

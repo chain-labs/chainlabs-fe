@@ -3,10 +3,10 @@ import Text from 'components/Text';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import theme from 'styleguide/theme';
-
-import Illustration from 'svgs/art1.svg';
-import Illustration_Sm from 'svgs/art1.001.svg';
+import { db } from 'src/firebase';
 import ArrowRight from 'svgs/arrow-right.svg';
+import ReactLoading from 'react-loading';
+import If from 'src/components/If';
 
 const TopDetail = () => {
 	const [email, setEmail] = useState<string>('');
@@ -23,8 +23,6 @@ const TopDetail = () => {
 	};
 
 	const validateEmail = async (email) => {
-		const re =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
 			method: 'POST',
 			body: JSON.stringify({ email: email }),
@@ -37,55 +35,85 @@ const TopDetail = () => {
 		console.log(res);
 		const json = await res.json();
 		console.log(json);
-		console.log(re.test(String(email).toLowerCase()));
-		console.log(re.test(String(email).toLowerCase()) && json.status);
-		return re.test(String(email).toLowerCase()) && json.status;
+		return json.status;
 	};
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
-		const isEmailValid = await validateEmail(email);
+		const emailsInFirestore = await db.collection('emails');
+		setLoading(true);
+		let isEmailValid = await validateEmail(email);
 		if (!isEmailValid) {
 			setPlaceholder('The Entered is email is not valid');
 			setPlaceholderColor('primary-red');
 			setDisable(true);
 			setEmailValid(false);
 			setEmail('');
+			setLoading(false);
 			return;
 		}
-		const data = {
-			email: email,
-		};
+		const emailDocs = await db.collection('emails').get();
+		emailDocs.forEach((doc) => {
+			const data = doc.data();
+			if (email == data.email) isEmailValid = false;
+		});
+		if (!isEmailValid) {
+			setEmailValid(false);
+			setPlaceholder('Email already registered');
+			setPlaceholderColor('primary-red');
+			setEmail('');
+			setLoading(false);
+			return;
+		} else {
+			const data = {
+				email: email,
+			};
 
-		try {
-			const res = await fetch('https://sheet.best/api/sheets/d8f5a38d-3edb-4f15-8395-7fc805ff5c56', {
-				method: 'POST',
-				headers: {
-					'Content-type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			});
-
-			if (res.ok) {
-				console.log('inside ok');
+			try {
+				const docRef = emailsInFirestore.doc();
+				docRef.set(data);
 				setEmailValid(true);
 				setPlaceholder('Email Submitted Successfully');
 				setPlaceholderColor('accent-green');
 				setEmail('');
+				setLoading(false);
+			} catch (err) {
+				console.log(err);
 			}
-		} catch (err) {
-			console.log(err);
 		}
 	};
 
 	return (
-		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'row' }} id="top">
-			<SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
-				<Illustration_Sm />
-			</SVGContainer>
+		<Box
+			display="flex"
+			color="primary-white"
+			flexDirection={{ mobS: 'column', tabL: 'row' }}
+			id="top"
+			overflowX="hidden"
+		>
+			<Box
+				width="100vw"
+				css={`
+					height: calc(100vw / 0.867);
+				`}
+				display={{ mobS: 'block', tabL: 'none' }}
+				position="relative"
+				// border="1px solid red"
+				overflow="hidden"
+			>
+				<Box
+					position="absolute"
+					left="50%"
+					top="5%"
+					transform="translateX(-50%)"
+					width="125%"
+					as="img"
+					src="/static/images/ill_1.png"
+				></Box>
+			</Box>
 			<Box
 				column
-				mt={{ mobS: '35rem', tabS: '60rem', tabL: '20rem' }}
+				mt={{ mobS: '-5rem', tabS: '-15rem', tabL: '20rem' }}
 				alignItems={{ mobS: 'center', tabL: 'flex-start' }}
 				textAlign={{ mobS: 'center', tabL: 'start' }}
 			>
@@ -134,6 +162,7 @@ const TopDetail = () => {
 					justifyContent="space-between"
 					pl={{ mobS: 'mm', tabS: 'mm', deskL: 'mxl' }}
 					fontSize={{ mobS: '1rem', tabS: '1.2rem', deskL: '1.6rem' }}
+					zIndex={10}
 				>
 					<InputBox
 						as="input"
@@ -146,6 +175,7 @@ const TopDetail = () => {
 					></InputBox>
 					<Box
 						as="button"
+						display="flex"
 						bg={
 							disable
 								? { mobS: 'transparent', tabS: 'rgba(4, 255, 164, 0.1)' }
@@ -155,8 +185,8 @@ const TopDetail = () => {
 						border="none"
 						borderTopRightRadius="8px"
 						borderBottomRightRadius="8px"
-						px={{ mobS: 'mxs', tabS: 'wxs' }}
-						py={{ mobS: 'mxxs', tabS: 'ms', deskL: 'mm' }}
+						px={{ mobS: 'mxs', tabL: 'wxs' }}
+						py={{ mobS: 'mxxs', tabL: 'ms', deskL: 'mm' }}
 						css={`
 							cursor: pointer;
 						`}
@@ -164,36 +194,50 @@ const TopDetail = () => {
 						zIndex={1}
 						disabled={disable ? true : false}
 						onClick={sendEmail}
+						alignItems="center"
 					>
 						<Text
 							fontSize={{ tabS: '1.2rem', deskL: '1.6rem' }}
 							color={disable ? 'rgba(230, 231, 232, 0.4)' : 'primary-white'}
 							fontWeight="regular"
-							display={{ mobS: 'none', tabS: 'block' }}
+							display={{ mobS: 'none', tabL: 'block' }}
 						>
 							Signup
 						</Text>
-						<Box color="accent-green" height="32px" width="auto" display={{ mobS: 'block', tabS: 'none' }}>
-							<ArrowRight />
-						</Box>
+						<If
+							condition={loading}
+							then={
+								<Box ml="mxs" my="mxxs" alignItems="center">
+									<ReactLoading type="spin" color="white" height={22} width={22} />
+								</Box>
+							}
+						/>
+						<If
+							condition={!loading}
+							then={
+								<Box
+									color="accent-green"
+									height="32px"
+									width="auto"
+									display={{ mobS: 'block', tabL: 'none' }}
+								>
+									<ArrowRight />
+								</Box>
+							}
+						/>
 					</Box>
 				</Box>
 			</Box>
-			{/* <Box width={{ tabS: '66rem', deskM: '83.5rem' }} border="1px solid white">
-				<Box
-					as="img"
-					src="/static/images/art1_web.png"
-					display={{ mobS: 'none', tabS: 'block' }}
-					position="absolute"
-					right="0"
-					top="0"
-					width="inherit"
-					height="auto"
-				></Box>
-			</Box> */}
-			<SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
-				<Illustration />
-			</SVGContainer>
+			<Box
+				width={{ tabL: '120rem', deskL: '150rem' }}
+				display={{ mobS: 'none', tabL: 'block' }}
+				position="absolute"
+				right={-300}
+				top={-50}
+				overflow="hidden"
+			>
+				<Box as="img" width="inherit" src="/static/images/ill_1.png"></Box>
+			</Box>
 		</Box>
 	);
 };
@@ -215,34 +259,3 @@ const InputBox = styled.input(
 `
 );
 
-const SVGContainer = styled(Box)(
-	() => `
-		position: absolute;
-		right: -20rem;
-
-		@media only screen and (max-width: ${theme.breakpoints.tabL}) {
-			top: 5rem;
-			right: 0;
-		}
-
-		@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
-			right: 0rem;
-		}
-
-		& svg {
-			width: 133.3rem;
-
-			@media only screen and (min-width: ${theme.breakpoints.deskM}) and (max-width: ${theme.breakpoints.deskL}) {
-				width: 100rem;
-			}
-
-			@media only screen and (min-width: ${theme.breakpoints.tabL}) and (max-width: ${theme.breakpoints.deskM}) {
-				width: 80rem;
-			}
-
-			@media only screen and (max-width: ${theme.breakpoints.tabL}) {
-				width: 100vw;
-			}
-		}
-`
-);

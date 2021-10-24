@@ -1,8 +1,8 @@
-<svg viewBox="0 0 1616 1466" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1616 1466" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 <circle r="108.408" transform="matrix(0.866044 -0.499967 0.866044 0.499967 822.522 838.715)" stroke="url(#paint0_linear)" stroke-width="47"/>
 <circle r="108.408" transform="matrix(0.866044 -0.499967 0.866044 0.499967 822.522 838.715)" stroke="url(#paint1_linear)" stroke-opacity="0.2" stroke-width="47"/>
 <circle r="113.191" transform="matrix(0.866044 -0.499967 0.866044 0.499967 822.521 838.716)" stroke="white" stroke-width="10" stroke-linecap="round" stroke-dasharray="28 28"/>
-<circle r="113.191" transform="matrix(0.866044 -0.499967 0.866044 0.499967 822.521 838.716)" stroke="url(#paint2_linear)" stroke-opacity="0.2" stroke-width="10" stroke-linecap="round" stroke-dasharray="28 28"/>
+<circle r="113.191" transform="matrix(0.866044 -0.499967 0.866044 0.499967 822.521 838.716)" stroke="url(#paint2_linear)" stroke-opacity="0.1" stroke-width="10" stroke-linecap="round" stroke-dasharray="28 28"/>
 <path d="M1136.75 838.736L821.49 1020.89L506.23 838.736L821.49 656.624L1136.75 838.736Z" fill="url(#paint3_linear)"/>
 <g filter="url(#filter0_b)">
 <path d="M821.491 1020.89V1087.88L1136.75 905.726V838.736L821.491 1020.89Z" fill="url(#paint4_linear)"/>
@@ -38,7 +38,7 @@
 </g>
 <g filter="url(#filter9_b)">
 <path d="M913.301 706.719L821.758 759.333V654.105L913.301 601.491V706.719Z" fill="url(#paint11_linear)"/>
-<path d="M913.301 706.719L821.758 759.333V654.105L913.301 601.491V706.719Z" fill="black" fill-opacity="0.4"/>
+<path d="M913.301 706.719L821.758 759.333V654.105L913.301 601.491V706.719Z" fill="black" fill-opacity="0.1"/>
 </g>
 <g filter="url(#filter10_b)">
 <path d="M1018.53 540.459L926.975 593.073L835.432 540.459L926.975 487.845L1018.53 540.459Z" fill="#00BCFD" fill-opacity="0.2"/>

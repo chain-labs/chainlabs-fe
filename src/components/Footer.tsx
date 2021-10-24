@@ -7,6 +7,7 @@ import Linkedin from 'svgs/linkedin.svg';
 import Github from 'svgs/github.svg';
 import Instagram from 'svgs/instagram.svg';
 import Facebook from 'svgs/facebook.svg';
+import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from 'src/constants';
 
 const Footer = () => {
 	return (
@@ -38,20 +39,14 @@ const Footer = () => {
 								Follow Us on
 							</Text>
 							<Box row between>
-								<Box>
+								<Box as="a" href={TWITTER_URL} target="_blank">
 									<Twitter />
 								</Box>
-								<Box>
+								<Box as="a" href={LINKEDIN_URL} target="_blank">
 									<Linkedin />
 								</Box>
-								<Box>
+								<Box as="a" href={GITHUB_URL} target="_blank">
 									<Github />
-								</Box>
-								<Box>
-									<Instagram />
-								</Box>
-								<Box>
-									<Facebook />
 								</Box>
 							</Box>
 						</Box>
