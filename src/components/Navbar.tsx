@@ -22,6 +22,9 @@ const Navbar = () => {
 			zIndex={10}
 			css={`
 				backdrop-filter: blur(8px);
+				-moz-backdrop-filter: blur(8px);
+				-webkit-backdrop-filter: blur(8px);
+				-o-backdrop-filter: blur(8px);
 			`}
 		>
 			<Container>
@@ -37,12 +40,12 @@ const Navbar = () => {
 							<Text as="links">Vision</Text>
 						</a>
 						<a href="#products">
-							<Text as="links" ml={{ tabS: '0', deskM: 'wm' }}>
+							<Text as="links" ml={{ mobS: '0', tabS: 'wm' }}>
 								Products
 							</Text>
 						</a>
 						<a href="#contact">
-							<Text as="links" ml={{ tabS: '0', deskM: 'wm' }}>
+							<Text as="links" ml={{ mobS: '0', tabS: 'wm' }}>
 								Contact
 							</Text>
 						</a>

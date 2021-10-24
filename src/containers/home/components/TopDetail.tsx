@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import theme from 'styleguide/theme';
 import { db } from 'src/firebase';
-import Illustration from 'svgs/art1.svg';
-import Illustration_Sm from 'svgs/art1.001.svg';
 import ArrowRight from 'svgs/arrow-right.svg';
 import ReactLoading from 'react-loading';
 
@@ -24,7 +22,6 @@ const TopDetail = () => {
 	};
 
 	const validateEmail = async (email) => {
-		let emailValid = true;
 		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
 			method: 'POST',
 			body: JSON.stringify({ email: email }),
@@ -42,7 +39,7 @@ const TopDetail = () => {
 
 	const sendEmail = async (e) => {
 		e.preventDefault();
-		let emailsInFirestore = await db.collection('emails');
+		const emailsInFirestore = await db.collection('emails');
 		setLoading(true);
 		let isEmailValid = await validateEmail(email);
 		if (!isEmailValid) {
@@ -54,25 +51,23 @@ const TopDetail = () => {
 			setLoading(false);
 			return;
 		}
-		let emailDocs = await db.collection('emails').get();
+		const emailDocs = await db.collection('emails').get();
 		emailDocs.forEach((doc) => {
 			const data = doc.data();
-			if (email == data.email) 
-			isEmailValid = false;
+			if (email == data.email) isEmailValid = false;
 		});
-		if(!isEmailValid){
+		if (!isEmailValid) {
 			setEmailValid(false);
 			setPlaceholder('Email already registered');
 			setPlaceholderColor('primary-red');
 			setEmail('');
 			setLoading(false);
 			return;
-		}
-		else{
+		} else {
 			const data = {
 				email: email,
 			};
-	
+
 			try {
 				const docRef = emailsInFirestore.doc();
 				docRef.set(data);
@@ -88,13 +83,39 @@ const TopDetail = () => {
 	};
 
 	return (
-		<Box display="flex" color="primary-white" flexDirection={{ mobS: 'column-reverse', tabL: 'row' }} id="top">
-			<SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
+		<Box
+			display="flex"
+			color="primary-white"
+			flexDirection={{ mobS: 'column', tabL: 'row' }}
+			id="top"
+			overflowX="hidden"
+		>
+			{/* <SVGContainer display={{ mobS: 'block', tabS: 'none' }}>
 				<Illustration_Sm />
-			</SVGContainer>
+			</SVGContainer> */}
+			<Box
+				width="100vw"
+				css={`
+					height: calc(100vw / 0.867);
+				`}
+				display={{ mobS: 'block', tabL: 'none' }}
+				position="relative"
+				// border="1px solid red"
+				overflow="hidden"
+			>
+				<Box
+					position="absolute"
+					left="50%"
+					top="5%"
+					transform="translateX(-50%)"
+					width="125%"
+					as="img"
+					src="/static/images/ill_1.png"
+				></Box>
+			</Box>
 			<Box
 				column
-				mt={{ mobS: '35rem', tabS: '60rem', tabL: '20rem' }}
+				mt={{ mobS: '-5rem', tabS: '-15rem', tabL: '20rem' }}
 				alignItems={{ mobS: 'center', tabL: 'flex-start' }}
 				textAlign={{ mobS: 'center', tabL: 'start' }}
 			>
@@ -165,8 +186,8 @@ const TopDetail = () => {
 						border="none"
 						borderTopRightRadius="8px"
 						borderBottomRightRadius="8px"
-						px={{ mobS: 'mxs', tabS: 'wxs' }}
-						py={{ mobS: 'mxxs', tabS: 'ms', deskL: 'mm' }}
+						px={{ mobS: 'mxs', tabL: 'wxs' }}
+						py={{ mobS: 'mxxs', tabL: 'ms', deskL: 'mm' }}
 						css={`
 							cursor: pointer;
 						`}
@@ -179,7 +200,7 @@ const TopDetail = () => {
 							fontSize={{ tabS: '1.2rem', deskL: '1.6rem' }}
 							color={disable ? 'rgba(230, 231, 232, 0.4)' : 'primary-white'}
 							fontWeight="regular"
-							display={{ mobS: 'none', tabS: 'block' }}
+							display={{ mobS: 'none', tabL: 'block' }}
 						>
 							Signup
 						</Text>
@@ -190,27 +211,26 @@ const TopDetail = () => {
 						) : (
 							''
 						)}
-						<Box color="accent-green" height="32px" width="auto" display={{ mobS: 'block', tabS: 'none' }}>
+						<Box color="accent-green" height="32px" width="auto" display={{ mobS: 'block', tabL: 'none' }}>
 							<ArrowRight />
 						</Box>
 					</Box>
 				</Box>
 			</Box>
-			{/* <Box width={{ tabS: '66rem', deskM: '83.5rem' }} border="1px solid white">
-				<Box
-					as="img"
-					src="/static/images/art1_web.png"
-					display={{ mobS: 'none', tabS: 'block' }}
-					position="absolute"
-					right="0"
-					top="0"
-					width="inherit"
-					height="auto"
-				></Box>
-			</Box> */}
-			<SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
+			<Box
+				width={{ tabL: '120rem', deskL: '150rem' }}
+				display={{ mobS: 'none', tabL: 'block' }}
+				position="absolute"
+				right={-300}
+				top={-50}
+				overflow="hidden"
+				// border="1px solid blue"
+			>
+				<Box as="img" width="inherit" src="/static/images/ill_1.png"></Box>
+			</Box>
+			{/* <SVGContainer display={{ mobS: 'none', tabS: 'block' }}>
 				<Illustration />
-			</SVGContainer>
+			</SVGContainer> */}
 		</Box>
 	);
 };
