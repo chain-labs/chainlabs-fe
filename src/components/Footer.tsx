@@ -7,18 +7,19 @@ import Linkedin from 'svgs/linkedin.svg';
 import Github from 'svgs/github.svg';
 import Instagram from 'svgs/instagram.svg';
 import Facebook from 'svgs/facebook.svg';
+import { GITHUB_URL, LINKEDIN_URL, TWITTER_URL } from 'src/constants';
 
 const Footer = () => {
 	return (
 		<Box
 			id="contact"
-			mt={{ mobS: 'wm', tabS: '15rem', deskM: '25rem' }}
+			mt={{ mobS: 'wm', tabS: '15rem', deskL: '25rem' }}
 			bg="rgba(236, 236, 236, 0.09)"
 			width="100vw"
 			css={`
 				backdrop-filter: blur(8px);
 			`}
-			py={{ mobS: 'wxxs', tabS: 'wxl', deskM: '14rem' }}
+			py={{ mobS: 'wxxs', tabS: 'wxl', deskL: '14rem' }}
 		>
 			<Container>
 				<Box
@@ -38,20 +39,14 @@ const Footer = () => {
 								Follow Us on
 							</Text>
 							<Box row between>
-								<Box>
+								<Box as="a" href={TWITTER_URL} target="_blank">
 									<Twitter />
 								</Box>
-								<Box>
+								<Box as="a" href={LINKEDIN_URL} target="_blank">
 									<Linkedin />
 								</Box>
-								<Box>
+								<Box as="a" href={GITHUB_URL} target="_blank">
 									<Github />
-								</Box>
-								<Box>
-									<Instagram />
-								</Box>
-								<Box>
-									<Facebook />
 								</Box>
 							</Box>
 						</Box>
