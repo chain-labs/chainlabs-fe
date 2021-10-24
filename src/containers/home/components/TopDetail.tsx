@@ -258,3 +258,4 @@ const InputBox = styled.input(
 		font-weight: 500;
 `
 );
+

@@ -27,7 +27,7 @@ const ContainerBox = styled(Box).attrs(() => ({
 	}
 
 	@media screen and (min-width: 1600px) {
-		max-width: 180rem;
+		max-width: 150rem;
 		margin: 0 auto;
 	}
 

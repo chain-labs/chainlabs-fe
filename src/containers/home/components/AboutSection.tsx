@@ -32,6 +32,7 @@ const AboutSection = () => {
 			</Box>
 			<Box
 				mt={{ mobS: '40rem', tabS: '0rem', tabL: '15rem' }}
+
 				maxWidth={{ mobS: '30rem', tabL: '50rem' }}
 				textAlign={{ mobS: 'center', tabS: 'left' }}
 			>
