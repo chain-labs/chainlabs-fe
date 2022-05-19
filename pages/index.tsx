@@ -1,10 +1,17 @@
 import OuterContainer from 'components/OuterContainer';
+import { useAnimation } from 'framer-motion';
 import Box from 'src/components/Box';
-import Button from 'src/containers/home/components/Button';
-import Link from 'src/containers/home/components/Link';
+import HomeContainer from 'src/containers/home';
 
 const Home = () => {
-	return <Box></Box>;
+	const controls = useAnimation();
+
+	return (
+		<OuterContainer bg="purple-500">
+			<HomeContainer control={controls} />
+			<Box height="200vh" bg="purple-500" className="section-2"></Box>
+		</OuterContainer>
+	);
 };
 
 export default Home;
