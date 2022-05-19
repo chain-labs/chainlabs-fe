@@ -88,7 +88,6 @@ const fontWeights = {
 export interface TextProps extends BoxProps {
 	as?: 'headline' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b1' | 'b2' | 'b3' | 'b4' | 'c1' | 'c2' | 'c3';
 	fontWeight?: 'extra-bold' | 'bold' | 'medium' | 'regular' | 'thin';
-	lineHeight?: 'h1' | 'h2' | 'h4' | 'b2';
 
 	children?: string | React.ReactNode;
 	id?: string;
