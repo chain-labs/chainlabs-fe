@@ -7,7 +7,7 @@ const Home = () => {
 	const controls = useAnimation();
 
 	return (
-		<OuterContainer bg="purple-500">
+		<OuterContainer bg="purple-500" controls={controls}>
 			<HomeContainer control={controls} />
 			<Box height="200vh" bg="purple-500" className="section-2"></Box>
 		</OuterContainer>
