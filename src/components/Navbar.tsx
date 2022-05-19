@@ -1,113 +1,154 @@
-import { useLayoutEffect, useState } from 'react';
-import Box from 'components/Box';
-import Container from 'components/Container';
-import Text from 'components/Text';
-import Hamburger from 'svgs/hamburger.svg';
-import RightArrow from 'svgs/arrow-right.svg';
-import If from 'components/If';
-import { gsap } from 'gsap';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import Box from './Box';
+import LogoSVG from 'svgs/logo.svg';
+import ChainlabsSVG from 'svgs/chainlabs.svg';
+import Text from './Text';
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
-const Navbar = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar = ({ controls }) => {
+	const [scrolled, setScrolled] = useState(false);
+	const navbarRef = useRef();
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			const scrollPosition = window.scrollY;
+			if (scrollPosition > window.innerHeight) {
+				// @ts-ignore undefined errror
+				navbarRef.current.style.animation = 'drop 0.5s ease-in-out';
+				setScrolled(true);
+			} else {
+				// @ts-ignore undefined errror
+				navbarRef.current.style.animation = '';
+				setScrolled(false);
+			}
+		});
+	}, []);
 
 	return (
 		<Box
-			py={{ mobS: 'mxs', tabS: 'ml', deskL: 'mxxxl' }}
-			px={{ mobS: 'mm', tabS: 'wxs', deskL: '0' }}
-			bg="rgba(236, 236, 236, 0.09)"
-			borderBottom="1px solid"
-			borderBottomColor="accent-green"
-			position="fixed"
-			width="100%"
-			zIndex={10}
+			px="wl"
+			py="ms"
+			between
+			position={scrolled ? 'fixed' : 'absolute'}
+			top="0"
+			width="100vw"
+			bg={scrolled ? 'green-100' : 'transparent'}
 			css={`
-				backdrop-filter: blur(8px);
-				-moz-backdrop-filter: blur(8px);
-				-webkit-backdrop-filter: blur(8px);
-				-o-backdrop-filter: blur(8px);
+				transition: background 0.5s ease-in-out;
+				> * {
+					z-index: 2;
+				}
+				@keyframes drop {
+					0% {
+						transform: translateY(-20rem);
+						top: 0;
+					}
+					100% {
+						transform: translateY(0);
+						top: 0;
+					}
+				}
+
+				@keyframes lift {
+					0% {
+						transform: translateY(0);
+						top: 0;
+					}
+					100% {
+						transform: translateY(-20rem);
+						top: 0;
+					}
+				}
 			`}
+			ref={navbarRef}
 		>
-			<Container>
-				<Box between>
-					<a href="#top">
-						<Box center>
-							<Box as="img" src="/static/images/logo.png" mr={{ mobS: 'mxs', tabS: 'mxl' }} />
-							<Box as="img" src="/static/images/brand.png" />
-						</Box>
-					</a>
-					<Box color="primary-white" display={{ mobS: 'none', tabS: 'block' }}>
-						<a href="#vision">
-							<Text as="links">Vision</Text>
-						</a>
-						<a href="#products">
-							<Text as="links" ml={{ mobS: '0', tabS: 'wm' }}>
-								Products
-							</Text>
-						</a>
-						<a href="#contact">
-							<Text as="links" ml={{ mobS: '0', tabS: 'wm' }}>
-								Contact
-							</Text>
-						</a>
-					</Box>
+			<motion.div
+				variants={{
+					hidden: { opacity: 0 },
+					visible: { opacity: 1 },
+				}}
+				animate={controls}
+				initial="hidden"
+				transition={{ duration: 0.6, ease: 'easeInOut' }}
+			>
+				<Box
+					color={scrolled ? 'purple-500' : 'green-100'}
+					css={`
+						transition: all 0.5s ease-in-out;
+					`}
+					center
+				>
+					<LogoSVG />
 					<Box
-						color="primary-white"
-						onClick={() => setIsMenuOpen(true)}
-						display={{ mobS: 'block', tabS: 'none' }}
+						center
+						ml="0.6rem"
+						color={scrolled ? 'purple-500' : 'white'}
+						css={`
+							transition: all 0.5s ease-in-out;
+						`}
 					>
-						<Hamburger />
+						<ChainlabsSVG />
 					</Box>
 				</Box>
-			</Container>
-			<If condition={isMenuOpen} then={<Menu {...{ setIsMenuOpen }} />} />
+			</motion.div>
+			<Box
+				as={motion.div}
+				variants={{
+					hidden: { opacity: 0 },
+					visible: { opacity: 1 },
+				}}
+				animate={controls}
+				initial="hidden"
+				transition={{ duration: 0.6, ease: 'easeInOut', staggerChildren: 0.2, delayChildren: 0.3 }}
+				row
+				py="mm"
+				color={scrolled ? 'purple-500' : 'white-10'}
+				css={`
+					transition: color 0.5s ease-in-out;
+				`}
+			>
+				<motion.div
+					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+					initial="hidden"
+					animate={controls}
+					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
+				>
+					<Text as="c1">PRODUCTS</Text>
+				</motion.div>
+				<motion.div
+					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+					initial="hidden"
+					animate={controls}
+					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
+				>
+					<Text as="c1" ml="wm">
+						ABOUT
+					</Text>
+				</motion.div>
+				<motion.div
+					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+					initial="hidden"
+					animate={controls}
+					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
+				>
+					<Text as="c1" ml="wm">
+						SERVICES
+					</Text>
+				</motion.div>
+				<motion.div
+					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+					initial="hidden"
+					animate={controls}
+					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.8 }}
+				>
+					<Text as="c1" ml="wm">
+						CONTACT
+					</Text>
+				</motion.div>
+			</Box>
 		</Box>
 	);
 };
 
 export default Navbar;
-
-const Menu = ({ setIsMenuOpen }) => {
-	useLayoutEffect(() => {
-		gsap.from('.menu', { left: '100%' });
-	}, []);
-
-	return (
-		<Box
-			className="menu"
-			bg="accent-green"
-			height="100vh"
-			width="100vw"
-			position="fixed"
-			top="0"
-			left="8.2rem"
-			px="mm"
-			pt="wxs"
-		>
-			<Box
-				color="black"
-				onClick={() => {
-					gsap.to('.menu', { left: '100%', onComplete: () => setIsMenuOpen(false) });
-				}}
-			>
-				<RightArrow />
-			</Box>
-			<Box ml="mxxxl" color="black" mt="17.5rem">
-				<a href="#vision">
-					<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-						Vision
-					</Text>
-				</a>
-				<a href="#products">
-					<Text as="h5" mb="wxs" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-						Products
-					</Text>
-				</a>
-				<a href="#contact">
-					<Text as="h5" fontWeight="medium" letterSpacing="-5%" textDecoration="underline">
-						Contact
-					</Text>
-				</a>
-			</Box>
-		</Box>
-	);
-};
