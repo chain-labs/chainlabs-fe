@@ -1,4 +1,4 @@
-const withTM = require('next-transpile-modules')(['gsap']);
+const withTM = require('next-transpile-modules')(['@splinetool/react-spline', '@splinetool/runtime']);
 
 module.exports = withTM({
 	webpack(config) {

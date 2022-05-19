@@ -1,5 +1,6 @@
 {
 	"presets": ["next/babel"],
+	"compact": true,
 	"plugins": [
 		[
 			"babel-plugin-styled-components",
