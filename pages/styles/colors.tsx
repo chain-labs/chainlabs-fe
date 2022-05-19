@@ -5,23 +5,20 @@ import theme from 'src/styleguide/theme';
 const ColorStyles = () => {
 	return (
 		<Box height="100vh" column>
-			<Box row height="100vh">
-				<Text
-					fontSize="84px"
-					fontWeight="bold"
+			<Box row alignItems="" height="100vh" border="1px solid red">
+				<Box
 					css={`
 						transform-origin: center center;
 						transform: rotate(-90deg);
-						left: 0;
 					`}
+					mt="37.5rem"
+					ml="-15rem"
 					position="absolute"
-					mt="35rem"
-					ml="-25rem"
-					borderBottom="1px solid lightgrey"
-					px="ws"
 				>
-					Colour Palette
-				</Text>
+					<Text as="headline" color="purple-500" px="ws" borderBottom="1px solid lightgrey">
+						Colour Palette
+					</Text>
+				</Box>
 				<Box row flexWrap="wrap" maxHeight="80vh" mt="ml" ml="15rem" p="mxl">
 					<Color color="white-10" />
 					<Color color="grey-100" />
