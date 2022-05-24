@@ -7,8 +7,8 @@ const CALENDLY_URL = 'https://calendly.com/chainlabs/social-media-marketing-inte
 const CalendlyPage = () => {
 	if (process.browser) {
 		return (
-			<Box>
-				<InlineWidget url={CALENDLY_URL} styles={{ background: theme.colors['purple-500'], height: '100vh' }} />
+			<Box bg="purple-500">
+				<InlineWidget url={CALENDLY_URL} styles={{ height: '100vh', width: '100vw' }} />
 			</Box>
 		);
 	} else return <></>;
