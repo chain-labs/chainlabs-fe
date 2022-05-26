@@ -6,6 +6,7 @@ import theme from 'styleguide/theme';
 
 import 'styleguide/globalStyles.css';
 import { ThemeProvider } from 'styled-components';
+import { IKContext } from 'imagekitio-react';
 
 const MyApp = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -40,7 +41,9 @@ const MyApp = ({ Component, pageProps }) => {
 				<link rel="shortcut icon" href="/static/images/logo.png" />
 			</Head>
 			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
+				<IKContext urlEndpoint="https://ik.imagekit.io/chainlabsfe" transformationPosition="path">
+					<Component {...pageProps} />
+				</IKContext>
 			</ThemeProvider>
 		</>
 	);
