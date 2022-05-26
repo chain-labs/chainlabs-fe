@@ -18,9 +18,11 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 				<Image src={img} layout="fill" objectFit="contain" />
 			</Box>
 			<Box>
-				<Text as="h4" color="green-300">
-					{title}
-				</Text>
+				<Box>
+					<Text as="h4" color="green-200">
+						{title}
+					</Text>
+				</Box>
 				<Text as="b3" color="grey-100">
 					{body}
 				</Text>
