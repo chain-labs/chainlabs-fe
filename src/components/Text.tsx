@@ -14,8 +14,8 @@ export const fontSizes = {
 	b3: '1.6rem',
 	b4: '1.4rem',
 	c1: '1.4rem',
-	c2: '1.4rem',
-	c3: '1.6rem',
+	c2: '1.2rem',
+	c3: '1rem',
 };
 
 function setLineHeights(lh) {
@@ -140,9 +140,10 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 				return { mobS: fontWeights.medium, deskM: fontWeights.bold };
 			case 'h5':
 			case 'h6':
+			case 'c3':
 				return fontWeights.medium;
 			case 'b3':
-				return fontWeights.medium;
+				return fontWeights.regular;
 			default:
 				return fontWeights.regular;
 		}

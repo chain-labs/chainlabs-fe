@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from 'src/components/Box';
-import Button from 'src/containers/home/components/Button';
+import Button from 'src/components/Button';
 
 const ButtonComp = () => {
 	return (
