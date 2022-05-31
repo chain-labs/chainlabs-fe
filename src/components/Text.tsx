@@ -127,6 +127,7 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 			case 'h5':
 				return { mobS: fontWeights.regular, deskM: fontWeights.medium };
 			case 'h6':
+			case 'c3':
 				return fontWeights.medium;
 			case 'c1':
 			case 'c2':

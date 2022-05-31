@@ -7,7 +7,7 @@ const Button = ({ width, height, text }) => {
 	return (
 		<Box
 			center
-			bg="#00E08E"
+			bg="green-200"
 			boxShadow="inset 0px -2px 5px #04FFA4"
 			borderRadius="4px"
 			color="purple-black"
@@ -19,7 +19,6 @@ const Button = ({ width, height, text }) => {
 					background-color: ${theme.colors['green-100']};
 				}
 			`}
-			mb="mxxl"
 		>
 			<Text as="b3" fontFamily="Inter">
 				{text}
