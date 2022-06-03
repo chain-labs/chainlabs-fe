@@ -27,13 +27,13 @@ const BlogCard = () => {
 			<Box minHeight="100vh">
 				<Box>
 					{' '}
-					<Text as="h4" color="green-100" pt="mxl" pl="ms">
+					<Text as="h4" color="green-100" pt="mxl" pl="mxxxl">
 						Blog
 					</Text>
 				</Box>
-				<Box between flexWrap="wrap" py="mxl">
+				<Box between flexDirection={{ mobS: 'column', tabS: 'row' }} flexWrap="wrap" py="mxl">
 					{MEMBERS.map((member) => (
-						<Box mx="ms" cursor="pointer" as="a" href="">
+						<Box mx="mxxxl" cursor="pointer" as="a" href="">
 							<Box
 								height={{ mobS: '34.3rem', tabS: '27.6rem', deskM: '22rem' }}
 								width={{ mobS: '20rem', tabS: '16.2rem', deskM: '38rem' }}
@@ -51,7 +51,7 @@ const BlogCard = () => {
 					))}
 				</Box>
 				<Box as="a" column alignItems="end" cursor="pointer">
-					<Text as="b3" color="green-100" pt="mxl" pr="ms" textDecoration="underline">
+					<Text as="b3" color="green-100" pt="mxl" pr="wxxs" textDecoration="underline">
 						View All
 					</Text>
 				</Box>
