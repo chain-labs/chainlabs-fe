@@ -3,7 +3,7 @@ import Box from 'src/components/Box';
 import Text from 'src/components/Text';
 import theme from 'src/styleguide/theme';
 
-const Button = ({ width, height, text }) => {
+const Button = ({ width, height, text, ...restProps }) => {
 	return (
 		<Box
 			center
@@ -20,8 +20,9 @@ const Button = ({ width, height, text }) => {
 				}
 			`}
 			mb="mxxl"
+			{...restProps}
 		>
-			<Text as="b3" fontFamily="Inter">
+			<Text as="h6" fontFamily="Inter">
 				{text}
 			</Text>
 		</Box>
