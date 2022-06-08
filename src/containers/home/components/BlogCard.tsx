@@ -1,8 +1,7 @@
 import React from 'react';
 import Box from 'src/components/Box';
-import Image from 'next/image';
 import Text from 'src/components/Text';
-import theme from 'src/styleguide/theme';
+import Blogcard from 'src/components/Blogcard';
 const BLOGS = [
 	{
 		image: 'https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Home/Blogs/Desktop_Blog1_BP-PR8Z8I.png?ik-sdk-version=javascript-1.4.3&updatedAt=1653732691786',
@@ -33,21 +32,7 @@ const BlogCard = () => {
 				</Box>
 				<Box between flexDirection={{ mobS: 'column', tabS: 'row' }} flexWrap="wrap" py="mxl">
 					{BLOGS.map((blog) => (
-						<Box mx="mxxxl" target="_blank" cursor="pointer" as="a" href={blog.link}>
-							<Box
-								height={{ mobS: '34.3rem', tabS: '27.6rem', deskM: '22rem' }}
-								width={{ mobS: '20rem', tabS: '16.2rem', deskM: '38rem' }}
-								position="relative"
-								mb="mxl"
-							>
-								<Image src={blog.image} layout="fill" objectFit="cover" />
-							</Box>
-							<Box position="absolute">
-								<Text color="grey-100" mt="mxxs" width="38rem">
-									{blog.text}
-								</Text>
-							</Box>
-						</Box>
+						<Blogcard blogdetail={blog} />
 					))}
 				</Box>
 				<Box as="a" target="_blank" column alignItems="end" cursor="pointer" href="https://blog.chainlabs.in/">
