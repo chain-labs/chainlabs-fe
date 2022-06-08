@@ -15,7 +15,7 @@ const Blogcard = ({ blogdetail }) => {
 				<Image src={blogdetail.image} layout="fill" objectFit="cover" />
 			</Box>
 			<Box position="absolute">
-				<Text color="grey-100" mt="mxxs" width="38rem">
+				<Text as="h6" color="grey-100" mt="mxxs" width="38rem">
 					{blogdetail.text}
 				</Text>
 			</Box>
