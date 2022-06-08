@@ -9,7 +9,6 @@ import useOuterClick from './useOuterclicks';
 interface Props {
 	setValue: (any) => void;
 	value: any;
-	// data?: any[];
 	label?: string;
 	placeholder?: string;
 	width?: any;

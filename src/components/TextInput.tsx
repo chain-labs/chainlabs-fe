@@ -36,6 +36,7 @@ const TextInput = ({ as, value, setValue, type, name, ...restProps }: Props): JS
 				}
 			`}
 			maxLength="360"
+			onChange={(e) => setValue(e.target.value)}
 		/>
 	);
 };
