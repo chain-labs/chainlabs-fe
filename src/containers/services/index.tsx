@@ -6,7 +6,7 @@ import Text from 'src/components/Text';
 const Services = () => {
 	return (
 		<Box bg="purple-500" minHeight="100vh">
-			<Box pl={{ mobS: 'mxl', tabL: 'wl' }} pt={{ mobS: 'wm', tsbL: 'wm', deskM: 'wxl' }}>
+			<Box pl={{ mobS: 'mxl', tabL: 'wl' }} pt={{ mobS: 'wm', tabL: 'wm', deskM: 'wxl' }}>
 				<Text as="h2" color="green-100">
 					Services we provide
 				</Text>

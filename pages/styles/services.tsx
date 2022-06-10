@@ -1,10 +1,8 @@
-import React from 'react'
-import Services from 'src/containers/services'
+import React from 'react';
+import Services from 'src/containers/services';
 
 const services = () => {
-  return (
-    <Services/>
-  )
-}
+	return <Services />;
+};
 
-export default services
+export default services;
