@@ -33,13 +33,19 @@ const BlogCard = () => {
 						Blog
 					</Text>
 				</Box>
-				<Box between flexDirection={{ mobS: 'column', tabS: 'row' }} flexWrap="wrap" py="mxl">
+				<Box between flexDirection={{ mobS: 'column', tabL: 'row' }} flexWrap="wrap">
 					{BLOGS.map((blog) => (
 						<Blogcard imageUrl={blog.imageUrl} url={blog.blogUrl} title={blog.title} />
 					))}
 				</Box>
 				<Box as="a" target="_blank" column alignItems="end" cursor="pointer" href="https://blog.chainlabs.in/">
-					<Text as="b3" color="green-100" pt="mxl" pr="wxxs" textDecoration="underline">
+					<Text
+						as="b3"
+						color="green-100"
+						pt="mxl"
+						pr={{ mobS: 'wxxs', tabL: 'wxxs' }}
+						textDecoration="underline"
+					>
 						View All
 					</Text>
 				</Box>
