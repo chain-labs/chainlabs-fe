@@ -2,7 +2,6 @@ import React from 'react';
 import Box, { BoxProps } from 'components/Box';
 
 export const fontSizes = {
-	headline: { mobS: '4rem', tabS: '5.6rem', deskM: '6.4rem' },
 	h1: { mobS: '3.2rem', tabS: '4rem', deskM: '5.6rem' },
 	h2: { mobS: '3.2rem', tabS: '3.2rem', deskM: '4.8rem' },
 	h3: { mobS: '3.2rem', tabS: '3.2rem', deskM: '4rem' },
@@ -21,8 +20,6 @@ export const fontSizes = {
 
 function setLineHeights(lh) {
 	switch (lh) {
-		case 'headline':
-			return { mobS: '125%', tabS: '120%', deskM: '115%' };
 		case 'h1':
 			return '125%';
 		case 'h2':
@@ -52,8 +49,6 @@ function setLineHeights(lh) {
 
 function setCharSpacing(cs) {
 	switch (cs) {
-		case 'headline':
-			return { mobS: '-0.5px', tabS: '-1px' };
 		case 'h1':
 			return { mobS: '-0.5px', deskM: '-1px' };
 		case 'h2':
@@ -85,8 +80,8 @@ const fontWeights = {
 };
 
 export interface TextProps extends BoxProps {
-	as?: 'headline' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b1' | 'b2' | 'b3' | 'b4' | 'c1' | 'c2' | 'c3';
-	fontWeight?: 'extra-bold' | 'bold' | 'medium' | 'regular' | 'thin';
+	as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b1' | 'b2' | 'b3' | 'btn1' | 'btn2' | 'c1' | 'c2' | 'l1';
+	fontWeight?: 'bold' | 'medium' | 'regular';
 	lineHeight?: 'h1' | 'h2' | 'h4' | 'b2';
 
 	children?: string | React.ReactNode;
@@ -102,8 +97,6 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 
 	function setAs() {
 		switch (as) {
-			case 'headline':
-				return 'h1';
 			case 'h1':
 				return 'h2';
 			case 'h2':
@@ -118,18 +111,14 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 			case 'b1':
 			case 'b2':
 			case 'b3':
-			case 'b4':
-				return 'h6';
 			case 'c1':
 			case 'c2':
-			case 'c3':
 				return 'p';
 		}
 	}
 
 	function setFontWeight() {
 		switch (as) {
-			case 'headline':
 			case 'h1':
 			case 'h2':
 			case 'h3':
