@@ -82,7 +82,6 @@ const fontWeights = {
 export interface TextProps extends BoxProps {
 	as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'b1' | 'b2' | 'b3' | 'btn1' | 'btn2' | 'c1' | 'c2' | 'l1';
 	fontWeight?: 'bold' | 'medium' | 'regular';
-	lineHeight?: 'h1' | 'h2' | 'h4' | 'b2';
 
 	children?: string | React.ReactNode;
 	id?: string;
@@ -98,7 +97,7 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 	function setAs() {
 		switch (as) {
 			case 'h1':
-				return 'h2';
+				return 'h1';
 			case 'h2':
 				return 'h2';
 			case 'h3':
