@@ -67,7 +67,7 @@ const colors: DefaultTheme['colors'] = {
 	'cyan-100': '#9dfff3',
 	'light-ochre': '#f8d89a',
 	'slate-blue': '#93c5ff',
-	highlight: '#5100dc',
+	highlight: '#5100dc1a',
 };
 
 const theme: DefaultTheme = {
