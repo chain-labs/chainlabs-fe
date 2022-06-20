@@ -24,8 +24,8 @@ const ServicesCard = ({ title, description, url }: Props) => {
 			mr={{ mobS: '', tabL: '8.8rem', deskM: '0' }}
 		>
 			<Text
-				as="h5"
-				color="green-100"
+				as="h4"
+				color="green-300"
 				borderBottom={{ mobS: `0.9px solid ${theme.colors['grey-300']}`, tabL: 'none' }}
 			>
 				{title}
