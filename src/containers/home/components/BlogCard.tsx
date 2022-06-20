@@ -29,7 +29,7 @@ const BlogCard = () => {
 			<Box minHeight="100vh">
 				<Box>
 					{' '}
-					<Text as="h4" color="green-100" pt="mxl" pl="mxxxl">
+					<Text as="h3" color="green-200" pt="mxl" pl="mxxxl">
 						Blog
 					</Text>
 				</Box>
@@ -42,7 +42,7 @@ const BlogCard = () => {
 					<Text
 						as="b3"
 						color="green-100"
-						pt="mxl"
+						pt={{ mobS: 'wxxs', tabL: 'wxs' }}
 						pr={{ mobS: 'wxxs', tabL: 'wxxs' }}
 						textDecoration="underline"
 					>
