@@ -6,7 +6,7 @@ import Text from 'src/components/Text';
 const Link = ({ text }) => {
 	return (
 		<Box row color="green-100" cursor="pointer">
-			<Text as="c3" mx="mxxs" fontFamily="Inter">
+			<Text as="c2" mx="mxxs" fontFamily="Inter">
 				{text}
 			</Text>
 			<ArrowUpRight size={20} />
