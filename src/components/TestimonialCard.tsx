@@ -14,13 +14,13 @@ const TestimonialCard = ({ url, comment, name, title }) => {
 			>
 				<Image layout="fill" src={url}></Image>
 			</Box>
-			<Text as="h5" textAlign="center" mt="mxl" color="#F3EDED">
+			<Text as="h5" textAlign="center" mt="mxl" color="white-10">
 				"{comment}"
 			</Text>
-			<Text as="h5" textAlign="center" mt="mxl" color="green-100">
+			<Text as="h5" textAlign="center" mt="mxl" color="green-200">
 				{name}
 			</Text>
-			<Text as="h6" textAlign="center" color="grey-100">
+			<Text as="h6" textAlign="center" color="grey-100" mt="mxxs">
 				{title}
 			</Text>
 		</Box>
