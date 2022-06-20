@@ -10,13 +10,12 @@ const Blogcard = ({ imageUrl, url, title }) => {
 				width={{ mobS: '34.3rem', tabS: '27.6rem', deskM: '38rem' }}
 				height={{ mobS: '20rem', tabS: '16.2rem', deskM: '22rem' }}
 				position="relative"
-				mb="mxl"
-				mt={{ mobS: 'wxs', tabL: 'mxxxl', deskM: 'ws' }}
+				mb="mm"
 			>
 				<Image src={imageUrl} layout="fill" objectFit="cover" />
 			</Box>
 			<Box position={{ mobS: 'relative', tabL: 'absolute' }}>
-				<Text as="h6" color="grey-100" mt="mxxs" width={{ mobS: '34.3rem', tabL: '27.6rem', deskM: '35.4rem' }}>
+				<Text as="h6" color="grey-100" width={{ mobS: '34.3rem', tabL: '27.6rem', deskM: '35.4rem' }}>
 					{title}
 				</Text>
 			</Box>

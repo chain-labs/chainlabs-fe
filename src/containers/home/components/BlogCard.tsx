@@ -33,7 +33,12 @@ const BlogCard = () => {
 						Blog
 					</Text>
 				</Box>
-				<Box between flexDirection={{ mobS: 'column', tabL: 'row' }} flexWrap="wrap">
+				<Box
+					between
+					flexDirection={{ mobS: 'column', tabL: 'row' }}
+					flexWrap="wrap"
+					mt={{ mobS: 'wxs', tabL: 'mxxxl', deskM: 'ws' }}
+				>
 					{BLOGS.map((blog) => (
 						<Blogcard imageUrl={blog.imageUrl} url={blog.blogUrl} title={blog.title} />
 					))}
