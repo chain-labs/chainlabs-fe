@@ -55,7 +55,7 @@ const colors: DefaultTheme['colors'] = {
 	'grey-300': '#565656',
 	'grey-400': '#292929',
 	'green-100': '#04ffa4',
-	'green-200': '#00e080',
+	'green-200': '#00e08e',
 	'green-300': '#00b874',
 	'green-400': '#008f5a',
 	'green-500': '#006641',

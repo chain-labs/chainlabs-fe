@@ -3,19 +3,20 @@ import Box, { BoxProps } from 'components/Box';
 
 export const fontSizes = {
 	headline: { mobS: '4rem', tabS: '5.6rem', deskM: '6.4rem' },
-	h1: { mobS: '3.2rem', tabS: '4.8rem', deskM: '5.6rem' },
-	h2: { mobS: '2.4rem', tabS: '4rem', deskM: '4.8rem' },
-	h3: { mobS: '1.8rem', tabS: '3.2rem', deskM: '4rem' },
-	h4: { mobS: '1.6rem', tabS: '2.4rem', deskM: '3.2rem' },
-	h5: { tabS: '1.8rem', deskM: '2.4rem' },
-	h6: '1.8rem',
-	b1: '2.4rem',
-	b2: '2.4rem',
-	b3: '1.6rem',
-	b4: '1.4rem',
-	c1: '1.4rem',
-	c2: '1.4rem',
-	c3: '1.6rem',
+	h1: { mobS: '3.2rem', tabS: '4rem', deskM: '5.6rem' },
+	h2: { mobS: '3.2rem', tabS: '3.2rem', deskM: '4.8rem' },
+	h3: { mobS: '3.2rem', tabS: '3.2rem', deskM: '4rem' },
+	h4: { mobS: '2.4rem', tabS: '2.4rem', deskM: '3.2rem' },
+	h5: { mobS: '1.8rem', tabS: '1.8rem', deskM: '2.4rem' },
+	h6: { mobS: '1.6rem', tabS: '1.6rem', deskM: '1.6rem' },
+	b1: { mobS: '1.6rem', tabS: '2rem', deskM: '2.4rem' },
+	b2: { mobS: '1.6rem', tabS: '1.6rem', deskM: '2rem' },
+	b3: { mobS: '1.4rem', tabS: '1.4rem', deskM: '1.6rem' },
+	btn1: { mobS: '1.6rem', deskM: '1.8rem' },
+	btn2: { mobS: '1.4rem', deskM: '1.6rem' },
+	c1: '1.2rem',
+	c2: '1rem',
+	l1: '1.4rem',
 };
 
 function setLineHeights(lh) {
@@ -23,26 +24,28 @@ function setLineHeights(lh) {
 		case 'headline':
 			return { mobS: '125%', tabS: '120%', deskM: '115%' };
 		case 'h1':
-			return { mobS: '125%', tabS: '120%' };
+			return '125%';
 		case 'h2':
-			return { mobS: '125%', deskM: '120%' };
+			return { mobS: '120%', deskM: '125%' };
 		case 'h3':
 		case 'h4':
-		case 'h5':
 		case 'h6':
 			return '125%';
+		case 'h5':
+			return { mobS: '160%', tabS: '150%', deskM: '125%' };
 		case 'b1':
-			return '145%';
+			return { mobS: '145%', tabS: '150%', deskM: '150%' };
 		case 'b2':
-			return '150%';
+			return { mobS: '150%', tabS: '160%', deskM: '160%' };
 		case 'b3':
-			return '160%';
-		case 'b4':
-			return '165%';
+			return { mobS: '160%', tabS: '165%', deskM: '160%' };
+		case 'btn1':
+		case 'btn2':
+			return '120%';
 		case 'c1':
-		case 'c2':
+		case 'l1':
 			return '24px';
-		case 'c3':
+		case 'c2':
 			return '115%';
 	}
 }
@@ -54,35 +57,31 @@ function setCharSpacing(cs) {
 		case 'h1':
 			return { mobS: '-0.5px', deskM: '-1px' };
 		case 'h2':
-			'-0.5px';
 		case 'h3':
-			return { mobS: '0', tabS: '-0.5px' };
 		case 'h4':
-			return '-0.5px';
 		case 'h5':
-			return { mobS: '0px', deskM: '-0.5px' };
+			return '-0.5px';
 		case 'h6':
 			return '0px';
 		case 'b1':
-		case 'b2':
 			return '-0.25px';
+		case 'b2':
 		case 'b3':
-		case 'b4':
-			return '-0.5px';
+			return { mobS: '-0.5px', deskM: '-0.25px' };
+		case 'btn1':
+		case 'btn2':
+			return '-0.25px';
 		case 'c1':
 		case 'c2':
-			return '-0.1px';
-		case 'c3':
-			return '0';
+		case 'l1':
+			return '0.1px';
 	}
 }
 
 const fontWeights = {
-	'extra-bold': 800,
 	bold: 700,
-	medium: 600,
+	medium: 500,
 	regular: 400,
-	thin: 300,
 };
 
 export interface TextProps extends BoxProps {
@@ -133,15 +132,16 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 			case 'headline':
 			case 'h1':
 			case 'h2':
-				return fontWeights.bold;
 			case 'h3':
-				return { mobS: fontWeights.medium, tabS: fontWeights.bold };
+				return fontWeights.bold;
 			case 'h4':
 				return { mobS: fontWeights.medium, deskM: fontWeights.bold };
 			case 'h5':
+				return { mobS: fontWeights.regular, deskM: fontWeights.medium };
 			case 'h6':
 				return fontWeights.medium;
-			case 'b3':
+			case 'c1':
+			case 'c2':
 				return fontWeights.medium;
 			default:
 				return fontWeights.regular;
