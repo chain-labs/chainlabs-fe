@@ -47,6 +47,10 @@ declare module 'styled-components' {
 			'purple-300': string;
 			'purple-400': string;
 			'purple-500': string;
+			'cyan-100': string;
+			'light-ochre': string;
+			'slate-blue': string;
+			highlight: string;
 		};
 		space: string[] & Partial<ISpace>;
 		breakpoints: string[] & Partial<IBreakpoints>;
