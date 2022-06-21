@@ -5,7 +5,7 @@ import Text from './Text';
 
 const TestimonialCard = ({ url, comment, name, title }) => {
 	return (
-		<Box center column width={{ mobS: '28.8rem', tabL: '40.2rem', deskM: '55rem' }}>
+		<Box center column width={{ mobS: '70%', tabL: '35%' }}>
 			<Box
 				height={{ mobS: '6rem', deskM: '8rem' }}
 				width={{ mobS: '6rem', deskM: '8rem' }}
