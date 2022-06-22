@@ -15,7 +15,7 @@ const ColorStyles = () => {
 					ml="-15rem"
 					position="absolute"
 				>
-					<Text as="headline" color="purple-500" px="ws" borderBottom="1px solid lightgrey">
+					<Text as="h1" color="purple-500" px="ws" borderBottom="1px solid lightgrey">
 						Colour Palette
 					</Text>
 				</Box>
