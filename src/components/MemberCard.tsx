@@ -30,8 +30,30 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 				center
 			>
 				<Box zIndex={1} column>
-					<Text color="green-100">{twitterUrl}</Text>
-					<Text color="green-100">{linkedInUrl}</Text>
+					<Box row center as="a" href={twitterUrl}>
+						<Box height="1.5rem" width="1.2rem" position="relative" mr="0.8rem">
+							<Image
+								src="https://ik.imagekit.io/chainlabs/Website_Media/Social_Media_Icons/twiter-16x16_rqHsdHBAxn.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655895714672"
+								layout="fill"
+								objectFit="cover"
+							/>
+						</Box>
+						<Text as="l1" color="green-100">
+							{twitterUrl}
+						</Text>
+					</Box>
+					<Box row center as="a" href={linkedInUrl}>
+						<Box height="1.5rem" width="1.2rem" position="relative" mr="0.8rem">
+							<Image
+								src="https://ik.imagekit.io/chainlabs/Website_Media/Social_Media_Icons/linkedin12x12_VAT_YAg_kg.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655895714673"
+								layout="fill"
+								objectFit="cover"
+							/>
+						</Box>
+						<Text as="l1" color="green-100">
+							{linkedInUrl}
+						</Text>
+					</Box>
 				</Box>
 				<Box
 					onMouseEnter={() => setOpacity('0.2')}
@@ -45,7 +67,7 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 			<Text as="h5" color="white-10" mb="mxs">
 				{name}
 			</Text>
-			<Text as="c3" color="grey-200" textTransform="uppercase">
+			<Text as="c2" color="grey-200" textTransform="uppercase">
 				{role}
 			</Text>
 		</Box>
