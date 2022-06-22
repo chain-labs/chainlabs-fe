@@ -47,10 +47,8 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 						</Text>
 					</Box>
 					<Box row center as="a" target="_blank" href={`https://www.linkedin.com${linkedInUrl}`}>
-						<Box height="1.5rem" width="1.2rem" position="relative" mr="0.8rem">
-							<Box height="1.6rem" width="1.6rem" mr="1rem" bg="#0A66C2" center>
-								<LinkedinFill strokeWidth={2} size={12} color="white" />
-							</Box>
+						<Box height="1.6rem" width="1.6rem" mr="0.8rem" bg="#0A66C2" center>
+							<LinkedinFill strokeWidth={2} size={12} color="white" />
 						</Box>
 						<Text as="l1" color="green-100">
 							{linkedInUrl}
