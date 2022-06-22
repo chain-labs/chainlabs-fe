@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from 'src/components/Box';
-import Contact from 'src/containers/contact';
+import Contact from 'src/containers/Contact';
 
 const ContactPage = () => {
 	return (
