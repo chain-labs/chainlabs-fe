@@ -3,6 +3,7 @@ import Image from 'next/image';
 import theme from 'src/styleguide/theme';
 import Text from './Text';
 import { useState } from 'react';
+import { TwitterFill, LinkedinFill } from 'akar-icons';
 
 interface Props {
 	image: string;
@@ -14,6 +15,11 @@ interface Props {
 
 const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 	const [opacity, setOpacity] = useState('1');
+	const [displayInfo, setDisplayInfo] = useState(false);
+	const handleDisplay = () => {
+		setOpacity(opacity === '0.2' ? '1' : '0.2');
+		setDisplayInfo(!displayInfo);
+	};
 	return (
 		<Box mr="7.2rem" cursor="pointer">
 			<Box
@@ -28,39 +34,30 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 				mb={{ mobS: 'mxl', tabS: '3.6rem', deskM: 'mxxl' }}
 				cursor="pointer"
 				center
+				onMouseEnter={handleDisplay}
+				onMouseLeave={handleDisplay}
 			>
-				<Box zIndex={1} column>
-					<Box row center as="a" href={twitterUrl}>
-						<Box height="1.5rem" width="1.2rem" position="relative" mr="0.8rem">
-							<Image
-								src="https://ik.imagekit.io/chainlabs/Website_Media/Social_Media_Icons/twiter-16x16_rqHsdHBAxn.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655895714672"
-								layout="fill"
-								objectFit="cover"
-							/>
+				<Box zIndex={1} column display={displayInfo ? 'flex' : 'none'}>
+					<Box row center as="a" target="_blank" href={`https://www.twitter.com/${twitterUrl}`}>
+						<Box height="1.6rem" width="1.6rem" mr="0.8rem" center>
+							<TwitterFill strokeWidth={2} size={36} color="#55ACEE" />{' '}
 						</Box>
 						<Text as="l1" color="green-100">
-							{twitterUrl}
+							@{twitterUrl}
 						</Text>
 					</Box>
-					<Box row center as="a" href={linkedInUrl}>
+					<Box row center as="a" target="_blank" href={`https://www.linkedin.com${linkedInUrl}`}>
 						<Box height="1.5rem" width="1.2rem" position="relative" mr="0.8rem">
-							<Image
-								src="https://ik.imagekit.io/chainlabs/Website_Media/Social_Media_Icons/linkedin12x12_VAT_YAg_kg.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655895714673"
-								layout="fill"
-								objectFit="cover"
-							/>
+							<Box height="1.6rem" width="1.6rem" mr="1rem" bg="#0A66C2" center>
+								<LinkedinFill strokeWidth={2} size={12} color="white" />
+							</Box>
 						</Box>
 						<Text as="l1" color="green-100">
 							{linkedInUrl}
 						</Text>
 					</Box>
 				</Box>
-				<Box
-					onMouseEnter={() => setOpacity('0.2')}
-					onMouseLeave={() => setOpacity('1')}
-					opacity={opacity}
-					zIndex={1}
-				>
+				<Box opacity={opacity} zIndex={0}>
 					<Image src={image} layout="fill" objectFit="cover" />
 				</Box>
 			</Box>
