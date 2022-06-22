@@ -10,7 +10,6 @@ const Button = ({ width, height, text, ...restProps }) => {
 			bg="#00E08E"
 			boxShadow="inset 0px -2px 5px #04FFA4"
 			borderRadius="4px"
-			color="purple-black"
 			width={width}
 			height={height}
 			cursor="pointer"
@@ -22,7 +21,7 @@ const Button = ({ width, height, text, ...restProps }) => {
 			mb="mxxl"
 			{...restProps}
 		>
-			<Text as="h6" fontFamily="Inter">
+			<Text as="btn1" color="purple-500">
 				{text}
 			</Text>
 		</Box>

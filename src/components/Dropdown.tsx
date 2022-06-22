@@ -40,7 +40,6 @@ const Dropdown = ({ value, setValue, label, placeholder, width, disabled, ...res
 				{...{ disabled }}
 			/>
 			<Box
-				// overflow="auto"
 				maxHeight="40rem"
 				position="absolute"
 				onClick={() => setVisible(!visible)}
@@ -48,7 +47,7 @@ const Dropdown = ({ value, setValue, label, placeholder, width, disabled, ...res
 				bg="#221042"
 				px="mxs"
 				border={visible ? '1px solid white' : 'none'}
-				width={{ mobS: '34.2rem', tabL: '37.7rem', deskL: '48rem' }}
+				width={{ mobS: '38.2rem', tabL: '37.7rem', deskM: '48rem' }}
 				cursor="pointer"
 			>
 				<If
@@ -56,9 +55,8 @@ const Dropdown = ({ value, setValue, label, placeholder, width, disabled, ...res
 					then={data.map((item, index) => (
 						<Box
 							key={item}
-							// borderBottom={index! === data.length - 1 ? 'none' : '1px solid white'}
 							backgroundColor="white-00"
-							width={{ mobS: '34.2rem', tabL: '37.7rem', deskL: '48rem' }}
+							width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 							css={`
 								&:hover {
 									background-color: ${theme.colors['blue-00']};
@@ -72,7 +70,7 @@ const Dropdown = ({ value, setValue, label, placeholder, width, disabled, ...res
 								{item}
 							</Text>
 							<Box
-								width={{ mobS: '32.4rem', tabL: '36.1rem', deskL: '46.4rem' }}
+								width={{ mobS: '32.4rem', tabL: '36.1rem', deskM: '46.4rem' }}
 								display={index! === data.length - 1 ? 'none' : 'block'}
 								border="none"
 								borderBottom="1px solid white"

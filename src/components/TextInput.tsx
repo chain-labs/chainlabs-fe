@@ -22,7 +22,7 @@ const TextInput = ({ as, value, setValue, type, name, ...restProps }: Props): JS
 			border={as === 'input' ? 'none' : ''}
 			borderBottom={as === 'input' ? '1px solid #FFFFFF' : ''}
 			outline={as === 'input' ? 'none' : ''}
-			width={{ mobS: '34.2rem', tabL: '37.7rem', deskL: '48rem' }}
+			width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 			fontFamily="Inter"
 			fontSize="1.4rem"
 			line-height="160%"

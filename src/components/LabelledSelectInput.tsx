@@ -31,7 +31,7 @@ const LabelledSelectInput = ({
 				display="flex"
 				color="grey-100"
 				onClick={() => set(!visible)}
-				width={{ mobS: '34.2rem', tabL: '37.7rem', deskL: '48rem' }}
+				width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 			>
 				<Box
 					as="input"

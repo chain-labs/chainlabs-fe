@@ -64,11 +64,11 @@ const Form = () => {
 				<TextInput as="input" mt="mxxxl" type="Email" name="Email Address*" value={email} setValue={setEmail} />
 				<Dropdown
 					placeholder="Blockchain"
-					width={{ mobS: '38.2rem', tabL: '37.7rem', deskM: '48rem' }}
+					width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 					setValue={setQuery}
 					value={query}
 				/>
-				<Text as="c3" mt="mxxxl" color="grey-100">
+				<Text as="b2" mt="mxxxl" color="grey-100">
 					Message
 				</Text>
 				<TextInput
@@ -87,7 +87,7 @@ const Form = () => {
 				width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 				height="56px"
 				text="Send Message"
-				mt="wm"
+				mt={{ mobS: 'mxl', tabL: 'wxs', deskM: 'wm' }}
 				onClick={handleSubmit}
 			></Button>
 		</form>

@@ -1,9 +1,8 @@
 import React from 'react';
 import Box from 'src/components/Box';
-import Text from 'src/components/Text';
-import Contact from 'src/containers/Contact';
+import Contact from 'src/containers/contact';
 
-const contact = () => {
+const ContactPage = () => {
 	return (
 		<Box bg="purple-500" minHeight="100vh">
 			<Contact />
@@ -11,4 +10,4 @@ const contact = () => {
 	);
 };
 
-export default contact;
+export default ContactPage;
