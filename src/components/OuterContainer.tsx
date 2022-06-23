@@ -31,9 +31,9 @@ const OuterContainer = ({ children, bg }) => {
 							</Text>
 							<Box row>
 								<Box zIndex={0} position="absolute">
-									<InputBox width={{ mobS: '34rem', tabL: '36rem' }} />
+									<InputBox width={{ mobS: '32rem', tabL: '36rem' }} />
 								</Box>
-								<Box mt="2.3rem" center zIndex={1} ml={{ mobS: '85%', tabL: '90%' }}>
+								<Box mt="2.3rem" center zIndex={1} ml={{ mobS: '80%', tabL: '90%' }}>
 									<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
 								</Box>
 							</Box>
