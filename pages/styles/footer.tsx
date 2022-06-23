@@ -1,8 +1,14 @@
 import React from 'react';
-import FooterComp from 'src/components/FooterComp';
+import Box from 'src/components/Box';
+import OuterContainer from 'src/components/OuterContainer';
 
 const Footer = () => {
-	return <FooterComp />;
+	return (
+		<OuterContainer bg="purple-500">
+			{' '}
+			<Box>Hi</Box>
+		</OuterContainer>
+	);
 };
 
 export default Footer;
