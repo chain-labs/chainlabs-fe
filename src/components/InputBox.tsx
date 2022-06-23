@@ -3,9 +3,9 @@ import React from 'react';
 import theme from 'src/styleguide/theme';
 import Box from './Box';
 
-const InputBox = () => {
+const InputBox = ({ width }) => {
 	return (
-		<Box row center>
+		<Box row alignItems="center">
 			<Box
 				as="input"
 				border="1px solid white"
@@ -13,7 +13,7 @@ const InputBox = () => {
 				pl="17px"
 				bg="transparent"
 				borderRadius="4px"
-				width="36rem"
+				width={width}
 				mt="mm"
 				placeholder="Email Address"
 				css={`
@@ -23,9 +23,15 @@ const InputBox = () => {
 				`}
 				color={theme.colors['green-100']}
 			></Box>
-			<Box mt="15px" ml="320px" position="absolute" center>
-				<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
-			</Box>
+			{/* <Box
+					mt="15px"
+					center
+					left="50%"
+					position="absolute"
+					// ml={{ mobS: '60%', tabS: '38%', tabL: '30%', deskS: '22%', deskM: '21%' }}
+				>
+					<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
+				</Box> */}
 		</Box>
 	);
 };

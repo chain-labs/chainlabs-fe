@@ -1,6 +1,8 @@
 import Box from 'components/Box';
 import Image from 'next/image';
+import { ArrowRight } from 'phosphor-react';
 import React from 'react';
+import theme from 'src/styleguide/theme';
 import InputBox from './InputBox';
 import Text from './Text';
 
@@ -9,7 +11,7 @@ const OuterContainer = ({ children, bg }) => {
 		<Box bg={bg} minHeight="100vh">
 			{children}
 			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml' }}>
-				<Box display="flex" justifyContent="space-around" flexDirection={{ mobS: 'column', tabL: 'row' }}>
+				<Box display="flex" justifyContent="space-around" flexDirection={{ mobS: 'column', tabS: 'row' }}>
 					<Box column>
 						<Box
 							position="relative"
@@ -22,13 +24,20 @@ const OuterContainer = ({ children, bg }) => {
 								objectFit="cover"
 							/>
 						</Box>
-						<Box width="36rem" display={{ mobS: 'block', deskM: 'none' }} mt="mxl">
+						<Box width="36rem" display={{ mobS: 'block', deskM: 'none' }} mt="mxl" row>
 							<Text as="b3" color="grey-100" mr="wm">
 								Join our mailing list to stay in the loop with our newest releases and updates about our
 								products.
 							</Text>
-							<InputBox />
-							<Text as="c1" mt="mxxxl" display={{ mobS: 'none', tabL: 'block' }}>
+							<Box row>
+								<Box zIndex={0} position="absolute">
+									<InputBox width={{ mobS: '34rem', tabL: '36rem' }} />
+								</Box>
+								<Box mt="2.3rem" center zIndex={1} ml={{ mobS: '85%', tabL: '90%' }}>
+									<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
+								</Box>
+							</Box>
+							<Text as="c1" mt="mxxxl" display={{ mobS: 'none', tabS: 'block' }}>
 								© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 							</Text>
 						</Box>
@@ -68,7 +77,7 @@ const OuterContainer = ({ children, bg }) => {
 								Github
 							</Text>
 						</Box>
-						<Box column mt={{ mobS: 'mxl', tabL: '0' }}>
+						<Box column mt={{ mobS: 'mxl', mobL: '0' }}>
 							<Text as="h6" mb="mm" color="green-100">
 								Work
 							</Text>
@@ -91,13 +100,18 @@ const OuterContainer = ({ children, bg }) => {
 							Join our mailing list to stay in the loop with our newest releases and updates about our
 							products.
 						</Text>
-						<InputBox />
+						<Box row>
+							<InputBox width={{ tabL: '36rem' }} />
+							<Box mt="1.7rem" center zIndex={1} ml="-10%">
+								<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
+							</Box>
+						</Box>
 						<Text as="c1" mt="mxxxl">
 							© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 						</Text>
 					</Box>
 				</Box>
-				<Text as="c1" mt="mxxxl" display={{ mobS: 'block', tabL: 'none' }}>
+				<Text as="c1" mt="mxxxl" display={{ mobS: 'block', tabS: 'none' }}>
 					© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 				</Text>
 			</Box>
