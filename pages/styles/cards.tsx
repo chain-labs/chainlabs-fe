@@ -1,7 +1,5 @@
 import Box from 'src/components/Box';
-import dynamic from 'next/dynamic';
-const MemberCard = dynamic(() => import('src/components/MemberCard'));
-
+import MemberCard from 'src/components/MemberCard';
 const MEMBERS = [
 	{
 		image: 'https://ik.imagekit.io/chainlabsfe/pfp/angel_pfp.png',
