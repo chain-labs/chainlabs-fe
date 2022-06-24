@@ -1,5 +1,6 @@
 import Box from 'src/components/Box';
-import MemberCard from 'src/components/MemberCard';
+import dynamic from 'next/dynamic';
+const MemberCard = dynamic(() => import('src/components/MemberCard'));
 
 const MEMBERS = [
 	{
