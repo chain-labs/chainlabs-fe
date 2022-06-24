@@ -37,7 +37,7 @@ const OuterContainer = ({ children, bg }) => {
 									<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
 								</Box>
 							</Box>
-							<Text as="c1" mt="mxxxl" display={{ mobS: 'none', tabS: 'block' }}>
+							<Text as="c1" mt="mxxxl" display={{ mobS: 'none', tabS: 'block' }} color="grey-200">
 								© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 							</Text>
 						</Box>
@@ -106,12 +106,12 @@ const OuterContainer = ({ children, bg }) => {
 								<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
 							</Box>
 						</Box>
-						<Text as="c1" mt="mxxxl">
+						<Text as="c1" mt="mxxxl" color="grey-200">
 							© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 						</Text>
 					</Box>
 				</Box>
-				<Text as="c1" mt="mxxxl" display={{ mobS: 'block', tabS: 'none' }}>
+				<Text as="c1" mt="mxxxl" display={{ mobS: 'block', tabS: 'none' }} color="grey-200">
 					© ALL RIGHTS RESERVED. CHAIN LABS 2022.
 				</Text>
 			</Box>
