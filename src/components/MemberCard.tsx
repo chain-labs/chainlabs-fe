@@ -41,16 +41,16 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 			>
 				<Box zIndex={1} column display={displayInfo ? 'flex' : 'none'}>
 					<Box row center as="a" target="_blank" href={`https://www.twitter.com/${twitterUrl}`}>
-						<Box height="1.6rem" width="1.6rem" mr="0.8rem" center color="#55ACEE">
-							<TwitterFill />
+						<Box height="1.6rem" width="1.6rem" mr="0.8rem" center>
+							<TwitterFill strokeWidth="2" size="36" color="#55ACEE" />{' '}
 						</Box>
 						<Text as="l1" color="green-100">
 							@{twitterUrl}
 						</Text>
 					</Box>
 					<Box row center as="a" target="_blank" href={`https://www.linkedin.com${linkedInUrl}`}>
-						<Box height="1.6rem" width="1.6rem" mr="0.8rem" bg="#0A66C2" center color="white">
-							<LinkedinFill />{' '}
+						<Box height="1.6rem" width="1.6rem" mr="0.8rem" bg="#0A66C2" center>
+							<LinkedinFill strokeWidth="2" size="12" color="white" />{' '}
 						</Box>
 						<Text as="l1" color="green-100">
 							{linkedInUrl}
