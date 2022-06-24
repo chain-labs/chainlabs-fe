@@ -7,7 +7,7 @@ export const fontSizes = {
 	h3: { mobS: '3.2rem', tabS: '3.2rem', deskM: '4rem' },
 	h4: { mobS: '2.4rem', tabS: '2.4rem', deskM: '3.2rem' },
 	h5: { mobS: '1.8rem', tabS: '1.8rem', deskM: '2.4rem' },
-	h6: { mobS: '1.6rem', tabS: '1.6rem', deskM: '1.6rem' },
+	h6: { mobS: '1.6rem', tabS: '1.6rem', deskM: '1.8rem' },
 	b1: { mobS: '1.6rem', tabS: '2rem', deskM: '2.4rem' },
 	b2: { mobS: '1.6rem', tabS: '1.6rem', deskM: '2rem' },
 	b3: { mobS: '1.4rem', tabS: '1.4rem', deskM: '1.6rem' },
