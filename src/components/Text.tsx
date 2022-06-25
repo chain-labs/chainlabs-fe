@@ -123,7 +123,7 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 			case 'h3':
 				return fontWeights.bold;
 			case 'h4':
-				return { mobS: fontWeights.medium, deskM: fontWeights.bold };
+				return { mobS: fontWeights['semi-bold'], deskM: fontWeights.bold };
 			case 'h5':
 				return { mobS: fontWeights.regular, deskM: fontWeights.medium };
 			case 'h6':
