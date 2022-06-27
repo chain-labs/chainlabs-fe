@@ -10,9 +10,13 @@ const OuterContainer = ({ children, bg }) => {
 	return (
 		<Box bg={bg} minHeight="100vh">
 			{children}
-			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml' }}>
-				<Box display="flex" justifyContent="space-around" flexDirection={{ mobS: 'column', tabS: 'row' }}>
-					<Box column>
+			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml', tabL: '0', deskM: 'wl' }}>
+				<Box
+					display="flex"
+					justifyContent={{ mobS: 'space-around' }}
+					flexDirection={{ mobS: 'column', tabS: 'row' }}
+				>
+					<Box column mr={{ mobS: '0', deskM: '16rem' }}>
 						<Box
 							position="relative"
 							width={{ mobS: '19.8rem', tabS: '14.8rem', deskM: '16rem' }}
@@ -42,8 +46,8 @@ const OuterContainer = ({ children, bg }) => {
 							</Text>
 						</Box>
 					</Box>
-					<Box row flexWrap="wrap" mt={{ mobS: 'mxxxl', tabL: '0' }}>
-						<Box column mr="wxs">
+					<Box row flexWrap="wrap" mt={{ mobS: 'mxxxl', tabL: '0' }} mr={{ mobS: '0', deskM: '16rem' }}>
+						<Box column mr={{ mobS: 'wm', tabS: 'wxs' }}>
 							<Text as="h6" mb="mm" color="green-100">
 								Company
 							</Text>
@@ -60,7 +64,7 @@ const OuterContainer = ({ children, bg }) => {
 								Contact
 							</Text>
 						</Box>
-						<Box column mr="wxs">
+						<Box column mr={{ mobS: 'wm', tabS: 'wxs' }}>
 							<Text as="h6" mb="mm" color="green-100">
 								Social
 							</Text>
