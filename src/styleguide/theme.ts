@@ -64,6 +64,10 @@ const colors: DefaultTheme['colors'] = {
 	'purple-300': '#31165d',
 	'purple-400': '#221042',
 	'purple-500': '#0d0618',
+	'cyan-100': '#9dfff3',
+	'light-ochre': '#f8d89a',
+	'slate-blue': '#93c5ff',
+	highlight: '#5100dc1a',
 };
 
 const theme: DefaultTheme = {

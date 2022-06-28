@@ -38,6 +38,10 @@ const ColorStyles = () => {
 					<Color color="purple-300" />
 					<Color color="purple-400" />
 					<Color color="purple-500" />
+					<Color color="cyan-100" />
+					<Color color="light-ochre" />
+					<Color color="slate-blue" />
+					<Color color="highlight" />
 				</Box>
 			</Box>
 		</Box>
@@ -54,7 +58,14 @@ const Color = ({ color }) => {
 	}
 
 	return (
-		<Box column alignItems="center" mx="ml" my="ml">
+		<Box
+			column
+			alignItems="center"
+			mx="ml"
+			my="ml"
+			cursor="pointer"
+			onClick={() => navigator.clipboard.writeText(color)}
+		>
 			<Box
 				width="20rem"
 				height="20rem"
