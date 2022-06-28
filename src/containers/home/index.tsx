@@ -1,6 +1,6 @@
 import Box from 'src/components/Box';
 import Text from 'src/components/Text';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useTransform, useViewportScroll } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import If from 'src/components/If';
 
@@ -11,6 +11,8 @@ import { opacity } from 'styled-system';
 const HomeContainer = ({ control }) => {
 	const [loaded, setLoaded] = useState(false);
 	const controls = useAnimation();
+	const { scrollY } = useViewportScroll();
+	const y = useTransform(scrollY, [0, 1000], [0, 250]);
 
 	useEffect(() => {
 		if (loaded) {
@@ -59,6 +61,7 @@ const HomeContainer = ({ control }) => {
 						frameBorder="0"
 						width="100%"
 						height="100%"
+						style={{ y }}
 					></motion.iframe>
 				</Box>
 				<If
