@@ -6,6 +6,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"@iconscout/react-unicons": "^1.1.6",
+		"@splinetool/react-spline": "^2.2.1",
+		"@splinetool/runtime": "^0.9.53",
 		"@styled-system/prop-types": "^5.1.5",
 		"@svgr/webpack": "^5.5.0",
 		"@types/styled-components": "^5.1.14",
