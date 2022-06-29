@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { validateEmail } from 'src/containers/Contact/components/validEmail';
 import theme from 'src/styleguide/theme';
 import InputBox from './InputBox';
+import Navbar from './Navbar';
 import Text from './Text';
 import toast, { Toaster } from 'react-hot-toast';
 import LinkComp from './LinkComp';
@@ -55,6 +56,7 @@ const OuterContainer = ({ children, bg }) => {
 						duration: 5000,
 					}}
 				/>
+				<Navbar />
 				<Box>{children}</Box>
 				<Box
 					bg="#0D0619"

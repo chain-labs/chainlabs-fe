@@ -1,10 +1,15 @@
-import OuterContainer from 'components/OuterContainer';
-import Box from 'src/components/Box';
-import Button from 'src/containers/home/components/Button';
-import Link from 'src/containers/home/components/Link';
+import Head from 'next/head';
+import HomeComponent from 'src/containers/home';
 
 const Home = () => {
-	return <Box></Box>;
+	return (
+		<>
+			<Head>
+				<title>Chainlabs | Decentralized apps for the decentralized web.</title>
+			</Head>
+			<HomeComponent />
+		</>
+	);
 };
 
 export default Home;
