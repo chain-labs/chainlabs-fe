@@ -13,6 +13,7 @@
 		"akar-icons": "^1.9.18",
 		"dotenv": "^10.0.0",
 		"firebase": "^8.3.2",
+		"framer-motion": "^6.3.16",
 		"gsap": "^3.7.1",
 		"lodash": "^4.17.21",
 		"next": "^11.1.2",

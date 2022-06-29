@@ -4,11 +4,13 @@ import { ArrowRight } from 'phosphor-react';
 import React from 'react';
 import theme from 'src/styleguide/theme';
 import InputBox from './InputBox';
+import Navbar from './Navbar';
 import Text from './Text';
 
 const OuterContainer = ({ children, bg }) => {
 	return (
 		<Box bg={bg} minHeight="100vh">
+			<Navbar />
 			{children}
 			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml', tabL: '0', deskM: 'wl' }}>
 				<Box
