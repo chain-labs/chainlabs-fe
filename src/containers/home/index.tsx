@@ -74,17 +74,13 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						animate={controls}
 						initial="hidden"
 						transition={{ duration: 1.2, delay: 0, ease: 'easeInOut' }}
-						onLoad={() => {
-							console.log('loaded');
-							setLoaded(true);
-						}}
+						onLoad={() => setLoaded(true)}
 						src="https://my.spline.design/wave-1b2723a2aaef61b7d7136bd5358721fa/"
 						frameBorder="0"
 						width="100%"
 						height="100%"
 					></motion.iframe>
 				</Box>
-
 				<If
 					condition={loaded}
 					then={

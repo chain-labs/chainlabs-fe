@@ -40,6 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
 				<link rel="shortcut icon" href="/static/images/logo.png" />
 			</Head>
 			<ThemeProvider theme={theme}>
+				<OuterContainer bg="purple-500"></OuterContainer>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>

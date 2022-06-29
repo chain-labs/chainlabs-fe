@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import OuterContainer from 'src/components/OuterContainer';
-import HomeComponent from 'src/containers/home';
+import HomeContainer from 'src/containers/home';
 
 const Home = () => {
 	return (
@@ -9,7 +9,7 @@ const Home = () => {
 				<title>Chainlabs | Decentralized apps for the decentralized web.</title>
 			</Head>
 			<OuterContainer bg="purple-500">
-				<HomeComponent />
+				<HomeContainer />
 			</OuterContainer>
 		</>
 	);

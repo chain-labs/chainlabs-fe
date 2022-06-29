@@ -18,8 +18,6 @@ const Navbar = () => {
 	const router = useRouter();
 
 	useEffect(() => {
-		console.log({ path: router.pathname });
-
 		controls.start('visible');
 		window.addEventListener('scroll', () => {
 			const scrollPosition = window.scrollY;
