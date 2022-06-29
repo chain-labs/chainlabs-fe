@@ -6,6 +6,7 @@ import theme from 'styleguide/theme';
 
 import 'styleguide/globalStyles.css';
 import { ThemeProvider } from 'styled-components';
+import OuterContainer from 'components/OuterContainer';
 
 const MyApp = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -36,10 +37,10 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
-				<title>ChainLabs</title>
 				<link rel="shortcut icon" href="/static/images/logo.png" />
 			</Head>
 			<ThemeProvider theme={theme}>
+				<OuterContainer bg="purple-500"></OuterContainer>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
