@@ -45,7 +45,7 @@ const Services = () => {
 					mt="10.2rem"
 					ml="-26rem"
 					css={`
-						filter: blur(456px);
+						filter: blur(356px);
 					`}
 				/>
 				<Box
@@ -56,7 +56,7 @@ const Services = () => {
 					mt={{ mobS: '40.4rem', tabL: '22rem' }}
 					ml={{ mobS: '-9.2rem', tabL: '-9.2rem' }}
 					css={`
-						filter: blur(226px);
+						filter: blur(190px);
 						transform: rotate(-43.41deg);
 					`}
 					display={{ deskM: 'none' }}
@@ -70,7 +70,7 @@ const Services = () => {
 						mt="5rem"
 						ml={{ mobS: '70%', tabS: '70%', tabL: '100.6rem' }}
 						css={`
-							filter: blur(226px);
+							filter: blur(190px);
 							transform: rotate(-43.41deg);
 						`}
 					></Box>
