@@ -42,10 +42,10 @@ const Services = () => {
 					width="40.9rem"
 					height="27.4rem"
 					bg="#04FFA4"
-					mt="19.2rem"
+					mt="10.2rem"
 					ml="-26rem"
 					css={`
-						filter: blur(356px);
+						filter: blur(456px);
 					`}
 				/>
 				<Box
@@ -56,7 +56,7 @@ const Services = () => {
 					mt={{ mobS: '40.4rem', tabL: '22rem' }}
 					ml={{ mobS: '-9.2rem', tabL: '-9.2rem' }}
 					css={`
-						filter: blur(150px);
+						filter: blur(226px);
 						transform: rotate(-43.41deg);
 					`}
 					display={{ deskM: 'none' }}
@@ -70,7 +70,7 @@ const Services = () => {
 						mt="5rem"
 						ml={{ mobS: '70%', tabS: '70%', tabL: '100.6rem' }}
 						css={`
-							filter: blur(150px);
+							filter: blur(226px);
 							transform: rotate(-43.41deg);
 						`}
 					></Box>
@@ -91,10 +91,10 @@ const Services = () => {
 						title="Founder, Primobots"
 					/>
 					<TestimonialCard
-						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/Desktop_Primobots_gX1euCNLy.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654882459115"
-						comment="The team at Chain Labs delivered on their promise and beyond. Their smart contract work for Primobots and post-deployment support had a huge positive impact on our NFT project."
-						name="Ish"
-						title="Founder, Primobots"
+						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/Desktop_DOB_TSwibgD0m.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654882459115"
+						comment="Chain Labs went the extra mile to build, launch and support the Daughters of Blockchain Genesis collection of 1,000 unique NFTs minting on Polygon."
+						name="Jillian"
+						title="Founder, Daughters of Blockchain"
 					/>
 				</Box>
 			</Box>
