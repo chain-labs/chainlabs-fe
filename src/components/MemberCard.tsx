@@ -23,7 +23,7 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 		setDisplayInfo(!displayInfo);
 	};
 	return (
-		<Box mr={{ mobS: '0rem' }} cursor="pointer">
+		<Box mr={{ mobS: '0rem', tabL: '7.2rem' }} cursor="pointer">
 			<Box
 				height={{ mobS: '14.1rem', tabS: '18.7rem', deskM: '24rem' }}
 				width={{ mobS: '14.1rem', tabS: '18.7rem', deskM: '24rem' }}
