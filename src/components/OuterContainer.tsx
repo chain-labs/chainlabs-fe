@@ -10,7 +10,7 @@ const OuterContainer = ({ children, bg }) => {
 	return (
 		<Box bg={bg} minHeight="100vh">
 			{children}
-			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml' }} position="relative">
+			<Box bg="purple-500" color="white" py="wl" column px={{ mobS: 'ml' }}>
 				<Box display="flex" justifyContent="space-around" flexDirection={{ mobS: 'column', tabS: 'row' }}>
 					<Box column>
 						<Box
