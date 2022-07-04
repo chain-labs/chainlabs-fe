@@ -20,12 +20,12 @@ const ServicesCard = ({ title, description, url }: Props) => {
 			onMouseLeave={() => setDescriptionTextColor(theme.colors['grey-100'])}
 			pb="mm"
 			borderBottom={{ mobS: 'none', tabL: `1px solid ${theme.colors['grey-300']}` }}
-			width={{ mobS: '33.5rem', tabL: '64.9rem', deskM: '96.3rem' }}
+			width={{ mobS: '31.5rem', tabS: '64.9rem', deskM: '96.3rem' }}
 			mr={{ mobS: '', tabL: '8.8rem', deskM: '0' }}
 		>
 			<Text
 				as="h4"
-				color="green-300"
+				color="green-200"
 				borderBottom={{ mobS: `0.9px solid ${theme.colors['grey-300']}`, tabL: 'none' }}
 			>
 				{title}
