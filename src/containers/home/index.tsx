@@ -1,30 +1,35 @@
 import Box from 'src/components/Box';
 import Text from 'src/components/Text';
-import { motion, useAnimation } from 'framer-motion';
+import { AnimationControls, motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import If from 'src/components/If';
 
 import BlurSVG from 'svgs/blur.svg';
+import CircleOpacity from 'svgs/circle-opacity.svg';
+import ExponentBox from 'svgs/exponent-box.svg';
+import SetCenter from 'svgs/set-center.svg';
 import { eases, variants } from './animation';
-import { opacity } from 'styled-system';
+import { WORKS } from './constants';
+import WorksCard from 'src/components/WorkCard';
 
-const HomeContainer = ({ control }) => {
+const HomeContainer = ({ control }: { control: AnimationControls }) => {
 	const [loaded, setLoaded] = useState(false);
 	const controls = useAnimation();
 
 	useEffect(() => {
 		if (loaded) {
 			controls.start('visible');
-			controls.start('visible');
+			control?.start('visible');
 		}
 	}, [loaded]);
+
 	return (
-		<React.Fragment>
+		<Box bg="purple-500">
 			<If
 				condition={!loaded}
-				then={<Box height="100vh" width="100vw" bg="purple-500" position="fixed" zIndex={5} />}
+				then={<Box height="100vh" width="100vw" bg="purple-500" position="fixed" zIndex={20} />}
 			/>
-			<Box height="100vh" pt="19.2rem" column>
+			<Box height="100vh" pt="19.2rem" column bg="purple-500" className="home-body" position="relative">
 				<motion.div
 					variants={{
 						hidden: {
@@ -36,10 +41,10 @@ const HomeContainer = ({ control }) => {
 					initial="hidden"
 					transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
 				>
-					<Box position="fixed" left="-150px" top="-450px" zIndex={2}>
+					<Box position="absolute" left="-150px" top="-450px" zIndex={2}>
 						<BlurSVG />
 					</Box>
-					<Box position="fixed" right="-550px" top="-350px" zIndex={2}>
+					<Box position="absolute" right="-550px" top="-350px" zIndex={2}>
 						<BlurSVG />
 					</Box>
 				</motion.div>
@@ -54,13 +59,17 @@ const HomeContainer = ({ control }) => {
 						animate={controls}
 						initial="hidden"
 						transition={{ duration: 1.2, delay: 0, ease: 'easeInOut' }}
-						onLoad={() => setLoaded(true)}
+						onLoad={() => {
+							console.log('loaded');
+							setLoaded(true);
+						}}
 						src="https://my.spline.design/wave-1b2723a2aaef61b7d7136bd5358721fa/"
 						frameBorder="0"
 						width="100%"
 						height="100%"
 					></motion.iframe>
 				</Box>
+
 				<If
 					condition={loaded}
 					then={
@@ -124,7 +133,43 @@ const HomeContainer = ({ control }) => {
 					}
 				/>
 			</Box>
-		</React.Fragment>
+			<Box bg="highlight" position="relative" pl="wl" py="wl" row zIndex={15} pr="wl" between overflow="hidden">
+				<Box position="absolute" left="-20%" top="-170%" transform="scale(0.7)">
+					<BlurSVG />
+				</Box>
+				<Box position="absolute" right="-30%" bottom="-150%" transform="scale(0.6)">
+					<BlurSVG />
+				</Box>
+				<Box row alignItems="center" justifyContent="space-between">
+					<CircleOpacity />
+					<Text as="h5" maxWidth="24rem" ml="mxl">
+						Transparent systems with nothing under the carpet.
+					</Text>
+				</Box>
+				<Box row alignItems="center" justifyContent="space-between">
+					<ExponentBox />
+					<Text as="h5" maxWidth="33rem" ml="mxl">
+						Acting as a catalyst to a more transparent, decentralized and sustainable future.{' '}
+					</Text>
+				</Box>
+				<Box row alignItems="center" justifyContent="space-between">
+					<SetCenter />
+					<Text as="h5" maxWidth="28rem" ml="mxl">
+						Driven by innovation and technology towards comsumer betterment.
+					</Text>
+				</Box>
+			</Box>
+			<Box mt="wl" pl="7.2rem">
+				<Text as="h3" color="green-200">
+					Our Work
+				</Text>
+				{WORKS.map((work) => (
+					<Box mt="ws">
+						<WorksCard {...work} />
+					</Box>
+				))}
+			</Box>
+		</Box>
 	);
 };
 

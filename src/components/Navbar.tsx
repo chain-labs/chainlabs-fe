@@ -4,13 +4,15 @@ import LogoSVG from 'svgs/logo.svg';
 import ChainlabsSVG from 'svgs/chainlabs.svg';
 import Text from './Text';
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-const Navbar = ({ controls }: { controls?: any }) => {
+const Navbar = () => {
 	const [scrolled, setScrolled] = useState(false);
+	const controls = useAnimation();
 	const navbarRef = useRef();
 
 	useEffect(() => {
+		controls.start('visible');
 		window.addEventListener('scroll', () => {
 			const scrollPosition = window.scrollY;
 			if (scrollPosition > window.innerHeight) {
@@ -60,6 +62,7 @@ const Navbar = ({ controls }: { controls?: any }) => {
 					}
 				}
 			`}
+			zIndex={10}
 			ref={navbarRef}
 		>
 			<motion.div
