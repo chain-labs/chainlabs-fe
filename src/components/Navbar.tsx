@@ -62,7 +62,7 @@ const Navbar = () => {
 					}
 				}
 			`}
-			zIndex={10}
+			zIndex={30}
 			ref={navbarRef}
 		>
 			<motion.div
