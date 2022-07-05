@@ -1,5 +1,6 @@
 import Box from 'src/components/Box';
 import dynamic from 'next/dynamic';
+import React from 'react';
 const MemberCard = dynamic(() => import('src/components/MemberCard'));
 const MEMBERS = [
 	{
@@ -57,13 +58,15 @@ const CardsPage = () => {
 	return (
 		<Box bg="purple-500" row flexWrap="wrap" alignItems="center" minHeight="100vh" mx="auto" px="wl">
 			{MEMBERS.map((member) => (
-				<MemberCard
-					image={member.image}
-					name={member.name}
-					role={member.role}
-					linkedInUrl={member.linkedInUrl}
-					twitterUrl={member.twitterUrl}
-				/>
+				<React.Fragment>
+					<MemberCard
+						image={member.image}
+						name={member.name}
+						role={member.role}
+						linkedInUrl={member.linkedInUrl}
+						twitterUrl={member.twitterUrl}
+					/>
+				</React.Fragment>
 			))}
 		</Box>
 	);
