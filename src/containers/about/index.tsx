@@ -116,14 +116,7 @@ const About = () => {
 				<Text as="h1" color="green-200">
 					Our wonderful team
 				</Text>
-				<Box
-					row
-					flexWrap="wrap"
-					// alignItems="center"
-					// justifyContent={{ mobS: 'space-around', tabS: 'normal' }}
-					mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '48rem' }}
-					mt="1.4rem"
-				>
+				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '48rem' }} mt="1.4rem">
 					{MEMBERS.map((member) => (
 						<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
 							<MemberCard
