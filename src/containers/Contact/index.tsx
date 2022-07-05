@@ -13,7 +13,7 @@ const Contact = () => {
 			zIndex={1}
 		>
 			<Box
-				// display={{ mobS: 'none', deskM: 'block' }}
+				display={{ mobS: 'none', deskM: 'block' }}
 				position="absolute"
 				width="40.9rem"
 				height="27.4rem"
