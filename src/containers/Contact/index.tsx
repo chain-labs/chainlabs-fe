@@ -32,12 +32,14 @@ const Contact = () => {
 					<Text as="b1" mt="mxxxl" color="grey-100">
 						Reach out to us to step in the decentralized world. Fill out the form with your enquiries or
 						email us at{' '}
-						<Box as="span" color="green-200">
+						<Box as="a" color="green-200" href="mailto:hello@chainlabs.in">
 							hello@chainlabs.in
 						</Box>{' '}
 						You can also schedule a call clicking{' '}
-						<Box as="span" color="green-100">
-							here.
+						<Box as="a" href="/contact/calendly" target="_blank" cursor="pointer">
+							<Box as="span" color="green-200">
+								here.
+							</Box>
 						</Box>
 					</Text>
 				</Box>

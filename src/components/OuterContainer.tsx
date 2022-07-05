@@ -1,15 +1,59 @@
 import Box from 'components/Box';
 import Image from 'next/image';
 import { ArrowRight } from 'phosphor-react';
-import React from 'react';
+import React, { useState } from 'react';
+import { validateEmail } from 'src/containers/Contact/components/validEmail';
 import theme from 'src/styleguide/theme';
 import InputBox from './InputBox';
 import Text from './Text';
+import toast, { Toaster } from 'react-hot-toast';
 
 const OuterContainer = ({ children, bg }) => {
+	const [email, setEmail] = useState('');
+	const [color, setColor] = useState('green-400');
+
+	const addEmail = async () => {
+		const valid = await validateEmail(email);
+		if (valid) {
+			const data = {
+				name: '',
+				email: '',
+				query: '',
+				message: '',
+				singleemail: email,
+			};
+			try {
+				const res = await fetch('https://sheet.best/api/sheets/edf1463f-31ed-47de-9466-a73c7103296f', {
+					method: 'POST',
+					headers: {
+						'Content-type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				});
+				if (!res.ok) {
+					console.log('Error Occured');
+					toast.error('Error Occured');
+				} else {
+					toast.success('Our team will soon contact you');
+					setEmail('');
+				}
+			} catch (err) {
+				console.log(err);
+				toast.error('Error Occured');
+			}
+		} else {
+			toast.error('Invalid Email');
+		}
+	};
 	return (
 		<Box bg={bg} minHeight="100vh">
 			<Box>
+				<Toaster
+					position="top-center"
+					toastOptions={{
+						duration: 5000,
+					}}
+				/>
 				<Box>{children}</Box>
 				<Box
 					bg="#0D0619"
@@ -43,10 +87,15 @@ const OuterContainer = ({ children, bg }) => {
 								</Text>
 								<Box row>
 									<Box zIndex={0} position="absolute">
-										<InputBox width={{ mobS: '32rem', tabL: '36rem' }} />
+										<InputBox
+											width={{ mobS: '32rem', tabL: '36rem' }}
+											value={email}
+											setValue={setEmail}
+											setColor={setColor}
+										/>
 									</Box>
 									<Box mt="2.3rem" center zIndex={1} ml={{ mobS: '80%', tabL: '90%' }}>
-										<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
+										<ArrowRight size={24} color={theme.colors[color]} />{' '}
 									</Box>
 								</Box>
 								<Text as="c1" mt="mxxxl" display={{ mobS: 'none', tabS: 'block' }} color="grey-200">
@@ -113,9 +162,14 @@ const OuterContainer = ({ children, bg }) => {
 								products.
 							</Text>
 							<Box row>
-								<InputBox width={{ tabL: '36rem' }} />
-								<Box mt="1.7rem" center zIndex={1} ml="-10%">
-									<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
+								<InputBox
+									width={{ tabL: '36rem' }}
+									value={email}
+									setValue={setEmail}
+									setColor={setColor}
+								/>
+								<Box mt="1.7rem" center zIndex={1} ml="-10%" onClick={addEmail} cursor="pointer">
+									<ArrowRight size={24} color={theme.colors[color]} />{' '}
 								</Box>
 							</Box>
 							<Text as="c1" mt="mxxxl" color="grey-200">

@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import Box from 'src/components/Box';
 import Dropdown from 'src/components/Dropdown';
 import Text from 'src/components/Text';
 import TextInput from 'src/components/TextInput';
 import Button from 'src/containers/home/components/Button';
+import { validateEmail } from './validEmail';
 
 const Form = () => {
 	const [query, setQuery] = useState();
 	const [name, setName] = useState();
 	const [email, setEmail] = useState();
 	const [message, setMessage] = useState();
+	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = async () => {
+		setLoading(true);
 		const valid = await validateEmail(email);
 		if (valid) {
 			const data = {
@@ -30,31 +34,17 @@ const Form = () => {
 				});
 				if (!res.ok) {
 					console.log('Error Occured');
+					toast.error('Error Occured');
+				} else {
+					toast.success('Message sent successfully');
 				}
 			} catch (err) {
 				console.log(err);
 			}
+		} else {
+			toast.error('Invalid Email');
 		}
-	};
-
-	const validateEmail = async (email) => {
-		const re =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		const res = await fetch('https://email-validator-0.herokuapp.com/email-verify', {
-			method: 'POST',
-			body: JSON.stringify({ email: email }),
-			mode: 'cors',
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				'content-type': 'application/json',
-			},
-		});
-		console.log(res);
-		const json = await res.json();
-		console.log(json.status);
-		console.log(re.test(String(email).toLowerCase()));
-		console.log(re.test(String(email).toLowerCase()) && json.status);
-		return re.test(String(email).toLowerCase()) && json.status;
+		setLoading(false);
 	};
 
 	return (
@@ -86,7 +76,7 @@ const Form = () => {
 			<Button
 				width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 				height="56px"
-				text="Send Message"
+				text={loading ? 'Sending Message....' : 'Send Message'}
 				mt={{ mobS: 'mxl', tabL: 'wxs', deskM: 'wm' }}
 				onClick={handleSubmit}
 			></Button>
