@@ -9,10 +9,11 @@ import CircleOpacity from 'svgs/circle-opacity.svg';
 import ExponentBox from 'svgs/exponent-box.svg';
 import SetCenter from 'svgs/set-center.svg';
 import { eases, variants } from './animation';
-import { WORKS } from './constants';
+import { BLOGS, WORKS } from './constants';
 import WorksCard from 'src/components/WorkCard';
+import Blogcard from 'src/components/Blogcard';
 
-const HomeContainer = ({ control }: { control: AnimationControls }) => {
+const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 	const [loaded, setLoaded] = useState(false);
 	const controls = useAnimation();
 
@@ -159,7 +160,7 @@ const HomeContainer = ({ control }: { control: AnimationControls }) => {
 					</Text>
 				</Box>
 			</Box>
-			<Box mt="wl" pl="7.2rem">
+			<Box my="wl" pl="7.2rem">
 				<Text as="h3" color="green-200">
 					Our Work
 				</Text>
@@ -168,6 +169,52 @@ const HomeContainer = ({ control }: { control: AnimationControls }) => {
 						<WorksCard {...work} />
 					</Box>
 				))}
+			</Box>
+			<Box py="wl" pl="wl" column>
+				<Text as="h3" color="green-200">
+					Blogs
+				</Text>
+				<Box my="ws" row>
+					{BLOGS.map((blog, idx) => (
+						<Box key={idx}>
+							<Box ml={idx !== 0 ? 'ws' : '0'} column>
+								<Blogcard {...blog} />
+								<If
+									condition={idx === BLOGS.length - 1}
+									then={
+										<Text
+											as="btn1"
+											color="green-200"
+											textDecoration="underline"
+											alignSelf="flex-end"
+											mt="mxl"
+										>
+											View All
+										</Text>
+									}
+								/>
+							</Box>
+						</Box>
+					))}
+				</Box>
+			</Box>
+			<Box bg="highlight" position="relative" overflow="hidden" px="wl" py="wl">
+				<Box position="absolute" transform="scale(0.5) rotate(45deg)" bottom="-120%" left="20%">
+					<BlurSVG />
+				</Box>
+				<Box position="absolute">
+					<BlurSVG />
+				</Box>
+				<Box row between>
+					<Text as="h2" color="green-200">
+						Have a problem for us to solve?
+					</Text>
+					<Box bg="green-200" py="1.75rem" px="5rem" borderRadius="4px">
+						<Text as="btn1" color="purple-500">
+							Get in Touch
+						</Text>
+					</Box>
+				</Box>
 			</Box>
 		</Box>
 	);
