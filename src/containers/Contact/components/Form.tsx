@@ -18,28 +18,32 @@ const Form = () => {
 		setLoading(true);
 		const valid = await validateEmail(email);
 		if (valid) {
-			const data = {
-				name: name,
-				email: email,
-				query: query,
-				message: message,
-			};
-			try {
-				const res = await fetch('https://sheet.best/api/sheets/edf1463f-31ed-47de-9466-a73c7103296f', {
-					method: 'POST',
-					headers: {
-						'Content-type': 'application/json',
-					},
-					body: JSON.stringify(data),
-				});
-				if (!res.ok) {
-					console.log('Error Occured');
-					toast.error('Error Occured');
-				} else {
-					toast.success('Message sent successfully');
+			if (name != '' && query != '' && message != '') {
+				const data = {
+					name: name,
+					email: email,
+					query: query,
+					message: message,
+				};
+				try {
+					const res = await fetch('https://sheet.best/api/sheets/edf1463f-31ed-47de-9466-a73c7103296f', {
+						method: 'POST',
+						headers: {
+							'Content-type': 'application/json',
+						},
+						body: JSON.stringify(data),
+					});
+					if (!res.ok) {
+						console.log('Error Occured');
+						toast.error('Error Occured');
+					} else {
+						toast.success('Message sent successfully');
+					}
+				} catch (err) {
+					console.log(err);
 				}
-			} catch (err) {
-				console.log(err);
+			} else {
+				toast.error('Please fill all details');
 			}
 		} else {
 			toast.error('Invalid Email');
