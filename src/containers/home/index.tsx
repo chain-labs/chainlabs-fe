@@ -30,7 +30,14 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				condition={!loaded}
 				then={<Box height="100vh" width="100vw" bg="purple-500" position="fixed" zIndex={20} />}
 			/>
-			<Box height="100vh" pt="19.2rem" column bg="purple-500" className="home-body" position="relative">
+			<Box
+				height="100vh"
+				pt={{ mobS: '17.2rem', tabS: '19.2rem' }}
+				column
+				bg="purple-500"
+				className="home-body"
+				position="relative"
+			>
 				<motion.div
 					variants={{
 						hidden: {
@@ -49,7 +56,14 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						<BlurSVG />
 					</Box>
 				</motion.div>
-				<Box overflowY="hidden" position="absolute" top="0" height="100vh" width="100vw">
+				<Box
+					overflowY="hidden"
+					position="absolute"
+					top="0"
+					left={{ mobS: '-50%', tabS: '0' }}
+					height="100vh"
+					width="200vw"
+				>
 					<motion.iframe
 						variants={{
 							hidden: {
@@ -75,13 +89,13 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					condition={loaded}
 					then={
 						<Box
-							mx="auto"
+							mx={{ mobS: 'mxl', tabS: 'auto' }}
 							maxWidth={{ mobS: '29.4rem', tabS: '46rem', deskM: '65.2rem' }}
 							center
 							column
 							zIndex={2}
 						>
-							<Text as="h1" mb="mm" textAlign="center">
+							<Text as="h1" mb={{ mobS: 'ms', tabS: 'mm' }} textAlign={{ mobS: 'start', tabS: 'center' }}>
 								<SpanText duration={0.2} mr="ms">
 									Decentralized
 								</SpanText>
@@ -110,7 +124,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 								<Text
 									as="b1"
 									color="grey-100"
-									textAlign="center"
+									textAlign={{ mobS: 'start', tabS: 'center' }}
 									maxWidth={{ mobS: '29.4rem', tabS: '46rem', deskM: '60rem' }}
 									mb="mxxxl"
 								>
@@ -118,18 +132,24 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 									decentralized products.
 								</Text>
 							</motion.div>
-							<motion.div
+							<Box
+								as={motion.div}
+								alignSelf="flex-start"
 								variants={{ hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0 } }}
 								initial="hidden"
 								animate="visible"
 								transition={{ duration: 0.6, delay: 1.8, ease: 'easeOut' }}
 							>
-								<Box bg="green-200" px="4.4rem" py="mm" color="purple-500" borderRadius="4px">
-									<Text fontSize="20px" lineHeight="24px" fontWeight="medium">
-										Get in touch
-									</Text>
+								<Box
+									bg="green-200"
+									px={{ mobS: '3.6rem', tabS: '4.4rem' }}
+									py="mm"
+									color="purple-500"
+									borderRadius="4px"
+								>
+									<Text as="btn1">Get in touch</Text>
 								</Box>
-							</motion.div>
+							</Box>
 						</Box>
 					}
 				/>
@@ -156,7 +176,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				<Box row alignItems="center" justifyContent="space-between">
 					<SetCenter />
 					<Text as="h5" maxWidth="28rem" ml="mxl">
-						Driven by innovation and technology towards comsumer betterment.
+						Driven by innovation and technology towards consumer betterment.
 					</Text>
 				</Box>
 			</Box>
