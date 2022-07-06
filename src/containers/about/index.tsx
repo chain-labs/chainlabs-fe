@@ -76,7 +76,7 @@ const About = () => {
 				flexDirection={{ mobS: 'column-reverse', tabL: 'row' }}
 			>
 				<Box width={{ mobS: '29.57rem', tabL: '39rem', deskM: '48rem' }} mr="5.2rem">
-					<Text as="h1" color="green-200" mt={{ monbS: 'ml', tabL: '0' }}>
+					<Text as="h1" color="green-200" mt={{ mobS: 'ml', tabL: '0' }}>
 						Who we are
 					</Text>
 					<Text as="b2" color="grey-100" mt={{ mobS: 'ms', tabL: 'wl' }}>
