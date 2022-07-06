@@ -36,7 +36,7 @@ const Contact = () => {
 							hello@chainlabs.in
 						</Box>{' '}
 						You can also schedule a call clicking{' '}
-						<Box as="a" href="/contact/calendly" target="_blank" cursor="pointer">
+						<Box as="a" href="/contact/calendly" cursor="pointer">
 							<Box as="span" color="green-200">
 								here.
 							</Box>
