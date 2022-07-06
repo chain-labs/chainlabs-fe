@@ -1,9 +1,16 @@
 import { ArrowRight } from 'phosphor-react';
 import React from 'react';
 import theme from 'src/styleguide/theme';
-import Box from './Box';
+import Box, { BoxProps } from './Box';
 
-const InputBox = ({ width }) => {
+interface Props extends BoxProps {
+	setValue: (any) => void;
+	value: any;
+	dangerouslySetInnerHTML?: { __html: string };
+	setColor: (any) => void;
+}
+
+const InputBox = ({ width, value, setValue, setColor }) => {
 	return (
 		<Box row alignItems="center">
 			<Box
@@ -22,16 +29,11 @@ const InputBox = ({ width }) => {
 					}
 				`}
 				color={theme.colors['green-100']}
+				onChange={(e) => setValue(e.target.value)}
+				onFocus={() => setColor('green-100')}
+				onBlur={() => setColor('green-400')}
+				value={value}
 			></Box>
-			{/* <Box
-					mt="15px"
-					center
-					left="50%"
-					position="absolute"
-					// ml={{ mobS: '60%', tabS: '38%', tabL: '30%', deskS: '22%', deskM: '21%' }}
-				>
-					<ArrowRight size={24} color={theme.colors['green-400']} />{' '}
-				</Box> */}
 		</Box>
 	);
 };
