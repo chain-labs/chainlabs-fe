@@ -5,13 +5,21 @@ import ChainlabsSVG from 'svgs/chainlabs.svg';
 import Text from './Text';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { useRouter } from 'next/dist/client/router';
+import If from './If';
+import { ArrowRight } from 'phosphor-react';
+import theme from 'src/styleguide/theme';
 
 const Navbar = () => {
 	const [scrolled, setScrolled] = useState(false);
+	const [expandMenu, setExpandMenu] = useState(false);
 	const controls = useAnimation();
 	const navbarRef = useRef();
+	const router = useRouter();
 
 	useEffect(() => {
+		console.log({ path: router.pathname });
+
 		controls.start('visible');
 		window.addEventListener('scroll', () => {
 			const scrollPosition = window.scrollY;
@@ -29,7 +37,7 @@ const Navbar = () => {
 
 	return (
 		<Box
-			px="wl"
+			px={{ mobS: 'mxl', tabS: 'wl' }}
 			py="ms"
 			between
 			position={scrolled ? 'fixed' : 'absolute'}
@@ -71,7 +79,7 @@ const Navbar = () => {
 					visible: { opacity: 1 },
 				}}
 				animate={controls}
-				initial="hidden"
+				initial={router.pathname === '/' ? 'hidden' : 'visible'}
 				transition={{ duration: 0.6, ease: 'easeInOut' }}
 			>
 				<Box
@@ -89,6 +97,7 @@ const Navbar = () => {
 						css={`
 							transition: all 0.5s ease-in-out;
 						`}
+						display={{ mobS: 'none', tabS: 'block' }}
 					>
 						<ChainlabsSVG />
 					</Box>
@@ -101,7 +110,7 @@ const Navbar = () => {
 					visible: { opacity: 1 },
 				}}
 				animate={controls}
-				initial="hidden"
+				initial={router.pathname === '/' ? 'hidden' : 'visible'}
 				transition={{ duration: 0.6, ease: 'easeInOut', staggerChildren: 0.2, delayChildren: 0.3 }}
 				row
 				py="mm"
@@ -109,10 +118,11 @@ const Navbar = () => {
 				css={`
 					transition: color 0.5s ease-in-out;
 				`}
+				display={{ mobS: 'none', tabS: 'flex' }}
 			>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-					initial="hidden"
+					initial={router.pathname === '/' ? 'hidden' : 'visible'}
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 }}
 				>
@@ -120,7 +130,7 @@ const Navbar = () => {
 				</motion.div>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-					initial="hidden"
+					initial={router.pathname === '/' ? 'hidden' : 'visible'}
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
 				>
@@ -130,7 +140,7 @@ const Navbar = () => {
 				</motion.div>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-					initial="hidden"
+					initial={router.pathname === '/' ? 'hidden' : 'visible'}
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
 				>
@@ -140,7 +150,7 @@ const Navbar = () => {
 				</motion.div>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-					initial="hidden"
+					initial={router.pathname === '/' ? 'hidden' : 'visible'}
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.8 }}
 				>
@@ -148,6 +158,48 @@ const Navbar = () => {
 						CONTACT
 					</Text>
 				</motion.div>
+			</Box>
+			<Box display={{ mobS: 'block', tabS: 'none' }}>
+				<Text as="c1" color={scrolled ? 'purple-500' : 'inherit'} onClick={() => setExpandMenu(true)}>
+					Menu
+				</Text>
+				<If
+					condition={expandMenu}
+					then={
+						<Box bg="purple-400" width="100vw" position="absolute" left="0" top="0" as={motion.div}>
+							<Box row alignItems="center" justifyContent="space-between" px="mxl" pt="ms">
+								<Box color={scrolled ? 'purple-500' : 'green-100'}>
+									<LogoSVG />
+								</Box>
+								<Text
+									as="c1"
+									color={scrolled ? 'purple-500' : 'inherit'}
+									onClick={() => setExpandMenu(false)}
+								>
+									Close
+								</Text>
+							</Box>
+							<Box mt="wxxs" center column mb="11rem">
+								<Box row between width="12rem" mb="mm">
+									<Text as="l1">WORK</Text>
+									<ArrowRight color={theme.colors['green-200']} size={20} />
+								</Box>
+								<Box row between width="12rem" mb="mm">
+									<Text as="l1">ABOUT</Text>
+									<ArrowRight color={theme.colors['green-200']} size={20} />
+								</Box>
+								<Box row between width="12rem" mb="mm">
+									<Text as="l1">SERVICES</Text>
+									<ArrowRight color={theme.colors['green-200']} size={20} />
+								</Box>
+								<Box row between width="12rem">
+									<Text as="l1">CONTACT</Text>
+									<ArrowRight color={theme.colors['green-200']} size={20} />
+								</Box>
+							</Box>
+						</Box>
+					}
+				/>
 			</Box>
 		</Box>
 	);
