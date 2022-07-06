@@ -8,14 +8,15 @@ import Button from 'src/containers/home/components/Button';
 import { validateEmail } from './validEmail';
 
 const Form = () => {
-	const [query, setQuery] = useState();
-	const [name, setName] = useState();
-	const [email, setEmail] = useState();
-	const [message, setMessage] = useState();
-	const [loading, setLoading] = useState(false);
+	const [query, setQuery] = useState<string>();
+	const [name, setName] = useState<string>();
+	const [email, setEmail] = useState<string>();
+	const [message, setMessage] = useState<string>();
+	const [success, setSuccess] = useState(false);
+	const [buttonText, setButtonText] = useState('Send Message');
 
 	const handleSubmit = async () => {
-		setLoading(true);
+		setButtonText('Submitting Response...');
 		const valid = await validateEmail(email);
 		if (valid) {
 			if (name != '' && query != '' && message != '') {
@@ -38,6 +39,12 @@ const Form = () => {
 						toast.error('Error Occured');
 					} else {
 						toast.success('Message sent successfully');
+						setName('');
+						setEmail('');
+						setQuery('');
+						setMessage('');
+						setSuccess(true);
+						setButtonText('Your response was submitted. Thanks!');
 					}
 				} catch (err) {
 					console.log(err);
@@ -48,7 +55,6 @@ const Form = () => {
 		} else {
 			toast.error('Invalid Email');
 		}
-		setLoading(false);
 	};
 
 	return (
@@ -80,10 +86,17 @@ const Form = () => {
 			<Button
 				width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}
 				height="56px"
-				text={loading ? 'Sending Message....' : 'Send Message'}
+				text={buttonText}
 				mt={{ mobS: 'mxl', tabL: 'wxs', deskM: 'wm' }}
 				onClick={handleSubmit}
 			></Button>
+			{success ? (
+				<Text as="b3" color="grey-100" width={{ mobS: '34.2rem', tabL: '37.7rem', deskM: '48rem' }}>
+					Your response has been saved. A Chain Labs representative will contact you shortly.
+				</Text>
+			) : (
+				''
+			)}
 		</form>
 	);
 };
