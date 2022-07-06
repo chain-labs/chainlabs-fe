@@ -8,10 +8,10 @@ import Button from 'src/containers/home/components/Button';
 import { validateEmail } from './validEmail';
 
 const Form = () => {
-	const [query, setQuery] = useState<string>();
-	const [name, setName] = useState<string>();
-	const [email, setEmail] = useState<string>();
-	const [message, setMessage] = useState<string>();
+	const [query, setQuery] = useState<any>();
+	const [name, setName] = useState<any>();
+	const [email, setEmail] = useState<any>();
+	const [message, setMessage] = useState<any>();
 	const [success, setSuccess] = useState(false);
 	const [buttonText, setButtonText] = useState('Send Message');
 
@@ -51,9 +51,11 @@ const Form = () => {
 				}
 			} else {
 				toast.error('Please fill all details');
+				setButtonText('Send Message');
 			}
 		} else {
 			toast.error('Invalid Email');
+			setButtonText('Send Message');
 		}
 	};
 

@@ -29,6 +29,7 @@ const TextInput = ({ as, value, setValue, type, name, ...restProps }: Props): JS
 			pb="mxxs"
 			{...restProps}
 			type={type}
+			value={value}
 			css={`
 				resize: none;
 				::placeholder {
