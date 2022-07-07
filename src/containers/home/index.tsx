@@ -79,8 +79,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						loop
 						muted
 						autoPlay
+						src="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Home/Spline_kQZjNVEdl.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1657201851598"
 					>
-						<source src="/static/spline.mp4"></source>
 						Your browser does not support the video tag.
 					</motion.video>
 				</Box>
@@ -139,17 +139,19 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 									animate="visible"
 									transition={{ duration: 0.6, delay: 1.5, ease: 'easeOut' }}
 								>
-									<Box
-										bg="green-200"
-										px={{ mobS: '3.6rem', tabS: '4.4rem' }}
-										py="mm"
-										color="purple-500"
-										borderRadius="4px"
-										cursor="pointer"
-										hover="green-100"
-									>
-										<Text as="btn1">Get in Touch</Text>
-									</Box>
+									<Link href="/contact" passHref>
+										<Box
+											bg="green-200"
+											px={{ mobS: '3.6rem', tabS: '4.4rem' }}
+											py="mm"
+											color="purple-500"
+											borderRadius="4px"
+											cursor="pointer"
+											hover="green-100"
+										>
+											<Text as="btn1">Get in Touch</Text>
+										</Box>
+									</Link>
 								</motion.div>
 							</Box>
 						</Box>
