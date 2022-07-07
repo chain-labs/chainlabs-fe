@@ -59,7 +59,6 @@ const CardsPage = () => {
 		<Box bg="purple-500" row flexWrap="wrap" alignItems="center" minHeight="100vh" mx="auto" px="wl">
 			{MEMBERS.map((member) => (
 				<React.Fragment>
-
 					<MemberCard
 						image={member.image}
 						name={member.name}
