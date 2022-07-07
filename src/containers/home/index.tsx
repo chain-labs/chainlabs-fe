@@ -12,9 +12,10 @@ import { eases, variants } from './animation';
 import { BLOGS, WORKS } from './constants';
 import WorksCard from 'src/components/WorkCard';
 import Blogcard from 'src/components/Blogcard';
+import Link from 'next/link';
 
 const HomeContainer = ({ control }: { control?: AnimationControls }) => {
-	const [loaded, setLoaded] = useState(false);
+	const [loaded, setLoaded] = useState(true);
 	const controls = useAnimation();
 
 	useEffect(() => {
@@ -62,32 +63,26 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				</motion.div>
 				{/* Spline Bg */}
 				<Box
-					overflowY="hidden"
+					overflow="hidden"
 					position="absolute"
-					top="0"
-					left={{ mobS: '-50%', tabS: '0' }}
+					top="0%"
+					left={{ mobS: '-20%', tabS: '0' }}
 					height="100vh"
-					width="200vw"
+					width={{ mobS: '200vw', tabS: '100vw' }}
 				>
-					<motion.iframe
-						variants={{
-							hidden: {
-								opacity: 0,
-							},
-							visible: { opacity: 1 },
-						}}
-						animate={controls}
+					<motion.video
+						variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
 						initial="hidden"
-						transition={{ duration: 1.2, delay: 0, ease: 'easeInOut' }}
-						onLoad={() => {
-							console.log('loaded');
-							setLoaded(true);
-						}}
-						src="https://my.spline.design/wave-1b2723a2aaef61b7d7136bd5358721fa/"
-						frameBorder="0"
-						width="100%"
-						height="100%"
-					></motion.iframe>
+						animate="visible"
+						transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
+						style={{ height: '100vh' }}
+						loop
+						muted
+						autoPlay
+					>
+						<source src="/static/spline.mp4"></source>
+						Your browser does not support the video tag.
+					</motion.video>
 				</Box>
 				{/* Main Hero Section */}
 				<If
@@ -96,7 +91,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						<Box
 							mx={{ mobS: 'mxl', tabS: 'auto' }}
 							maxWidth={{ mobS: '29.4rem', tabS: '46rem', deskM: '65.2rem' }}
-							center
+							alignItems="center"
 							column
 							zIndex={2}
 						>
@@ -137,23 +132,25 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 									decentralized products.
 								</Text>
 							</motion.div>
-							<Box
-								as={motion.div}
-								alignSelf="flex-start"
-								variants={{ hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0 } }}
-								initial="hidden"
-								animate="visible"
-								transition={{ duration: 0.6, delay: 1.8, ease: 'easeOut' }}
-							>
-								<Box
-									bg="green-200"
-									px={{ mobS: '3.6rem', tabS: '4.4rem' }}
-									py="mm"
-									color="purple-500"
-									borderRadius="4px"
+							<Box alignSelf={{ mobS: 'flex-start', tabS: 'center' }}>
+								<motion.div
+									variants={{ hidden: { opacity: 0, y: 60 }, visible: { opacity: 1, y: 0 } }}
+									initial="hidden"
+									animate="visible"
+									transition={{ duration: 0.6, delay: 1.5, ease: 'easeOut' }}
 								>
-									<Text as="btn1">Get in touch</Text>
-								</Box>
+									<Box
+										bg="green-200"
+										px={{ mobS: '3.6rem', tabS: '4.4rem' }}
+										py="mm"
+										color="purple-500"
+										borderRadius="4px"
+										cursor="pointer"
+										hover="green-100"
+									>
+										<Text as="btn1">Get in Touch</Text>
+									</Box>
+								</motion.div>
 							</Box>
 						</Box>
 					}
@@ -242,7 +239,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				</Box>
 			</Box>
 			{/* Our Work Section */}
-			<Box column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
+			<Box id="works" column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
 				<Box my={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }}>
 					<Text as="h3" color="green-200">
 						Our Work
@@ -255,7 +252,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				</Box>
 			</Box>
 			{/* Blogs Section */}
-			<Box center column>
+			<Box center column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
 				<Box py={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }} column>
 					<Text as="h3" color="green-200">
 						Blogs
@@ -265,22 +262,28 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 							<Box key={idx}>
 								<Box
 									ml={idx !== 0 ? { mobS: '0', tabS: 'wxs' } : '0'}
-									mt={idx !== 0 ? { mobS: 'wxs', tabS: '0' } : '0'}
+									mt={{ mobS: 'wxs', tabS: '0' }}
 									column
 								>
 									<Blogcard {...blog} />
 									<If
 										condition={idx === BLOGS.length - 1}
 										then={
-											<Text
-												as="btn1"
-												color="green-200"
-												textDecoration="underline"
-												alignSelf="flex-end"
-												mt="mxl"
+											<a
+												href="https://medium.com/@0xChainlabs"
+												target="_blank"
+												style={{ alignSelf: 'flex-end' }}
 											>
-												View All
-											</Text>
+												<Text
+													as="btn1"
+													color="green-200"
+													textDecoration="underline"
+													mt="mxl"
+													pointer
+												>
+													View All
+												</Text>
+											</a>
 										}
 									/>
 								</Box>
@@ -312,17 +315,21 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					<Text as="h2" color="green-200" textAlign={{ mobS: 'center', tabS: 'start' }}>
 						Have a problem for us to solve?
 					</Text>
-					<Box
-						bg="green-200"
-						py={{ mobS: 'ms', tabS: '1.75rem' }}
-						px={{ mobS: '3.6rem', tabS: '5rem' }}
-						borderRadius="4px"
-						mt={{ mobS: 'mxxxl', tabS: '0' }}
-					>
-						<Text as="btn1" color="purple-500">
-							Get in Touch
-						</Text>
-					</Box>
+					<Link href="/contact" passHref>
+						<Box
+							bg="green-200"
+							py={{ mobS: 'ms', tabS: '1.75rem' }}
+							px={{ mobS: '3.6rem', tabS: '5rem' }}
+							borderRadius="4px"
+							mt={{ mobS: 'mxxxl', tabS: '0' }}
+							pointer
+							hover="green-100"
+						>
+							<Text as="btn1" color="purple-500">
+								Get in Touch
+							</Text>
+						</Box>
+					</Link>
 				</Box>
 			</Box>
 		</Box>
