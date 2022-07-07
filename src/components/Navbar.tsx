@@ -168,7 +168,7 @@ const Navbar = () => {
 					then={
 						<Box bg="purple-400" width="100vw" position="absolute" left="0" top="0" as={motion.div}>
 							<Box row alignItems="center" justifyContent="space-between" px="mxl" pt="ms">
-								<Box color={scrolled ? 'purple-500' : 'green-100'}>
+								<Box color="green-100">
 									<LogoSVG />
 								</Box>
 								<Text

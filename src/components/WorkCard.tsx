@@ -57,7 +57,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 				</Box>
 				{body.map((p, index) => (
 					<React.Fragment>
-						{index !== 0 ? <Box mt="mm" /> : null}
+						{index !== 0 ? <Box mt={{ mobS: 'mxs', tabS: 'mm' }} /> : null}
 						<Text as="b3" color="grey-100">
 							{p}
 						</Text>
