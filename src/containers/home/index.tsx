@@ -25,11 +25,14 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 	}, [loaded]);
 
 	return (
+		// Outer Box
 		<Box bg="purple-500">
+			{/* Loading Overlay */}
 			<If
 				condition={!loaded}
 				then={<Box height="100vh" width="100vw" bg="purple-500" position="fixed" zIndex={20} />}
 			/>
+			{/* Hero Section */}
 			<Box
 				height="100vh"
 				pt={{ mobS: '17.2rem', tabS: '19.2rem' }}
@@ -38,6 +41,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				className="home-body"
 				position="relative"
 			>
+				{/* Blur Overlays */}
 				<motion.div
 					variants={{
 						hidden: {
@@ -56,6 +60,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						<BlurSVG />
 					</Box>
 				</motion.div>
+				{/* Spline Bg */}
 				<Box
 					overflowY="hidden"
 					position="absolute"
@@ -84,7 +89,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						height="100%"
 					></motion.iframe>
 				</Box>
-
+				{/* Main Hero Section */}
 				<If
 					condition={loaded}
 					then={
@@ -154,82 +159,166 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					}
 				/>
 			</Box>
-			<Box bg="highlight" position="relative" pl="wl" py="wl" row zIndex={15} pr="wl" between overflow="hidden">
-				<Box position="absolute" left="-20%" top="-170%" transform="scale(0.7)">
+			{/* 3 Point Features Section */}
+			<Box
+				bg="highlight"
+				position="relative"
+				px={{ mobS: '5rem', tabS: 'wl' }}
+				py="wl"
+				display="flex"
+				flexDirection={{ mobS: 'column', tabS: 'row' }}
+				zIndex={15}
+				between
+				overflow="hidden"
+			>
+				<Box
+					position="absolute"
+					left={{ mobS: '-20%', tabS: '-20%' }}
+					top={{ mobS: '-40%', tabS: '-170%' }}
+					transform="scale(0.7)"
+				>
 					<BlurSVG />
 				</Box>
-				<Box position="absolute" right="-30%" bottom="-150%" transform="scale(0.6)">
+				<Box
+					position="absolute"
+					right={{ mobS: '-25%', tabS: '-30%' }}
+					bottom={{ mobS: '-40%', tabS: '-150%' }}
+					transform="scale(0.6)"
+				>
 					<BlurSVG />
 				</Box>
-				<Box row alignItems="center" justifyContent="space-between">
+				<Box
+					display="flex"
+					flexDirection={{ mobS: 'column', tabS: 'row' }}
+					alignItems="center"
+					justifyContent="space-between"
+					mb={{ mobS: 'wxxs', tabS: '0' }}
+				>
 					<CircleOpacity />
-					<Text as="h5" maxWidth="24rem" ml="mxl">
+					<Text
+						as="h5"
+						maxWidth="24rem"
+						textAlign={{ mobS: 'center', tabS: 'start' }}
+						ml={{ mobS: '0', tabS: 'mxl' }}
+						mt={{ mobS: 'mm', tabS: '0' }}
+					>
 						Transparent systems with nothing under the carpet.
 					</Text>
 				</Box>
-				<Box row alignItems="center" justifyContent="space-between">
+				<Box
+					display="flex"
+					flexDirection={{ mobS: 'column', tabS: 'row' }}
+					alignItems="center"
+					justifyContent="space-between"
+					mb={{ mobS: 'wxxs', tabS: '0' }}
+				>
 					<ExponentBox />
-					<Text as="h5" maxWidth="33rem" ml="mxl">
+					<Text
+						as="h5"
+						maxWidth="33rem"
+						textAlign={{ mobS: 'center', tabS: 'start' }}
+						ml={{ mobS: '0', tabS: 'mxl' }}
+						mt={{ mobS: 'mm', tabS: '0' }}
+					>
 						Acting as a catalyst to a more transparent, decentralized and sustainable future.{' '}
 					</Text>
 				</Box>
-				<Box row alignItems="center" justifyContent="space-between">
+				<Box
+					display="flex"
+					flexDirection={{ mobS: 'column', tabS: 'row' }}
+					alignItems="center"
+					justifyContent="space-between"
+				>
 					<SetCenter />
-					<Text as="h5" maxWidth="28rem" ml="mxl">
+					<Text
+						as="h5"
+						maxWidth="28rem"
+						textAlign={{ mobS: 'center', tabS: 'start' }}
+						ml={{ mobS: '0', tabS: 'mxl' }}
+						mt={{ mobS: 'mm', tabS: '0' }}
+					>
 						Driven by innovation and technology towards consumer betterment.
 					</Text>
 				</Box>
 			</Box>
-			<Box my="wl" pl="7.2rem">
-				<Text as="h3" color="green-200">
-					Our Work
-				</Text>
-				{WORKS.map((work) => (
-					<Box mt="ws">
-						<WorksCard {...work} />
-					</Box>
-				))}
-			</Box>
-			<Box py="wl" pl="wl" column>
-				<Text as="h3" color="green-200">
-					Blogs
-				</Text>
-				<Box my="ws" row>
-					{BLOGS.map((blog, idx) => (
-						<Box key={idx}>
-							<Box ml={idx !== 0 ? 'ws' : '0'} column>
-								<Blogcard {...blog} />
-								<If
-									condition={idx === BLOGS.length - 1}
-									then={
-										<Text
-											as="btn1"
-											color="green-200"
-											textDecoration="underline"
-											alignSelf="flex-end"
-											mt="mxl"
-										>
-											View All
-										</Text>
-									}
-								/>
-							</Box>
+			{/* Our Work Section */}
+			<Box column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
+				<Box my={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }}>
+					<Text as="h3" color="green-200">
+						Our Work
+					</Text>
+					{WORKS.map((work) => (
+						<Box mt="ws">
+							<WorksCard {...work} />
 						</Box>
 					))}
 				</Box>
 			</Box>
-			<Box bg="highlight" position="relative" overflow="hidden" px="wl" py="wl">
-				<Box position="absolute" transform="scale(0.5) rotate(45deg)" bottom="-120%" left="20%">
+			{/* Blogs Section */}
+			<Box center column>
+				<Box py={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }} column>
+					<Text as="h3" color="green-200">
+						Blogs
+					</Text>
+					<Box my={{ mobS: '0', tabS: 'ws' }} display="flex" flexDirection={{ mobS: 'column', tabS: 'row' }}>
+						{BLOGS.map((blog, idx) => (
+							<Box key={idx}>
+								<Box
+									ml={idx !== 0 ? { mobS: '0', tabS: 'wxs' } : '0'}
+									mt={idx !== 0 ? { mobS: 'wxs', tabS: '0' } : '0'}
+									column
+								>
+									<Blogcard {...blog} />
+									<If
+										condition={idx === BLOGS.length - 1}
+										then={
+											<Text
+												as="btn1"
+												color="green-200"
+												textDecoration="underline"
+												alignSelf="flex-end"
+												mt="mxl"
+											>
+												View All
+											</Text>
+										}
+									/>
+								</Box>
+							</Box>
+						))}
+					</Box>
+				</Box>
+			</Box>
+			{/* Contact Section */}
+			<Box
+				bg="highlight"
+				position="relative"
+				overflow="hidden"
+				px={{ mobS: '6.5rem', tabS: 'wl' }}
+				py={{ mobS: 'wxs', tabS: 'wl' }}
+			>
+				<Box
+					position="absolute"
+					transform="scale(0.5) rotate(45deg)"
+					bottom={{ mobS: '-150%', tabS: '-120%' }}
+					left={{ mobS: '-110%', tabS: '20%' }}
+				>
 					<BlurSVG />
 				</Box>
 				<Box position="absolute">
 					<BlurSVG />
 				</Box>
-				<Box row between>
-					<Text as="h2" color="green-200">
+				<Box between flexDirection={{ mobS: 'column', tabS: 'row' }}>
+					<Text as="h2" color="green-200" textAlign={{ mobS: 'center', tabS: 'start' }}>
 						Have a problem for us to solve?
 					</Text>
-					<Box bg="green-200" py="1.75rem" px="5rem" borderRadius="4px">
+					<Box
+						bg="green-200"
+						py={{ mobS: 'ms', tabS: '1.75rem' }}
+						px={{ mobS: '3.6rem', tabS: '5rem' }}
+						borderRadius="4px"
+						mt={{ mobS: 'mxxxl', tabS: '0' }}
+					>
 						<Text as="btn1" color="purple-500">
 							Get in Touch
 						</Text>
