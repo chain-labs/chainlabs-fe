@@ -7,6 +7,7 @@ import theme from 'src/styleguide/theme';
 import InputBox from './InputBox';
 import Text from './Text';
 import toast, { Toaster } from 'react-hot-toast';
+import LinkComp from './LinkComp';
 
 const OuterContainer = ({ children, bg }) => {
 	const [email, setEmail] = useState('');
@@ -108,52 +109,27 @@ const OuterContainer = ({ children, bg }) => {
 								<Text as="h6" mb="mm" color="green-100">
 									Company
 								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Home
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									About
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Services
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Contact
-								</Text>
+								<LinkComp text="Home" link="/home" />
+								<LinkComp text="About" link="/about" />
+								<LinkComp text="Services" link="/services" />
+								<LinkComp text="Contact" link="/contact" />
 							</Box>
 							<Box column mr={{ mobS: 'wm', tabS: 'wxs' }}>
 								<Text as="h6" mb="mm" color="green-100">
 									Social
 								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Twitter
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Linkedin
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Medium
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Github
-								</Text>
+								<LinkComp text="Twitter" link="https://twitter.com/SimplrDAO" />
+								<LinkComp text="Linkedin" link="https://www.linkedin.com/company/0xchainlabs/" />
+								<LinkComp text="Medium" link="https://blog.chainlabs.in/" />
+								<LinkComp text="Github" link="https://github.com/chain-labs" />
 							</Box>
 							<Box column mt={{ mobS: 'mxl', mobL: '0' }}>
 								<Text as="h6" mb="mm" color="green-100">
 									Work
 								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Simplr Collection
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Primobots
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									Daughters of Blockchain
-								</Text>
-								<Text as="b3" mb="mxs" color="grey-100">
-									IPVC
-								</Text>
+								<LinkComp text="Simplr Collection" link="https://www.simplrcollection.com/" />
+								<LinkComp text="Primobots" link="https://primobots.io/" />
+								<LinkComp text="Daughters of Blockchain" link="https://daughtersofblockchain.com/" />
 							</Box>
 						</Box>
 						<Box width="36rem" display={{ mobS: 'none', deskM: 'block' }}>
