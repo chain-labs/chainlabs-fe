@@ -109,7 +109,7 @@ const OuterContainer = ({ children, bg }) => {
 								<Text as="h6" mb="mm" color="green-100">
 									Company
 								</Text>
-								<LinkComp text="Home" link="/home" />
+								<LinkComp text="Home" link="/" />
 								<LinkComp text="About" link="/about" />
 								<LinkComp text="Services" link="/services" />
 								<LinkComp text="Contact" link="/contact" />
