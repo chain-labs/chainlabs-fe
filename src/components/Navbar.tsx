@@ -138,7 +138,7 @@ const Navbar = () => {
 					}}
 				>
 					<Text as="c1" pointer>
-						PRODUCTS
+						OUR WORK
 					</Text>
 				</motion.div>
 				<motion.div
@@ -211,7 +211,7 @@ const Navbar = () => {
 										setExpandMenu(false);
 									}}
 								>
-									<Text as="l1">WORK</Text>
+									<Text as="l1">OUR WORK</Text>
 									<ArrowRight color={theme.colors['green-200']} size={20} />
 								</Box>
 								<Link href="/about" passHref>
