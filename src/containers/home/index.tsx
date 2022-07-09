@@ -165,174 +165,201 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				position="relative"
 				px={{ mobS: '5rem', tabS: 'wl' }}
 				py="wl"
-				display="flex"
-				flexDirection={{ mobS: 'column', tabS: 'row' }}
 				zIndex={15}
-				between
+				center
 				overflow="hidden"
 			>
 				<Box
-					position="absolute"
-					left={{ mobS: '-20%', tabS: '-20%' }}
-					top={{ mobS: '-40%', tabS: '-170%' }}
-					transform="scale(0.7)"
-				>
-					<BlurSVG />
-				</Box>
-				<Box
-					position="absolute"
-					right={{ mobS: '-25%', tabS: '-30%' }}
-					bottom={{ mobS: '-40%', tabS: '-150%' }}
-					transform="scale(0.6)"
-				>
-					<BlurSVG />
-				</Box>
-				<Box
 					display="flex"
 					flexDirection={{ mobS: 'column', tabS: 'row' }}
-					alignItems="center"
-					justifyContent="space-between"
-					mb={{ mobS: 'wxxs', tabS: '0' }}
+					between
+					width={{ mobS: 'unset', deskM: '125.5rem' }}
 				>
-					<CircleOpacity />
-					<Text
-						as="h5"
-						maxWidth="24rem"
-						textAlign={{ mobS: 'center', tabS: 'start' }}
-						ml={{ mobS: '0', tabS: 'mxl' }}
-						mt={{ mobS: 'mm', tabS: '0' }}
+					<Box
+						position="absolute"
+						left={{ mobS: '-20%', tabS: '-20%' }}
+						top={{ mobS: '-40%', tabS: '-170%' }}
+						transform="scale(0.7)"
 					>
-						Transparent systems with nothing under the carpet.
-					</Text>
-				</Box>
-				<Box
-					display="flex"
-					flexDirection={{ mobS: 'column', tabS: 'row' }}
-					alignItems="center"
-					justifyContent="space-between"
-					mb={{ mobS: 'wxxs', tabS: '0' }}
-				>
-					<ExponentBox />
-					<Text
-						as="h5"
-						maxWidth="33rem"
-						textAlign={{ mobS: 'center', tabS: 'start' }}
-						ml={{ mobS: '0', tabS: 'mxl' }}
-						mt={{ mobS: 'mm', tabS: '0' }}
+						<BlurSVG />
+					</Box>
+					<Box
+						position="absolute"
+						right={{ mobS: '-25%', tabS: '-30%' }}
+						bottom={{ mobS: '-40%', tabS: '-150%' }}
+						transform="scale(0.6)"
 					>
-						Acting as a catalyst to a more transparent, decentralized and sustainable future.{' '}
-					</Text>
-				</Box>
-				<Box
-					display="flex"
-					flexDirection={{ mobS: 'column', tabS: 'row' }}
-					alignItems="center"
-					justifyContent="space-between"
-				>
-					<SetCenter />
-					<Text
-						as="h5"
-						maxWidth="28rem"
-						textAlign={{ mobS: 'center', tabS: 'start' }}
-						ml={{ mobS: '0', tabS: 'mxl' }}
-						mt={{ mobS: 'mm', tabS: '0' }}
+						<BlurSVG />
+					</Box>
+					<Box
+						display="flex"
+						flexDirection={{ mobS: 'column', tabS: 'row' }}
+						alignItems="center"
+						justifyContent="space-between"
+						mb={{ mobS: 'wxxs', tabS: '0' }}
 					>
-						Driven by innovation and technology towards consumer betterment.
-					</Text>
+						<CircleOpacity />
+						<Text
+							as="h5"
+							maxWidth="24rem"
+							textAlign={{ mobS: 'center', tabS: 'start' }}
+							ml={{ mobS: '0', tabS: 'mxl' }}
+							mt={{ mobS: 'mm', tabS: '0' }}
+						>
+							Transparent systems with nothing under the carpet.
+						</Text>
+					</Box>
+					<Box
+						display="flex"
+						flexDirection={{ mobS: 'column', tabS: 'row' }}
+						alignItems="center"
+						justifyContent="space-between"
+						mb={{ mobS: 'wxxs', tabS: '0' }}
+					>
+						<ExponentBox />
+						<Text
+							as="h5"
+							maxWidth="33rem"
+							textAlign={{ mobS: 'center', tabS: 'start' }}
+							ml={{ mobS: '0', tabS: 'mxl' }}
+							mt={{ mobS: 'mm', tabS: '0' }}
+						>
+							Acting as a catalyst to a more transparent, decentralized and sustainable future.{' '}
+						</Text>
+					</Box>
+					<Box
+						display="flex"
+						flexDirection={{ mobS: 'column', tabS: 'row' }}
+						alignItems="center"
+						justifyContent="space-between"
+					>
+						<SetCenter />
+						<Text
+							as="h5"
+							maxWidth="28rem"
+							textAlign={{ mobS: 'center', tabS: 'start' }}
+							ml={{ mobS: '0', tabS: 'mxl' }}
+							mt={{ mobS: 'mm', tabS: '0' }}
+						>
+							Driven by innovation and technology towards consumer betterment.
+						</Text>
+					</Box>
 				</Box>
 			</Box>
 			{/* Our Work Section */}
-			<Box id="works" column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
-				<Box my={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }}>
-					<Text as="h3" color="green-200">
-						Our Work
-					</Text>
-					{WORKS.map((work) => (
-						<Box mt="ws">
-							<WorksCard {...work} />
-						</Box>
-					))}
-				</Box>
-			</Box>
-			{/* Blogs Section */}
-			<Box center column alignItems={{ mobS: 'center', tabS: 'flex-start' }}>
-				<Box py={{ mobS: 'wxs', tabS: 'wl' }} pl={{ mobS: '0', tabS: 'wl' }} column>
-					<Text as="h3" color="green-200">
-						Blogs
-					</Text>
-					<Box my={{ mobS: '0', tabS: 'ws' }} display="flex" flexDirection={{ mobS: 'column', tabS: 'row' }}>
-						{BLOGS.map((blog, idx) => (
-							<Box key={idx}>
-								<Box
-									ml={idx !== 0 ? { mobS: '0', tabS: 'wxs' } : '0'}
-									mt={{ mobS: 'wxs', tabS: '0' }}
-									column
-								>
-									<Blogcard {...blog} />
-									<If
-										condition={idx === BLOGS.length - 1}
-										then={
-											<a
-												href="https://medium.com/@0xChainlabs"
-												target="_blank"
-												style={{ alignSelf: 'flex-end' }}
-											>
-												<Text
-													as="btn1"
-													color="green-200"
-													textDecoration="underline"
-													mt="mxl"
-													pointer
-												>
-													View All
-												</Text>
-											</a>
-										}
-									/>
-								</Box>
+			<Box width="100vw" center>
+				<Box
+					id="works"
+					column
+					alignItems={{ mobS: 'center', tabS: 'flex-start' }}
+					width={{ mobS: 'unset', deskM: '125.5rem' }}
+				>
+					<Box my={{ mobS: 'wxs', tabS: 'wl' }}>
+						<Text as="h3" color="green-200">
+							Our Work
+						</Text>
+						{WORKS.map((work) => (
+							<Box mt="ws">
+								<WorksCard {...work} />
 							</Box>
 						))}
 					</Box>
 				</Box>
 			</Box>
+			{/* Blogs Section */}
+			<Box width="100vw" center>
+				<Box
+					center
+					column
+					alignItems={{ mobS: 'center', tabS: 'flex-start' }}
+					width={{ mobS: 'unset', deskM: '125.5rem' }}
+				>
+					<Box py={{ mobS: 'wxs', tabS: 'wl' }} column>
+						<Text as="h3" color="green-200">
+							Blogs
+						</Text>
+						<Box
+							my={{ mobS: '0', tabS: 'ws' }}
+							display="flex"
+							flexDirection={{ mobS: 'column', tabS: 'row' }}
+						>
+							{BLOGS.map((blog, idx) => (
+								<Box key={idx}>
+									<Box
+										ml={idx !== 0 ? { mobS: '0', tabS: 'wxs' } : '0'}
+										mt={{ mobS: 'wxs', tabS: '0' }}
+										column
+									>
+										<Blogcard {...blog} />
+										<If
+											condition={idx === BLOGS.length - 1}
+											then={
+												<a
+													href="https://medium.com/@0xChainlabs"
+													target="_blank"
+													style={{ alignSelf: 'flex-end' }}
+												>
+													<Text
+														as="btn1"
+														color="green-200"
+														textDecoration="underline"
+														mt="mxl"
+														pointer
+													>
+														View All
+													</Text>
+												</a>
+											}
+										/>
+									</Box>
+								</Box>
+							))}
+						</Box>
+					</Box>
+				</Box>
+			</Box>
 			{/* Contact Section */}
 			<Box
+				width="100vw"
+				center
 				bg="highlight"
 				position="relative"
 				overflow="hidden"
 				px={{ mobS: '6.5rem', tabS: 'wl' }}
 				py={{ mobS: 'wxs', tabS: 'wl' }}
 			>
-				<Box
-					position="absolute"
-					transform="scale(0.5) rotate(45deg)"
-					bottom={{ mobS: '-150%', tabS: '-120%' }}
-					left={{ mobS: '-110%', tabS: '20%' }}
-				>
-					<BlurSVG />
-				</Box>
-				<Box position="absolute">
-					<BlurSVG />
-				</Box>
-				<Box between flexDirection={{ mobS: 'column', tabS: 'row' }}>
-					<Text as="h2" color="green-200" textAlign={{ mobS: 'center', tabS: 'start' }}>
-						Have a problem for us to solve?
-					</Text>
-					<Link href="/contact" passHref>
-						<Box
-							bg="green-200"
-							py={{ mobS: 'ms', tabS: '1.75rem' }}
-							px={{ mobS: '3.6rem', tabS: '5rem' }}
-							borderRadius="4px"
-							mt={{ mobS: 'mxxxl', tabS: '0' }}
-							pointer
-							hover="green-100"
-						>
-							<Text as="btn1" color="purple-500">
-								Get in Touch
-							</Text>
-						</Box>
-					</Link>
+				<Box width={{ mobS: 'unset', deskM: '125.5rem' }}>
+					<Box
+						position="absolute"
+						transform="scale(0.5) rotate(45deg)"
+						bottom={{ mobS: '-150%', tabS: '-120%' }}
+						left={{ mobS: '-110%', tabS: '20%' }}
+					>
+						<BlurSVG />
+					</Box>
+					<Box position="absolute">
+						<BlurSVG />
+					</Box>
+					<Box between flexDirection={{ mobS: 'column', tabS: 'row' }}>
+						<Text as="h2" color="green-200" textAlign={{ mobS: 'center', tabS: 'start' }}>
+							Have a problem for us to solve?
+						</Text>
+						<Link href="/contact" passHref>
+							<Box
+								bg="green-200"
+								py={{ mobS: 'ms', tabS: '1.75rem' }}
+								px={{ mobS: '3.6rem', tabS: '5rem' }}
+								borderRadius="4px"
+								mt={{ mobS: 'mxxxl', tabS: '0' }}
+								pointer
+								hover="green-100"
+							>
+								<Text as="btn1" color="purple-500">
+									Get in Touch
+								</Text>
+							</Box>
+						</Link>
+					</Box>
 				</Box>
 			</Box>
 		</Box>
