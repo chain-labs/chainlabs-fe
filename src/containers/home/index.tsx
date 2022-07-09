@@ -35,12 +35,13 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 			/>
 			{/* Hero Section */}
 			<Box
-				height="100vh"
-				pt={{ mobS: '17.2rem', tabS: '19.2rem' }}
+				height={{ mobS: '90vh', tabS: '100vh' }}
+				pt={{ mobS: '17.2rem', tabS: '22.6rem' }}
 				column
 				bg="purple-500"
 				className="home-body"
 				position="relative"
+				overflow="hidden"
 			>
 				{/* Blur Overlays */}
 				<motion.div
@@ -67,15 +68,15 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					position="absolute"
 					top="0%"
 					left={{ mobS: '-20%', tabS: '0' }}
-					height="100vh"
-					width={{ mobS: '200vw', tabS: '100vw' }}
+					transform={{ mobS: '0', tabS: '0', deskL: 'scale(1.2)' }}
+					height={{ mobS: '90vh', tabS: '100vh' }}
 				>
 					<motion.video
 						variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
 						initial="hidden"
 						animate="visible"
 						transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
-						style={{ height: '100vh' }}
+						style={{ height: '100%' }}
 						loop
 						muted
 						autoPlay
