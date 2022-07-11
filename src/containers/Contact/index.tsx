@@ -2,6 +2,7 @@ import React from 'react';
 import Box from 'src/components/Box';
 import Text from 'src/components/Text';
 import Form from './components/Form';
+import BlurSVG from '../../svgs/blur.svg';
 
 const Contact = () => {
 	return (

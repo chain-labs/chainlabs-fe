@@ -3,11 +3,12 @@ import Box from 'src/components/Box';
 import ServicesCard from 'src/components/ServicesCard';
 import TestimonialCard from 'src/components/TestimonialCard';
 import Text from 'src/components/Text';
+import BlurSVG from '../../svgs/blur.svg';
 
 const Services = () => {
 	return (
 		<Box bg="purple-500" minHeight="100vh">
-			<Box pl={{ mobS: 'ml', tabL: 'wl' }} pt={{ mobS: 'wm', tabL: 'wm', deskM: 'wxl' }}>
+			<Box pl={{ mobS: 'ml', tabL: 'wl' }} pt={{ mobS: 'wm', tabL: 'wm', deskM: 'wxl' }} zIndex={3}>
 				<Text as="h2" color="green-100">
 					Services we provide
 				</Text>
@@ -37,44 +38,37 @@ const Services = () => {
 			</Box>
 			<Box mt={{ mobS: 'wxs', deskM: 'wxxl' }} pb="wl" bg="rgba(81, 0, 220, 0.1)">
 				<Box
-					display={{ mobS: 'none', deskM: 'block' }}
 					position="absolute"
-					width="40.9rem"
-					height="27.4rem"
-					bg="#04FFA4"
-					mt="10.2rem"
-					ml="-26rem"
-					css={`
-						filter: blur(356px);
-					`}
-				/>
+					display={{ mobS: 'none', deskM: 'block' }}
+					right={{ mobS: '-20%', tabS: '-30%' }}
+					top={{ mobS: '-40%', tabS: '-40%' }}
+					transform="scale(0.7)"
+					zIndex={2}
+				>
+					<BlurSVG />
+				</Box>
 				<Box
 					position="absolute"
-					width="19.3rem"
-					height="12.9rem"
-					bg="#04FFA4"
-					mt={{ mobS: '40.4rem', tabL: '22rem' }}
-					ml={{ mobS: '-9.2rem', tabL: '-9.2rem' }}
-					css={`
-						filter: blur(190px);
-						transform: rotate(-43.41deg);
-					`}
-					display={{ deskM: 'none' }}
-				/>
-				<Box position="relative" display={{ deskM: 'none' }}>
-					<Box
-						position="absolute"
-						width="19.3rem"
-						height="12.9rem"
-						bg="#04FFA4"
-						mt="5rem"
-						ml={{ mobS: '70%', tabS: '70%', tabL: '100.6rem' }}
-						css={`
-							filter: blur(190px);
-							transform: rotate(-43.41deg);
-						`}
-					></Box>
+					display={{ mobS: 'none', deskM: 'block' }}
+					left={{ mobS: '0%', tabL: '-30%' }}
+					top={{ mobS: '0%', tabL: '120%' }}
+					transform="scale(0.7)"
+					zIndex={2}
+				>
+					<BlurSVG />
 				</Box>
+
+				<Box
+					position="absolute"
+					display={{ mobS: 'none', deskM: 'block' }}
+					right={{ mobS: '-40%', tabL: '-30%' }}
+					top={{ mobS: '270%', tabL: '120%' }}
+					transform="scale(0.7)"
+					zIndex={2}
+				>
+					<BlurSVG />
+				</Box>
+				{/* </Box> */}
 				<Text as="h6" textAlign="center" pt={{ mobS: 'wxs', tabL: 'wl', deskM: 'wxxs' }} color="white-10">
 					WHAT OUR CLIENTS SAY
 				</Text>

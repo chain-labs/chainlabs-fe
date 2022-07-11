@@ -4,6 +4,7 @@ import Box from 'src/components/Box';
 import MemberCard from 'src/components/MemberCard';
 import OuterContainer from 'src/components/OuterContainer';
 import Text from 'src/components/Text';
+import BlurSVG from '../../svgs/blur.svg';
 
 const MEMBERS = [
 	{
@@ -102,21 +103,19 @@ const About = () => {
 			</Box>
 			<Box ml={{ mobS: 'mm', mobL: 'mxl', tabL: 'wl' }} column mb={{ mobS: '6rem', tabL: '11rem' }}>
 				<Box
-					display={{ mobS: 'none', deskM: 'block' }}
 					position="absolute"
-					width="40.9rem"
-					height="27.4rem"
-					bg="#04FFA4"
-					mt="12rem"
-					ml="133rem"
-					css={`
-						filter: blur(456px);
-					`}
-				/>
+					display={{ mobS: 'none', deskM: 'block' }}
+					right={{ mobS: '-20%', tabS: '-30%' }}
+					top={{ mobS: '-40%', tabS: '60%' }}
+					transform="scale(0.7)"
+					zIndex={2}
+				>
+					<BlurSVG />
+				</Box>
 				<Text as="h1" color="green-200">
 					Our wonderful team
 				</Text>
-				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '48rem' }} mt="1.4rem">
+				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '40rem' }} mt="1.4rem">
 					{MEMBERS.map((member) => (
 						<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
 							<MemberCard
