@@ -36,12 +36,12 @@ const Services = () => {
 					/>
 				</Box>
 			</Box>
-			<Box mt={{ mobS: 'wxs', deskM: 'wxxl' }} pb="wl" bg="rgba(81, 0, 220, 0.1)">
+			<Box mt={{ mobS: 'wxs', deskM: 'wxxl' }} pb="wl" bg="highlight" overflowY="hidden" position="relative">
 				<Box
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
 					right={{ mobS: '-20%', tabS: '-30%' }}
-					top={{ mobS: '-40%', tabS: '-40%' }}
+					top={{ mobS: '-40%', tabS: '-50%' }}
 					transform="scale(0.7)"
 					zIndex={2}
 				>
@@ -51,7 +51,7 @@ const Services = () => {
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
 					left={{ mobS: '0%', tabL: '-30%' }}
-					top={{ mobS: '0%', tabL: '120%' }}
+					top={{ mobS: '0%', tabL: '-10%' }}
 					transform="scale(0.7)"
 					zIndex={2}
 				>

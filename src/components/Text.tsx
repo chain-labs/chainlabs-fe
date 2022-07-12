@@ -107,11 +107,8 @@ const Text = ({ as = 'h6', fontWeight = 'regular', color, children, ...restProps
 			case 'h5':
 				return 'h5';
 			case 'h6':
-			case 'b1':
-			case 'b2':
-			case 'b3':
-			case 'c1':
-			case 'c2':
+				return 'h6';
+			default:
 				return 'p';
 		}
 	}

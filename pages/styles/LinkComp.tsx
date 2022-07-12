@@ -1,11 +1,13 @@
 import React from 'react';
 import Box from 'src/components/Box';
-import Link from 'src/containers/home/components/Link';
+// import Link from 'src/containers/home/components/Link';
 
 const LinkComp = () => {
 	return (
 		<Box>
-			<Link text="Learn More" />
+			{/* <Link text="Learn More" />
+			 */}
+			Link
 		</Box>
 	);
 };
