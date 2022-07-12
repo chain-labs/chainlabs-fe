@@ -72,7 +72,7 @@ const About = () => {
 			<Box
 				mx="wl"
 				between
-				pt="11rem"
+				pt={{ mobS: '8.28rem', tabL: '12.8rem', deskM: '19rem' }}
 				pb={{ mobS: '11.2rem', tabL: '16.1rem' }}
 				flexDirection={{ mobS: 'column-reverse', tabL: 'row' }}
 			>

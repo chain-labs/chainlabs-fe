@@ -8,7 +8,7 @@ import BlurSVG from '../../svgs/blur.svg';
 const Services = () => {
 	return (
 		<Box bg="purple-500" minHeight="100vh">
-			<Box pl={{ mobS: 'ml', tabL: 'wl' }} pt={{ mobS: 'wm', tabL: 'wm', deskM: 'wxl' }} zIndex={3}>
+			<Box pl={{ mobS: 'ml', tabL: 'wl' }} pt={{ mobS: '12rem', tabL: '15.2rem', deskM: '19rem' }} zIndex={3}>
 				<Text as="h2" color="green-100">
 					Services we provide
 				</Text>
@@ -36,12 +36,12 @@ const Services = () => {
 					/>
 				</Box>
 			</Box>
-			<Box mt={{ mobS: 'wxs', deskM: 'wxxl' }} pb="wl" bg="highlight" overflowY="hidden" position="relative">
+			<Box mt={{ mobS: 'wxs', deskM: 'wxxl' }} pb="wl" bg="highlight" overflowY="hidden">
 				<Box
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
 					right={{ mobS: '-20%', tabS: '-30%' }}
-					top={{ mobS: '-40%', tabS: '-50%' }}
+					top={{ mobS: '-40%', tabS: '-40%' }}
 					transform="scale(0.7)"
 					zIndex={2}
 				>
@@ -51,7 +51,7 @@ const Services = () => {
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
 					left={{ mobS: '0%', tabL: '-30%' }}
-					top={{ mobS: '0%', tabL: '-10%' }}
+					top={{ mobS: '0%', tabL: '130%' }}
 					transform="scale(0.7)"
 					zIndex={2}
 				>
@@ -61,10 +61,11 @@ const Services = () => {
 				<Box
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
-					right={{ mobS: '-40%', tabL: '-30%' }}
-					top={{ mobS: '270%', tabL: '120%' }}
+					left={{ mobS: '0%', tabL: '60%' }}
+					top={{ mobS: '0%', tabL: '100%' }}
 					transform="scale(0.7)"
 					zIndex={2}
+					// border="1px solid white"
 				>
 					<BlurSVG />
 				</Box>
