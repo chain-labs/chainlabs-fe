@@ -2,6 +2,7 @@ import React from 'react';
 import Box from 'src/components/Box';
 import Text from 'src/components/Text';
 import Form from './components/Form';
+import BlurSVG from '../../svgs/blur.svg';
 
 const Contact = () => {
 	return (
@@ -13,17 +14,14 @@ const Contact = () => {
 			zIndex={1}
 		>
 			<Box
-				display={{ mobS: 'none', deskM: 'block' }}
 				position="absolute"
-				width="40.9rem"
-				height="27.4rem"
-				bg="#04FFA4"
-				mt="45.6rem"
-				ml="-16rem"
-				css={`
-					filter: blur(456px);
-				`}
-			/>
+				display={{ mobS: 'none', deskM: 'block' }}
+				left={{ mobS: '0%', tabS: '-22%' }}
+				top={{ mobS: '0%', tabS: '15%' }}
+				transform="scale(0.7)"
+			>
+				<BlurSVG />
+			</Box>
 			<Box row between flexDirection={{ mobS: 'column', tabL: 'row' }} alignItems={{ tabL: 'flex-start' }}>
 				<Box column width={{ mobS: '32.44rem', tabL: '36.451rem', deskM: '51.6rem' }}>
 					<Text as="h1" color="green-200">
