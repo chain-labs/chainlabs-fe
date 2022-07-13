@@ -10,7 +10,7 @@ const Contact = () => {
 			bg="purple-500"
 			minHeight="100vh"
 			px="wl"
-			pt={{ mobS: 'wm', tabL: '10.34rem', deskM: '10.9rem' }}
+			pt={{ mobS: '12rem', tabL: '16rem', deskM: '18.9rem' }}
 			zIndex={1}
 		>
 			<Box
