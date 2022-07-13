@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 //Breakpoints
-const breakpoints: DefaultTheme['breakpoints'] = ['319px', '410px', '767px', '1025px', '1199px', '1440px', '1600px'];
+const breakpoints: DefaultTheme['breakpoints'] = ['319px', '410px', '767px', '1025px', '1199px', '1440px', '1500px'];
 
 breakpoints.mobS = breakpoints[0]; // 319px
 breakpoints.mobL = breakpoints[1]; // 424px
@@ -49,12 +49,25 @@ space.wxl = space[14]; //100px
 space.wxxl = space[15]; //120px
 
 const colors: DefaultTheme['colors'] = {
-	'purple-black': '#0D0619',
-	'secondary-black': '#010404',
-	'primary-green': '#0AD48B',
-	'accent-green': '#04FFA4',
-	'primary-white': '#E6E7E8',
-	'primary-red': '#E91C1C',
+	'white-10': '#fefefe',
+	'grey-100': '#c8c8c8',
+	'grey-200': '#919191',
+	'grey-300': '#565656',
+	'grey-400': '#292929',
+	'green-100': '#04ffa4',
+	'green-200': '#00e08e',
+	'green-300': '#00b874',
+	'green-400': '#008f5a',
+	'green-500': '#006641',
+	'purple-100': '#4d2494',
+	'purple-200': '#3f1d79',
+	'purple-300': '#31165d',
+	'purple-400': '#221042',
+	'purple-500': '#0d0618',
+	'cyan-100': '#9dfff3',
+	'light-ochre': '#f8d89a',
+	'slate-blue': '#93c5ff',
+	highlight: '#5100dc1a',
 };
 
 const theme: DefaultTheme = {

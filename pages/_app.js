@@ -1,11 +1,23 @@
 import { useEffect } from 'react';
 import { debounce } from 'lodash';
 import Head from 'next/head';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 
 import theme from 'styleguide/theme';
 
 import 'styleguide/globalStyles.css';
 import { ThemeProvider } from 'styled-components';
+import OuterContainer from 'components/OuterContainer';
+
+Router.onRouteChangeStart = (url) => {
+	NProgress.start();
+};
+
+Router.onRouteChangeComplete = () => NProgress.done();
+
+Router.onRouteChangeError = () => NProgress.done();
+NProgress.configure({ showSpinner: false });
 
 const MyApp = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -36,8 +48,11 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
-				<title>ChainLabs</title>
 				<link rel="shortcut icon" href="/static/images/logo.png" />
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+				/>
 			</Head>
 			<ThemeProvider theme={theme}>
 				<Component {...pageProps} />
