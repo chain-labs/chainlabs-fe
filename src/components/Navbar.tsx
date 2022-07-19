@@ -137,9 +137,11 @@ const Navbar = () => {
 						setExpandMenu(false);
 					}}
 				>
-					<Text as="c1" pointer>
-						OUR WORK
-					</Text>
+					<Box as="a" href="/#works">
+						<Text as="c1" pointer>
+							OUR WORK
+						</Text>
+					</Box>
 				</motion.div>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
