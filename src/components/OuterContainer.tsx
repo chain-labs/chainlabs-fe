@@ -133,9 +133,17 @@ const OuterContainer = ({ children, bg }) => {
 								<Text as="h6" mb="mm" color="green-100">
 									Work
 								</Text>
-								<LinkComp text="Simplr Collection" link="https://www.simplrcollection.com/" />
-								<LinkComp text="Primobots" link="https://primobots.io/" />
-								<LinkComp text="Daughters of Blockchain" link="https://daughtersofblockchain.com/" />
+								<LinkComp
+									target="_blank"
+									text="Simplr Collection"
+									link="https://www.simplrcollection.com/"
+								/>
+								<LinkComp target="_blank" text="Primobots" link="https://primobots.io/" />
+								<LinkComp
+									target="_blank"
+									text="Daughters of Blockchain"
+									link="https://daughtersofblockchain.com/"
+								/>
 							</Box>
 						</Box>
 						<Box width="36rem" display={{ mobS: 'none', deskM: 'block' }}>
