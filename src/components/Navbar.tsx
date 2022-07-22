@@ -137,9 +137,11 @@ const Navbar = () => {
 						setExpandMenu(false);
 					}}
 				>
-					<Text as="c1" pointer>
-						OUR WORK
-					</Text>
+					<Box as="a" href="/#works">
+						<Text as="c1" pointer>
+							OUR WORK
+						</Text>
+					</Box>
 				</motion.div>
 				<motion.div
 					variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
@@ -148,7 +150,12 @@ const Navbar = () => {
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
 				>
 					<Link href="/about" passHref>
-						<Text as="c1" ml="wm" pointer>
+						<Text
+							as="c1"
+							ml="wm"
+							pointer
+							color={router.pathname === '/about' ? (scrolled ? 'purple-500' : 'green-100') : ''}
+						>
 							ABOUT
 						</Text>
 					</Link>
@@ -160,7 +167,12 @@ const Navbar = () => {
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
 				>
 					<Link href="/services" passHref>
-						<Text as="c1" ml="wm" pointer>
+						<Text
+							as="c1"
+							ml="wm"
+							pointer
+							color={router.pathname === '/services' ? (scrolled ? 'purple-500' : 'green-100') : ''}
+						>
 							SERVICES
 						</Text>
 					</Link>
@@ -172,7 +184,12 @@ const Navbar = () => {
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.8 }}
 				>
 					<Link href="/contact" passHref>
-						<Text as="c1" ml="wm" pointer>
+						<Text
+							as="c1"
+							ml="wm"
+							pointer
+							color={router.pathname === '/contact' ? (scrolled ? 'purple-500' : 'green-100') : ''}
+						>
 							CONTACT
 						</Text>
 					</Link>

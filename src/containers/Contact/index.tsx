@@ -23,7 +23,7 @@ const Contact = () => {
 				<BlurSVG />
 			</Box>
 			<Box row between flexDirection={{ mobS: 'column', tabL: 'row' }} alignItems={{ tabL: 'flex-start' }}>
-				<Box column width={{ mobS: '32.44rem', tabL: '36.451rem', deskM: '51.6rem' }}>
+				<Box column width={{ mobS: '32.44rem', tabL: '36.451rem', deskM: '51.6rem' }} zIndex={4}>
 					<Text as="h1" color="green-200">
 						Get in touch.
 					</Text>

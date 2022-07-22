@@ -143,8 +143,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 									<Link href="/contact" passHref>
 										<Box
 											bg="green-200"
-											px={{ mobS: '3.6rem', tabS: '4.4rem' }}
-											py="mm"
+											py={{ mobS: 'ms', tabS: '1.75rem' }}
+											px={{ mobS: '3.6rem', tabS: '5.5rem' }}
 											color="purple-500"
 											borderRadius="4px"
 											cursor="pointer"
@@ -348,7 +348,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 							<Box
 								bg="green-200"
 								py={{ mobS: 'ms', tabS: '1.75rem' }}
-								px={{ mobS: '3.6rem', tabS: '5rem' }}
+								px={{ mobS: '3.6rem', tabS: '5.5rem' }}
 								borderRadius="4px"
 								mt={{ mobS: 'mxxxl', tabS: '0' }}
 								pointer
