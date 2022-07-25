@@ -82,7 +82,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 								href={ctaUrl}
 								target="_blank"
 							>
-								<Text as="b2" color="purple-500">
+								<Text as="btn2" color="purple-500">
 									Learn More
 								</Text>
 							</Box>
