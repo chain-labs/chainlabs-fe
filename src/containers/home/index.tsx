@@ -25,6 +25,18 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 		}
 	}, [loaded]);
 
+	const getInnerHeight = () => {
+		if (process.browser) {
+			const height = window.innerHeight;
+			if (height > 800) {
+				return `${height / 10}rem`;
+			}
+			return `80rem`;
+		}
+
+		return `80rem`;
+	};
+
 	return (
 		// Outer Box
 		<Box bg="purple-500">
@@ -65,11 +77,13 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 				{/* Spline Bg */}
 				<Box
 					overflow="hidden"
+					id="spline-bg"
 					position="absolute"
 					top="0%"
 					left={{ mobS: '-20%', tabS: '0' }}
 					transform={{ mobS: '0', tabS: '0', deskL: 'scale(1.2)' }}
-					height={{ mobS: '90vh', tabS: '80rem' }}
+					height={{ mobS: '90vh', tabS: `${getInnerHeight()}`, deskL: '100vh' }}
+					border="1px solid hotpink"
 				>
 					<motion.video
 						variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
