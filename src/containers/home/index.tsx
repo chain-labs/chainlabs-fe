@@ -69,7 +69,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					top="0%"
 					left={{ mobS: '-20%', tabS: '0' }}
 					transform={{ mobS: '0', tabS: '0', deskL: 'scale(1.2)' }}
-					height={{ mobS: '90vh', tabS: '100vh' }}
+					height={{ mobS: '90vh', tabS: '80rem' }}
 				>
 					<motion.video
 						variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
