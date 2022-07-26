@@ -17,6 +17,7 @@ import Link from 'next/link';
 const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 	const [loaded, setLoaded] = useState(true);
 	const controls = useAnimation();
+	const [innerHeight, setInnerHeight] = useState(800);
 
 	useEffect(() => {
 		if (loaded) {
@@ -25,11 +26,27 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 		}
 	}, [loaded]);
 
-	const getInnerHeight = () => {
+	useEffect(() => {
 		if (process.browser) {
 			const height = window.innerHeight;
 			if (height > 800) {
-				return `${height / 10}rem`;
+				setInnerHeight(window.innerHeight);
+			}
+			window.addEventListener('resize', () => {
+				if (window.innerHeight > 800) {
+					setInnerHeight(window.innerHeight);
+				} else {
+					setInnerHeight(800);
+				}
+			});
+		}
+	}, []);
+
+	const getInnerHeight = (): string => {
+		if (process.browser) {
+			const height = window.innerHeight;
+			if (height > 800) {
+				return `90rem`;
 			}
 			return `80rem`;
 		}
@@ -82,7 +99,11 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					top="0%"
 					left={{ mobS: '-20%', tabS: '0' }}
 					transform={{ mobS: '0', tabS: '0', deskL: 'scale(1.2)' }}
-					height={{ mobS: '90vh', tabS: `${getInnerHeight()}`, deskL: '100vh' }}
+					height={{
+						mobS: '90vh',
+						tabS: `${innerHeight}px`,
+						deskL: '100vh',
+					}}
 				>
 					<motion.video
 						variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
