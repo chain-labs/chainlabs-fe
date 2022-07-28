@@ -100,7 +100,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 								href={twitter}
 								target="_blank"
 							>
-								<Text as="b2" color="green-200" mr="mxxs">
+								<Text as="btn2" color="green-200" mr="mxxs">
 									Twitter
 								</Text>
 								<ArrowUpRight color={theme.colors['green-200']} size={20} />
