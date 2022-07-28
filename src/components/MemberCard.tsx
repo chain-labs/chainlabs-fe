@@ -26,7 +26,7 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 		<Box mr={{ mobS: '0rem' }} cursor="pointer">
 			<Box
 				height={{ mobS: '14.1rem', tabS: '18.7rem', deskM: '24rem' }}
-				width={{ mobS: '14.1rem', tabS: '18.7rem', deskM: '24rem' }}
+				width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }}
 				position="relative"
 				boxShadow={{
 					mobS: `${148.66 / 15}px ${148.66 / 15}px 0 0 ${theme.colors['green-100']}`,
@@ -66,10 +66,15 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 					<Image src={image} layout="fill" objectFit="cover" />
 				</Box>
 			</Box>
-			<Text as="h5" color="white-10" mb="mxs">
+			<Text as="h5" width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }} color="white-10" mb="mxs">
 				{name}
 			</Text>
-			<Text as="c2" color="grey-200" textTransform="uppercase">
+			<Text
+				as="c2"
+				width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }}
+				color="grey-200"
+				textTransform="uppercase"
+			>
 				{role}
 			</Text>
 		</Box>
