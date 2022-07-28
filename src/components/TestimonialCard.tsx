@@ -10,6 +10,7 @@ const TestimonialCard = ({ url, comment, name, title }) => {
 				height={{ mobS: '6rem', deskM: '8rem' }}
 				width={{ mobS: '6rem', deskM: '8rem' }}
 				position="relative"
+				mt={{ tabL: 'wxs', deskM: 'wm' }}
 				center
 			>
 				<Image layout="fill" src={url}></Image>
