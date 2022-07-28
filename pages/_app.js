@@ -53,6 +53,12 @@ const MyApp = ({ Component, pageProps }) => {
 					rel="stylesheet"
 					href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
 				/>
+				<script defer data-domain="chainlabs.in" src="https://plausible.io/js/plausible.js"></script>
+				<script
+					defer
+					data-domain="dev-chainlabs.vercel.app"
+					src="https://plausible.io/js/plausible.js"
+				></script>
 			</Head>
 			<ThemeProvider theme={theme}>
 				<Component {...pageProps} />
