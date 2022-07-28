@@ -69,8 +69,8 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 						then={
 							<Box
 								bg="green-200"
-								py={{ mobS: '1.45rem', tabS: '0.75rem' }}
-								px={{ mobS: 'mxxxl', tabS: '2.5rem' }}
+								py={{ mobS: '0.95rem', tabS: '1.15', deskM: '1.45rem' }}
+								px={{ mobS: 'mxl', tabS: 'mm', deskM: 'mxxxl' }}
 								borderRadius="4px"
 								cursor="pointer"
 								css={`
