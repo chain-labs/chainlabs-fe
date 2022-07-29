@@ -65,11 +65,9 @@ const Services = () => {
 					top={{ mobS: '0%', tabL: '100%' }}
 					transform="scale(0.7)"
 					zIndex={2}
-					// border="1px solid white"
 				>
 					<BlurSVG />
 				</Box>
-				{/* </Box> */}
 				<Text as="h6" textAlign="center" pt={{ mobS: 'wxs', tabL: 'wl', deskM: 'wxxs' }} color="white-10">
 					WHAT OUR CLIENTS SAY
 				</Text>
@@ -80,7 +78,7 @@ const Services = () => {
 					flexWrap="wrap"
 				>
 					<TestimonialCard
-						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/Desktop_Primobots_gX1euCNLy.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654882459115"
+						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/Desktop_Primobots_1pKajrjIV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659002025018"
 						comment="The team at Chain Labs delivered on their promise and beyond. Their smart contract work for Primobots and post-deployment support had a huge positive impact on our NFT project."
 						name="Baps"
 						title="Founder, Primobots"
@@ -92,10 +90,10 @@ const Services = () => {
 						title="Founder, Daughters of Blockchain"
 					/>
 					<TestimonialCard
-						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/Desktop_DOB_TSwibgD0m.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654882459115"
-						comment="Chain Labs went the extra mile to build, launch and support the Daughters of Blockchain Genesis collection of 1,000 unique NFTs minting on Polygon."
-						name="Jillian"
-						title="Founder, Block Ape Lads"
+						url="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/Services/BAL_Desktop_tzzgy1N91.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659088913823"
+						comment="We would like to thank Chain Labs for providing the technical expertise in building our mint page and migration contract. They were supportive and easily accesible throughout the project. Also this wouldn't be possible without @simplrhq for providing easy to use platform. It was handy and a simple dashboard"
+						name="BAL"
+						title="Block Ape Lads Team"
 					/>
 				</Box>
 			</Box>
