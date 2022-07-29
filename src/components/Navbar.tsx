@@ -228,7 +228,9 @@ const Navbar = () => {
 										setExpandMenu(false);
 									}}
 								>
-									<Text as="l1">OUR WORK</Text>
+									<Box as="a" href="/#works">
+										<Text as="l1">OUR WORK</Text>
+									</Box>
 									<ArrowRight color={theme.colors['green-200']} size={20} />
 								</Box>
 								<Link href="/about" passHref>
