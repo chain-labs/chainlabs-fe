@@ -48,11 +48,9 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
-				<title>Chain Labs</title>
-				<meta
-					name="keywords"
-					content="nft, decentralized, laboratory, transparent NFT, nft marketplace, what is nft, simple, nft launch, simple, launch nft, how to launch an nft, nft launchpad, nft metadata, nft smart contract, mint pass, simple nft art,nft kit, simplr, simplr collection, nft simplified,chain labs, Chain, Labs, Chain Labs, chain Labs "
-				/>
+				<title>Your Web3.0 Development Partner - Chain Labs</title>
+				<meta name="robots" content="index, nofollow" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta
 					name="description"
 					content="A laboratory empowering the consumers by building truly transparent and decentralized products."
