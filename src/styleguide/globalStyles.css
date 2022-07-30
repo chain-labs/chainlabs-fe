@@ -1,84 +1,13 @@
-@font-face {
-	font-family: 'Epilogue';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url('/static/fonts/Epilogue/Epilogue-Regular.eot'); /* IE9 Compat Modes */
-	src: local('Epilogue Thin'), local('Epilogue-Thin'),
-		url('/static/fonts/Epilogue/Epilogue-Thin.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/static/fonts/Epilogue/Epilogue-Thin.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Thin.woff') format('woff'),
-		/* Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Thin.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/static/fonts/Epilogue/Epilogue-Thin.svg#Epilogue') format('svg'); /* Legacy iOS */
-}
-
-/* Epilogue-Regular */
-
-@font-face {
-	font-family: 'Epilogue';
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url('/static/fonts/Epilogue/Epilogue-Regular.eot'); /* IE9 Compat Modes */
-	src: local('Epilogue Regular'), local('Epilogue-Regular'),
-		url('/static/fonts/Epilogue/Epilogue-Regular.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/static/fonts/Epilogue/Epilogue-Regular.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Regular.woff') format('woff'),
-		/* Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/static/fonts/Epilogue/Epilogue-Regular.svg#Epilogue') format('svg'); /* Legacy iOS */
-}
-
-/* Epilogue-Medium */
-
-@font-face {
-	font-family: 'Epilogue';
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-	src: url('/static/fonts/Epilogue/Epilogue-Medium.eot'); /* IE9 Compat Modes */
-	src: local('Epilogue Medium'), local('Epilogue-Medium'),
-		url('/static/fonts/Epilogue/Epilogue-Medium.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/static/fonts/Epilogue/Epilogue-Medium.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Medium.woff') format('woff'),
-		/* Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Medium.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/static/fonts/Epilogue/Epilogue-Medium.svg#Epilogue') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-	font-family: 'Epilogue';
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url('/static/fonts/Epilogue/Epilogue-SemiBold.eot'); /* IE9 Compat Modes */
-	src: local('Epilogue SemiBold'), local('Epilogue-SemiBold'),
-		url('/static/fonts/Epilogue/Epilogue-SemiBold.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/static/fonts/Epilogue/Epilogue-SemiBold.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-SemiBold.woff') format('woff'),
-		/* Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-SemiBold.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/static/fonts/Epilogue/Epilogue-SemiBold.svg#Epilogue') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-	font-family: 'Epilogue';
-	font-style: normal;
-	font-weight: 800;
-	font-display: swap;
-	src: url('/static/fonts/Epilogue/Epilogue-Bold.eot'); /* IE9 Compat Modes */
-	src: local('Epilogue Bold'), local('Epilogue-Bold'),
-		url('/static/fonts/Epilogue/Epilogue-Bold.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/static/fonts/Epilogue/Epilogue-Bold.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Bold.woff') format('woff'),
-		/* Modern Browsers */ url('/static/fonts/Epilogue/Epilogue-Bold.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/static/fonts/Epilogue/Epilogue-Bold.svg#Epilogue') format('svg'); /* Legacy iOS */
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
 body,
 html {
 	padding: 0;
 	margin: 0;
 	font-size: 62.5%;
-	font-family: 'Epilogue', sans-serif;
+	font-family: 'Inter', sans-serif;
 	overflow-x: hidden;
+	color: white;
 }
 
 div {
