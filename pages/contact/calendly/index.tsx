@@ -1,7 +1,8 @@
 import { InlineWidget } from 'react-calendly';
 import Box from 'src/components/Box';
+import { CALENDLY_LINK } from 'src/constants';
 
-const CALENDLY_URL = 'https://calendly.com/simplr-collection/free-consultation?month=2022-07';
+const CALENDLY_URL = CALENDLY_LINK;
 
 const CalendlyPage = () => {
 	if (process.browser) {
