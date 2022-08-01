@@ -120,7 +120,7 @@ const OuterContainer = ({ children, bg }) => {
 								<Text as="h6" mb="mm" color="green-100">
 									Social
 								</Text>
-								<LinkComp target="_blank" text="Twitter" link="https://twitter.com/SimplrDAO" />
+								<LinkComp target="_blank" text="Twitter" link="https://twitter.com/0xChainlabs" />
 								<LinkComp
 									target="_blank"
 									text="Linkedin"
