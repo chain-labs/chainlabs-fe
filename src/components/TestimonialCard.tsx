@@ -13,7 +13,7 @@ const TestimonialCard = ({ url, comment, name, title }) => {
 				mt={{ tabL: 'wxs', deskM: 'wm' }}
 				center
 			>
-				<Image layout="fill" src={url}></Image>
+				<Image alt="Error Occured" layout="fill" src={url}></Image>
 			</Box>
 			<Text as="h5" textAlign="center" mt="mxl" color="white-10">
 				"{comment}"

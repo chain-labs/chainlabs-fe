@@ -42,7 +42,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 				mr={{ mobS: '0', tabS: 'wxs' }}
 				mb={{ mobS: 'mxl', tabS: '0' }}
 			>
-				<Image src={img} layout="fill" objectFit="cover" />
+				<Image alt="Error Occured" src={img} layout="fill" objectFit="cover" />
 			</Box>
 			<Box>
 				<Box row alignItems="center" justifyContent="flex-start" borderRadius="2px" mb="mxs">

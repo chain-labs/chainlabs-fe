@@ -63,7 +63,7 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 					</Box>
 				</Box>
 				<Box opacity={opacity} zIndex={0}>
-					<Image src={image} layout="fill" objectFit="cover" />
+					<Image alt="Error Occured" src={image} layout="fill" objectFit="cover" />
 				</Box>
 			</Box>
 			<Text as="h5" width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }} color="white-10" mb="mxs">

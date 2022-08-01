@@ -55,10 +55,7 @@ const MyApp = ({ Component, pageProps }) => {
 					name="description"
 					content="A laboratory empowering the consumers by building truly transparent and decentralized products."
 				/>
-				<link rel="canonical" href="https://chainlabs.in/services/" />
-				<link rel="canonical" href="https://chainlabs.in/about/" />
 				<link rel="canonical" href="https://chainlabs.in/" />
-				<link rel="canonical" href="https://chainlabs.in/contact/" />
 				<link rel="shortcut icon" href="/static/images/logo.png" />
 				<link
 					rel="stylesheet"
