@@ -78,6 +78,7 @@ const OuterContainer = ({ children, bg }) => {
 								height={{ mobS: '5.7rem', tabS: '4.3rem', deskM: '4.6rem' }}
 							>
 								<Image
+									alt="Error Occured"
 									src="https://ik.imagekit.io/chainlabs/Website_Media/Chain_Labs_Logos/logo-footer-tablet_42hhHVYTlB.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655915174616"
 									layout="fill"
 									objectFit="cover"
