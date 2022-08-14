@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
+Disallow: /cdn-cgi/
 Sitemap: https://chainlabs.in/sitemap.xml
