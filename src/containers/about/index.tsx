@@ -1,9 +1,11 @@
+import { useQuery } from '@apollo/client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from 'src/components/Box';
 import MemberCard from 'src/components/MemberCard';
 import OuterContainer from 'src/components/OuterContainer';
 import Text from 'src/components/Text';
+import GET_TEAM_MEMBERS from 'src/gql/query/GetTeamMembers';
 import BlurSVG from '../../svgs/blur.svg';
 
 const MEMBERS = [
@@ -67,6 +69,14 @@ const MEMBERS = [
 ];
 
 const About = () => {
+	const { data: teamMembers, loading } = useQuery(GET_TEAM_MEMBERS);
+
+	useEffect(() => {
+		if (!loading) {
+			console.log({ teamMembers });
+		}
+	}, [loading]);
+
 	return (
 		<OuterContainer bg="purple-500">
 			<Box
@@ -117,17 +127,24 @@ const About = () => {
 					Our wonderful team
 				</Text>
 				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '40rem' }} mt="1.4rem">
-					{MEMBERS.map((member) => (
-						<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
-							<MemberCard
-								image={member.image}
-								name={member.name}
-								role={member.role}
-								linkedInUrl={member.linkedInUrl}
-								twitterUrl={member.twitterUrl}
-							/>
-						</Box>
-					))}
+					{!loading &&
+						teamMembers?.teamMembersCollection?.items?.map((member) => {
+							console.log({ member });
+
+							const image = member?.pfp.url;
+							return (
+								<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
+									<MemberCard
+										image={image}
+										name={member.name}
+										role={member.title}
+										linkedInUrl={member.linkedinHandle}
+										twitterUrl={member.twitterHandle}
+										portfolioUrl={member.portfolioUrl}
+									/>
+								</Box>
+							);
+						})}
 				</Box>
 			</Box>
 		</OuterContainer>
