@@ -9,6 +9,7 @@ import theme from 'styleguide/theme';
 import 'styleguide/globalStyles.css';
 import { ThemeProvider } from 'styled-components';
 import OuterContainer from 'components/OuterContainer';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 Router.onRouteChangeStart = (url) => {
 	NProgress.start();
@@ -43,6 +44,13 @@ const MyApp = ({ Component, pageProps }) => {
 				}
 			};
 		}
+	});
+	const client = new ApolloClient({
+		uri: process.env.NEXT_PUBLIC_CMS_URL,
+		cache: new InMemoryCache(),
+		headers: {
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_API_KEY}`,
+		},
 	});
 
 	return (
@@ -87,7 +95,9 @@ const MyApp = ({ Component, pageProps }) => {
 `}</script>
 			</Head>
 			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
+				<ApolloProvider client={client}>
+					<Component {...pageProps} />
+				</ApolloProvider>
 			</ThemeProvider>
 		</>
 	);
