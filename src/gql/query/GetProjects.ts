@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_PROJECTS = gql`
 	query GetProjects {
-		projectsCollection(order: sys_firstPublishedAt_ASC) {
+		projectsCollection(order: sys_firstPublishedAt_DESC) {
 			items {
 				banner {
 					url
