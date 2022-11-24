@@ -8,7 +8,6 @@ import theme from 'styleguide/theme';
 
 import 'styleguide/globalStyles.css';
 import { ThemeProvider } from 'styled-components';
-import OuterContainer from 'components/OuterContainer';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 Router.onRouteChangeStart = (url) => {
