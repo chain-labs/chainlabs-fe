@@ -6,17 +6,11 @@ import theme from 'src/styleguide/theme';
 import { ArrowUpRight } from 'phosphor-react';
 import If from './If';
 import React from 'react';
+import { IProject } from 'src/gql/query/GetProjects';
 
-export interface WorkCardProps {
-	img: string;
-	title: string;
-	body: string[];
-	type: 'NFT Launchpad' | 'NFT Collection' | 'Research Project';
-	twitter?: string;
-	ctaUrl?: string;
-}
+export type WorkCardProps = IProject;
 
-const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) => {
+const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: WorkCardProps) => {
 	const setTypeBg = (type) => {
 		switch (type) {
 			case 'NFT Launchpad':
@@ -42,7 +36,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 				mr={{ mobS: '0', tabS: 'wxs' }}
 				mb={{ mobS: 'mxl', tabS: '0' }}
 			>
-				<Image alt="Error Occured" src={img} layout="fill" objectFit="cover" />
+				<Image alt="Error Occured" src={banner.url} layout="fill" objectFit="cover" />
 			</Box>
 			<Box>
 				<Box row alignItems="center" justifyContent="flex-start" borderRadius="2px" mb="mxs">
@@ -55,7 +49,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 						</Text>
 					</Box>
 				</Box>
-				{body.map((p, index) => (
+				{description.map((p, index) => (
 					<React.Fragment>
 						{index !== 0 ? <Box mt={{ mobS: 'mxs', tabS: 'mm' }} /> : null}
 						<Text as="b3" color="grey-100">
@@ -89,7 +83,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 						}
 					/>
 					<If
-						condition={!!twitter}
+						condition={!!twitterUrl}
 						then={
 							<Box
 								ml="mxl"
@@ -97,7 +91,7 @@ const WorksCard = ({ img, title, body, type, twitter, ctaUrl }: WorkCardProps) =
 								alignItems="center"
 								cursor="pointer"
 								as="a"
-								href={twitter}
+								href={twitterUrl}
 								target="_blank"
 							>
 								<Text as="btn2" color="green-200" mr="mxxs">
