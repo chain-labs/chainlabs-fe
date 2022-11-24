@@ -9,7 +9,7 @@ import CircleOpacity from 'svgs/circle-opacity.svg';
 import ExponentBox from 'svgs/exponent-box.svg';
 import SetCenter from 'svgs/set-center.svg';
 import { eases, variants } from './animation';
-import { BLOGS, } from './constants';
+import { BLOGS } from './constants';
 import WorksCard from 'src/components/WorkCard';
 import Blogcard from 'src/components/Blogcard';
 import Link from 'next/link';

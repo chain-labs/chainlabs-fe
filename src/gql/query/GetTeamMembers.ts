@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_TEAM_MEMBERS = gql`
 	query GetTeamMembers {
-		teamMembersCollection {
+		teamMembersCollection(order: name_ASC) {
 			items {
 				name
 				title
