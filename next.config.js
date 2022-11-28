@@ -9,6 +9,8 @@ module.exports = withTM({
 		return config;
 	},
 	images: {
-		domains: ['ik.imagekit.io'],
+		dangerouslyAllowSVG: true,
+		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+		domains: ['ik.imagekit.io', 'images.ctfassets.net'],
 	},
 });

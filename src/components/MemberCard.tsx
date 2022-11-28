@@ -3,9 +3,8 @@ import Image from 'next/image';
 import theme from 'src/styleguide/theme';
 import Text from './Text';
 import { useState } from 'react';
-import { TwitterFill, LinkedinFill } from 'akar-icons';
-import { LinkedinLogo, TwitterLogo } from 'phosphor-react';
-// import * as Unicons from '@iconscout/react-unicons';
+import { TwitterFill, LinkedinFill, Globe } from 'akar-icons';
+import If from './If';
 
 interface Props {
 	image: string;
@@ -13,9 +12,10 @@ interface Props {
 	role: string;
 	twitterUrl: string;
 	linkedInUrl: string;
+	portfolioUrl?: string;
 }
 
-const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
+const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl, portfolioUrl }: Props) => {
 	const [opacity, setOpacity] = useState('1');
 	const [displayInfo, setDisplayInfo] = useState(false);
 	const handleDisplay = () => {
@@ -40,27 +40,45 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl }: Props) => {
 				onMouseLeave={handleDisplay}
 			>
 				<Box zIndex={1} column display={displayInfo ? 'flex' : 'none'}>
-					{twitterUrl === ' ' ? (
-						''
-					) : (
-						<Box row center as="a" target="_blank" href={`https://www.twitter.com/${twitterUrl}`}>
-							<Box height="1.6rem" width="1.6rem" mr="0.8rem" center>
-								<TwitterFill strokeWidth="2" size="36" color="#55ACEE" />{' '}
+					<If
+						condition={!!twitterUrl}
+						then={
+							<Box row center as="a" target="_blank" href={`https://www.twitter.com/${twitterUrl}`}>
+								<Box height="1.6rem" width="1.6rem" mr="0.8rem" center>
+									<TwitterFill strokeWidth="2" size="36" color="#55ACEE" />{' '}
+								</Box>
+								<Text as="l1" color="green-100">
+									@{twitterUrl}
+								</Text>
 							</Box>
-							<Text as="l1" color="green-100">
-								@{twitterUrl}
-							</Text>
-						</Box>
-					)}
-
-					<Box row center as="a" target="_blank" href={`https://www.linkedin.com${linkedInUrl}`}>
-						<Box height="1.6rem" width="1.6rem" mr="0.8rem" bg="#0A66C2" center>
-							<LinkedinFill strokeWidth="2" size="12" color="white" />{' '}
-						</Box>
-						<Text as="l1" color="green-100">
-							{linkedInUrl}
-						</Text>
-					</Box>
+						}
+					/>
+					<If
+						condition={!!linkedInUrl}
+						then={
+							<Box row center as="a" target="_blank" href={`https://www.linkedin.com${linkedInUrl}`}>
+								<Box height="1.6rem" width="1.6rem" mr="0.8rem" bg="#0A66C2" center>
+									<LinkedinFill strokeWidth="2" size="12" color="white" />{' '}
+								</Box>
+								<Text as="l1" color="green-100">
+									{linkedInUrl}
+								</Text>
+							</Box>
+						}
+					/>
+					<If
+						condition={!!portfolioUrl}
+						then={
+							<Box row center as="a" target="_blank" href={portfolioUrl}>
+								<Box height="1.6rem" width="1.6rem" mr="0.8rem" center>
+									<Globe strokeWidth="2" size="12" color="white" />
+								</Box>
+								<Text as="l1" color="green-100">
+									{portfolioUrl}
+								</Text>
+							</Box>
+						}
+					/>
 				</Box>
 				<Box opacity={opacity} zIndex={0}>
 					<Image alt="Error Occured" src={image} layout="fill" objectFit="cover" />

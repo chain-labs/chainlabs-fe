@@ -10,10 +10,6 @@ export const validateEmail = async (email) => {
 			'content-type': 'application/json',
 		},
 	});
-	console.log(res);
 	const json = await res.json();
-	console.log(json.status);
-	console.log(re.test(String(email).toLowerCase()));
-	console.log(re.test(String(email).toLowerCase()) && json.status);
 	return re.test(String(email).toLowerCase()) && json.status;
 };
