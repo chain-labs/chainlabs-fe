@@ -27,7 +27,6 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 		if (!loading) {
 			const res = projectsData.projectsCollection.items;
 			setPROJECTS(res);
-			console.log({ res });
 		}
 	}, [loading]);
 

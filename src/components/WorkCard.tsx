@@ -49,7 +49,7 @@ const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: Wor
 						</Text>
 					</Box>
 				</Box>
-				{description.map((p, index) => (
+				{description?.map((p, index) => (
 					<React.Fragment>
 						{index !== 0 ? <Box mt={{ mobS: 'mxs', tabS: 'mm' }} /> : null}
 						<Text as="b3" color="grey-100">

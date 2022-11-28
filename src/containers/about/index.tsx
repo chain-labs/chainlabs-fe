@@ -11,12 +11,6 @@ import BlurSVG from '../../svgs/blur.svg';
 const About = () => {
 	const { data: teamMembers, loading } = useQuery(GET_TEAM_MEMBERS);
 
-	useEffect(() => {
-		if (!loading) {
-			console.log({ teamMembers });
-		}
-	}, [loading]);
-
 	return (
 		<OuterContainer bg="purple-500">
 			<Box
@@ -69,8 +63,6 @@ const About = () => {
 				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '40rem' }} mt="1.4rem">
 					{!loading &&
 						teamMembers?.teamMembersCollection?.items?.map((member) => {
-							console.log({ member });
-
 							const image = member?.pfp.url;
 							return (
 								<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
