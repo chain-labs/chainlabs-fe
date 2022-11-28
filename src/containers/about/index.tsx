@@ -1,72 +1,16 @@
+import { useQuery } from '@apollo/client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from 'src/components/Box';
 import MemberCard from 'src/components/MemberCard';
 import OuterContainer from 'src/components/OuterContainer';
 import Text from 'src/components/Text';
+import GET_TEAM_MEMBERS from 'src/gql/query/GetTeamMembers';
 import BlurSVG from '../../svgs/blur.svg';
 
-const MEMBERS = [
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/angel_pfp.png',
-		name: 'Angel Lakra',
-		role: 'Front-end Lead',
-		twitterUrl: 'iamngl',
-		linkedInUrl: '/in/ngllakra',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/khushboo_pfp.png',
-		name: 'Khushboo Dalwani',
-		role: 'Front-end Dev',
-		twitterUrl: 'DalwaniKhushboo',
-		linkedInUrl: '/in/khushboodalwani',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/jay_pfp.png',
-		name: 'Jay Kadam',
-		role: 'ui/ux Designer',
-		twitterUrl: '_j4yke_',
-		linkedInUrl: '/in/jaykadam',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/raj_pfp.png',
-		name: 'Raj Paul',
-		role: 'Digital Designer',
-		twitterUrl: 'pauldesigns',
-		linkedInUrl: '/in/pauldesigns',
-	},
-
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/prabhat_pfp.png',
-		name: 'Prabhat Gupta',
-		role: 'Project Manager',
-		twitterUrl: 'prabhat_g',
-		linkedInUrl: '/in/prabhatguta1998/',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabsfe/pfp/vishakha_pfp.png',
-		name: 'Vishakha Singh',
-		role: 'Social media strategist',
-		twitterUrl: ' ',
-		linkedInUrl: '/in/vishakha-singh14',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabs/Website_Media/Desktop/About/Team_Members/Desktop_Shivangi_QLlF5TQHG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656943247532',
-		name: 'Shivangi Singh',
-		role: 'Social media manager',
-		twitterUrl: 'Shivangi769',
-		linkedInUrl: '/in/shivangi-singh769',
-	},
-	{
-		image: 'https://ik.imagekit.io/chainlabs/Website_Media/Desktop/About/Team_Members/Desktop_Yash_-GXVv8HQb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656943281112',
-		name: 'Yash Shah',
-		role: 'Brand Operations & Strategic Partnerships',
-		twitterUrl: 'yashshah18',
-		linkedInUrl: 'in/yash-shah-ba332035/',
-	},
-];
-
 const About = () => {
+	const { data: teamMembers, loading } = useQuery(GET_TEAM_MEMBERS);
+
 	return (
 		<OuterContainer bg="purple-500">
 			<Box
@@ -117,17 +61,22 @@ const About = () => {
 					Our wonderful team
 				</Text>
 				<Box row flexWrap="wrap" mr={{ mobS: '0rem', tabL: '20.5rem', deskM: '40rem' }} mt="1.4rem">
-					{MEMBERS.map((member) => (
-						<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
-							<MemberCard
-								image={member.image}
-								name={member.name}
-								role={member.role}
-								linkedInUrl={member.linkedInUrl}
-								twitterUrl={member.twitterUrl}
-							/>
-						</Box>
-					))}
+					{!loading &&
+						teamMembers?.teamMembersCollection?.items?.map((member) => {
+							const image = member?.pfp.url;
+							return (
+								<Box mt="ws" mr={{ mobS: '3.4rem', tabL: '8.3rem', deskM: '7.2rem' }}>
+									<MemberCard
+										image={image}
+										name={member.name}
+										role={member.title}
+										linkedInUrl={member.linkedinHandle}
+										twitterUrl={member.twitterHandle}
+										portfolioUrl={member.portfolioUrl}
+									/>
+								</Box>
+							);
+						})}
 				</Box>
 			</Box>
 		</OuterContainer>

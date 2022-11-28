@@ -9,15 +9,26 @@ import CircleOpacity from 'svgs/circle-opacity.svg';
 import ExponentBox from 'svgs/exponent-box.svg';
 import SetCenter from 'svgs/set-center.svg';
 import { eases, variants } from './animation';
-import { BLOGS, WORKS } from './constants';
+import { BLOGS } from './constants';
 import WorksCard from 'src/components/WorkCard';
 import Blogcard from 'src/components/Blogcard';
 import Link from 'next/link';
+import { useQuery } from '@apollo/client';
+import GET_PROJECTS, { IProject } from 'src/gql/query/GetProjects';
 
 const HomeContainer = ({ control }: { control?: AnimationControls }) => {
+	const [PROJECTS, setPROJECTS] = useState<IProject[]>([]);
 	const [loaded, setLoaded] = useState(true);
 	const controls = useAnimation();
 	const [innerHeight, setInnerHeight] = useState(800);
+	const { data: projectsData, loading } = useQuery<{ projectsCollection: { items: IProject[] } }>(GET_PROJECTS);
+
+	useEffect(() => {
+		if (!loading) {
+			const res = projectsData.projectsCollection.items;
+			setPROJECTS(res);
+		}
+	}, [loading]);
 
 	useEffect(() => {
 		if (loaded) {
@@ -292,7 +303,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						<Text as="h3" color="green-200">
 							Our Work
 						</Text>
-						{WORKS.map((work) => (
+						{PROJECTS.map((work) => (
 							<Box mt="ws">
 								<WorksCard {...work} />
 							</Box>
