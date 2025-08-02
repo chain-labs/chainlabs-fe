@@ -1,5 +1,5 @@
 import Box from 'components/Box';
-import Image from 'next/image';
+import Image from "next/image";
 import { ArrowRight } from 'phosphor-react';
 import React, { useState } from 'react';
 import { validateEmail } from 'src/containers/Contact/components/validEmail';
@@ -48,8 +48,8 @@ const OuterContainer = ({ children, bg }) => {
 		}
 	};
 	return (
-		<Box bg={bg} minHeight="100vh">
-			<Box>
+        <Box bg={bg} minHeight="100vh">
+            <Box>
 				<Toaster
 					position="top-center"
 					toastOptions={{
@@ -78,11 +78,13 @@ const OuterContainer = ({ children, bg }) => {
 								height={{ mobS: '5.7rem', tabS: '4.3rem', deskM: '4.6rem' }}
 							>
 								<Image
-									alt="Error Occured"
-									src="https://ik.imagekit.io/chainlabs/Website_Media/Chain_Labs_Logos/logo-footer-tablet_42hhHVYTlB.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655915174616"
-									layout="fill"
-									objectFit="cover"
-								/>
+                                    alt="Error Occured"
+                                    src="https://ik.imagekit.io/chainlabs/Website_Media/Chain_Labs_Logos/logo-footer-tablet_42hhHVYTlB.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655915174616"
+                                    fill
+                                    sizes="100vw"
+                                    style={{
+                                        objectFit: "cover"
+                                    }} />
 							</Box>
 							<Box width="36rem" display={{ mobS: 'block', deskM: 'none' }} mt="mxl" row>
 								<Text as="b3" color="grey-100" mr="wm">
@@ -173,8 +175,8 @@ const OuterContainer = ({ children, bg }) => {
 					</Text>
 				</Box>
 			</Box>
-		</Box>
-	);
+        </Box>
+    );
 };
 
 export default OuterContainer;

@@ -16,7 +16,7 @@ const Navbar = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const [expandMenu, setExpandMenu] = useState(false);
 	const controls = useAnimation();
-	const navbarRef = useRef();
+	const navbarRef = useRef(undefined);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const Navbar = () => {
 	}, []);
 
 	return (
-		<Box
+        <Box
 			px={{ mobS: 'mxl', tabS: 'wl' }}
 			py="ms"
 			between
@@ -77,7 +77,7 @@ const Navbar = () => {
 			zIndex={30}
 			ref={navbarRef}
 		>
-			<motion.div
+            <motion.div
 				variants={{
 					hidden: { opacity: 0 },
 					visible: { opacity: 1 },
@@ -86,7 +86,7 @@ const Navbar = () => {
 				initial={router.pathname === '/' ? 'hidden' : 'visible'}
 				transition={{ duration: 0.6, ease: 'easeInOut' }}
 			>
-				<Link href="/" passHref>
+				<Link href="/" passHref legacyBehavior>
 					<Box
 						color={scrolled ? 'purple-500' : 'green-100'}
 						css={`
@@ -110,7 +110,7 @@ const Navbar = () => {
 					</Box>
 				</Link>
 			</motion.div>
-			<Box
+            <Box
 				as={motion.div}
 				variants={{
 					hidden: { opacity: 0 },
@@ -149,7 +149,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
 				>
-					<Link href="/about" passHref>
+					<Link href="/about" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -166,7 +166,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
 				>
-					<Link href="/services" passHref>
+					<Link href="/services" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -183,7 +183,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.8 }}
 				>
-					<Link href="/contact" passHref>
+					<Link href="/contact" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -195,7 +195,7 @@ const Navbar = () => {
 					</Link>
 				</motion.div>
 			</Box>
-			<Box display={{ mobS: 'block', tabS: 'none' }}>
+            <Box display={{ mobS: 'block', tabS: 'none' }}>
 				<Text as="c1" color={scrolled ? 'purple-500' : 'inherit'} onClick={() => setExpandMenu(true)}>
 					Menu
 				</Text>
@@ -204,7 +204,7 @@ const Navbar = () => {
 					then={
 						<Box bg="purple-400" width="100vw" position="absolute" left="0" top="0" as={motion.div}>
 							<Box row alignItems="center" justifyContent="space-between" px="mxl" pt="ms">
-								<Link href="/" passHref>
+								<Link href="/" passHref legacyBehavior>
 									<Box color="green-100">
 										<LogoSVG />
 									</Box>
@@ -233,19 +233,19 @@ const Navbar = () => {
 									</Box>
 									<ArrowRight color={theme.colors['green-200']} size={20} />
 								</Box>
-								<Link href="/about" passHref>
+								<Link href="/about" passHref legacyBehavior>
 									<Box row between width="12rem" mb="mm">
 										<Text as="l1">ABOUT</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
 									</Box>
 								</Link>
-								<Link href="/services" passHref>
+								<Link href="/services" passHref legacyBehavior>
 									<Box row between width="12rem" mb="mm">
 										<Text as="l1">SERVICES</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
 									</Box>
 								</Link>
-								<Link href="/contact" passHref>
+								<Link href="/contact" passHref legacyBehavior>
 									<Box row between width="12rem">
 										<Text as="l1">CONTACT</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
@@ -256,8 +256,8 @@ const Navbar = () => {
 					}
 				/>
 			</Box>
-		</Box>
-	);
+        </Box>
+    );
 };
 
 export default Navbar;
