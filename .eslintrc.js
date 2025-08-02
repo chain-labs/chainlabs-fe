@@ -2,9 +2,8 @@ const path = require('path');
 
 module.exports = {
 	extends: [
+		'next/core-web-vitals',
 		'prettier',
-		'plugin:@next/next/recommended',
-		'plugin:prettier/recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:import/errors',
 		'plugin:import/warnings',
@@ -21,7 +20,11 @@ module.exports = {
 		'@typescript-eslint/no-var-requires': 0,
 		'@typescript-eslint/explicit-module-boundary-types': 0,
 		'@typescript-eslint/no-explicit-any': 0,
-		'ban-ts-comment': 0,
+		'@typescript-eslint/no-unused-vars': 'warn',
+		'@typescript-eslint/ban-ts-comment': 0,
+		'react/jsx-key': 'warn',
+		'react/no-unescaped-entities': 'warn',
+		'react-hooks/exhaustive-deps': 'warn',
 		'prettier/prettier': [
 			'error',
 			{
