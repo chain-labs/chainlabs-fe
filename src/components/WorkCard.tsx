@@ -1,5 +1,5 @@
 import Box from './Box';
-import Image from "next/image";
+import Image from 'next/image';
 import Text from './Text';
 import theme from 'src/styleguide/theme';
 
@@ -23,13 +23,13 @@ const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: Wor
 	};
 
 	return (
-        <Box
+		<Box
 			display="flex"
 			flexDirection={{ mobS: 'column', tabS: 'row' }}
 			alignItems="center"
 			width={{ mobS: '34.3rem', tabS: '86.4rem', deskM: '111.1rem' }}
 		>
-            <Box
+			<Box
 				position="relative"
 				minWidth={{ mobS: '100%', tabS: '42.3rem', deskM: '52rem' }}
 				height={{ mobS: '20rem', tabS: '24rem', deskM: '30rem' }}
@@ -37,15 +37,16 @@ const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: Wor
 				mb={{ mobS: 'mxl', tabS: '0' }}
 			>
 				<Image
-                    alt="Error Occured"
-                    src={banner.url}
-                    fill
-                    sizes="100vw"
-                    style={{
-                        objectFit: "cover"
-                    }} />
+					alt="Error Occured"
+					src={banner.url}
+					fill
+					sizes="100vw"
+					style={{
+						objectFit: 'cover',
+					}}
+				/>
 			</Box>
-            <Box>
+			<Box>
 				<Box row alignItems="center" justifyContent="flex-start" borderRadius="2px" mb="mxs">
 					<Text as="h4" color="green-200">
 						{title}
@@ -110,8 +111,8 @@ const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: Wor
 					/>
 				</Box>
 			</Box>
-        </Box>
-    );
+		</Box>
+	);
 };
 
 export default WorksCard;

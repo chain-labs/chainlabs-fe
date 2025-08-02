@@ -1,5 +1,5 @@
 import Box from './Box';
-import Image from "next/image";
+import Image from 'next/image';
 import theme from 'src/styleguide/theme';
 import Text from './Text';
 import { useState } from 'react';
@@ -23,8 +23,8 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl, portfolioUrl }
 		setDisplayInfo(!displayInfo);
 	};
 	return (
-        <Box mr={{ mobS: '0rem' }} cursor="pointer">
-            <Box
+		<Box mr={{ mobS: '0rem' }} cursor="pointer">
+			<Box
 				height={{ mobS: '14.1rem', tabS: '18.7rem', deskM: '24rem' }}
 				width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }}
 				position="relative"
@@ -82,19 +82,20 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl, portfolioUrl }
 				</Box>
 				<Box opacity={opacity} zIndex={0}>
 					<Image
-                        alt="Error Occured"
-                        src={image}
-                        fill
-                        sizes="100vw"
-                        style={{
-                            objectFit: "cover"
-                        }} />
+						alt="Error Occured"
+						src={image}
+						fill
+						sizes="100vw"
+						style={{
+							objectFit: 'cover',
+						}}
+					/>
 				</Box>
 			</Box>
-            <Text as="h5" width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }} color="white-10" mb="mxs">
+			<Text as="h5" width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }} color="white-10" mb="mxs">
 				{name}
 			</Text>
-            <Text
+			<Text
 				as="c2"
 				width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }}
 				color="grey-200"
@@ -102,8 +103,8 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl, portfolioUrl }
 			>
 				{role}
 			</Text>
-        </Box>
-    );
+		</Box>
+	);
 };
 
 export default MemberCard;

@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import Image from "next/image";
+import Image from 'next/image';
 import React, { useEffect } from 'react';
 import Box from 'src/components/Box';
 import MemberCard from 'src/components/MemberCard';
@@ -12,8 +12,8 @@ const About = () => {
 	const { data: teamMembers, loading } = useQuery(GET_TEAM_MEMBERS);
 
 	return (
-        <OuterContainer bg="purple-500">
-            <Box
+		<OuterContainer bg="purple-500">
+			<Box
 				mx="wl"
 				between
 				pt={{ mobS: '8.28rem', tabL: '12.8rem', deskM: '19rem' }}
@@ -40,13 +40,14 @@ const About = () => {
 					position="relative"
 				>
 					<Image
-                        alt="Error Occured"
-                        src="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/About/Illustration/Illustrtation_Desktop_EPQXlY8OU.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656949181206"
-                        fill
-                        sizes="100vw" />
+						alt="Error Occured"
+						src="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/About/Illustration/Illustrtation_Desktop_EPQXlY8OU.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656949181206"
+						fill
+						sizes="100vw"
+					/>
 				</Box>
 			</Box>
-            <Box ml={{ mobS: 'mm', mobL: 'mxl', tabL: 'wl' }} column mb={{ mobS: '6rem', tabL: '11rem' }}>
+			<Box ml={{ mobS: 'mm', mobL: 'mxl', tabL: 'wl' }} column mb={{ mobS: '6rem', tabL: '11rem' }}>
 				<Box
 					position="absolute"
 					display={{ mobS: 'none', deskM: 'block' }}
@@ -79,8 +80,8 @@ const About = () => {
 						})}
 				</Box>
 			</Box>
-        </OuterContainer>
-    );
+		</OuterContainer>
+	);
 };
 
 export default About;

@@ -40,7 +40,7 @@ const Navbar = () => {
 	}, []);
 
 	return (
-        <Box
+		<Box
 			px={{ mobS: 'mxl', tabS: 'wl' }}
 			py="ms"
 			between
@@ -77,7 +77,7 @@ const Navbar = () => {
 			zIndex={30}
 			ref={navbarRef}
 		>
-            <motion.div
+			<motion.div
 				variants={{
 					hidden: { opacity: 0 },
 					visible: { opacity: 1 },
@@ -110,7 +110,7 @@ const Navbar = () => {
 					</Box>
 				</Link>
 			</motion.div>
-            <Box
+			<Box
 				as={motion.div}
 				variants={{
 					hidden: { opacity: 0 },
@@ -195,7 +195,7 @@ const Navbar = () => {
 					</Link>
 				</motion.div>
 			</Box>
-            <Box display={{ mobS: 'block', tabS: 'none' }}>
+			<Box display={{ mobS: 'block', tabS: 'none' }}>
 				<Text as="c1" color={scrolled ? 'purple-500' : 'inherit'} onClick={() => setExpandMenu(true)}>
 					Menu
 				</Text>
@@ -256,8 +256,8 @@ const Navbar = () => {
 					}
 				/>
 			</Box>
-        </Box>
-    );
+		</Box>
+	);
 };
 
 export default Navbar;

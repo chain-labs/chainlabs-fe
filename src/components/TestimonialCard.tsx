@@ -1,12 +1,12 @@
 import React from 'react';
 import Box from './Box';
-import Image from "next/image";
+import Image from 'next/image';
 import Text from './Text';
 
 const TestimonialCard = ({ url, comment, name, title }) => {
 	return (
-        <Box center column width={{ mobS: '71%', tabL: '40.2rem', deskM: '55rem' }} mt={{ mobS: 'wm', tabL: '0' }}>
-            <Box
+		<Box center column width={{ mobS: '71%', tabL: '40.2rem', deskM: '55rem' }} mt={{ mobS: 'wm', tabL: '0' }}>
+			<Box
 				height={{ mobS: '6rem', deskM: '8rem' }}
 				width={{ mobS: '6rem', deskM: '8rem' }}
 				position="relative"
@@ -15,17 +15,17 @@ const TestimonialCard = ({ url, comment, name, title }) => {
 			>
 				<Image alt="Error Occured" src={url} fill sizes="100vw"></Image>
 			</Box>
-            <Text as="h5" textAlign="center" mt="mxl" color="white-10">
+			<Text as="h5" textAlign="center" mt="mxl" color="white-10">
 				"{comment}"
 			</Text>
-            <Text as="h5" textAlign="center" mt="mxl" color="green-200">
+			<Text as="h5" textAlign="center" mt="mxl" color="green-200">
 				{name}
 			</Text>
-            <Text as="h6" textAlign="center" color="grey-100" mt="mxxs">
+			<Text as="h6" textAlign="center" color="grey-100" mt="mxxs">
 				{title}
 			</Text>
-        </Box>
-    );
+		</Box>
+	);
 };
 
 export default TestimonialCard;

@@ -66,15 +66,15 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 	};
 
 	return (
-        // Outer Box
-        <Box bg="purple-500">
-            {/* Loading Overlay */}
-            <If
+		// Outer Box
+		<Box bg="purple-500">
+			{/* Loading Overlay */}
+			<If
 				condition={!loaded}
 				then={<Box height="100vh" width="100vw" bg="purple-500" position="fixed" zIndex={20} />}
 			/>
-            {/* Hero Section */}
-            <Box
+			{/* Hero Section */}
+			<Box
 				height={{ mobS: '90vh', tabS: '100vh' }}
 				pt={{ mobS: '17.2rem', tabS: '22.6rem' }}
 				column
@@ -204,8 +204,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					}
 				/>
 			</Box>
-            {/* 3 Point Features Section */}
-            <Box
+			{/* 3 Point Features Section */}
+			<Box
 				bg="highlight"
 				position="relative"
 				px={{ mobS: '5rem', tabS: 'wl' }}
@@ -291,8 +291,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					</Box>
 				</Box>
 			</Box>
-            {/* Our Work Section */}
-            <Box width="100vw" center>
+			{/* Our Work Section */}
+			<Box width="100vw" center>
 				<Box
 					id="works"
 					column
@@ -311,8 +311,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					</Box>
 				</Box>
 			</Box>
-            {/* Blogs Section */}
-            <Box width="100vw" center>
+			{/* Blogs Section */}
+			<Box width="100vw" center>
 				<Box
 					center
 					column
@@ -363,8 +363,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					</Box>
 				</Box>
 			</Box>
-            {/* Contact Section */}
-            <Box
+			{/* Contact Section */}
+			<Box
 				width="100vw"
 				center
 				bg="highlight"
@@ -407,8 +407,8 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 					</Box>
 				</Box>
 			</Box>
-        </Box>
-    );
+		</Box>
+	);
 };
 
 const SpanText = ({ duration, mr, children }) => {
