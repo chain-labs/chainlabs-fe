@@ -36,7 +36,15 @@ const WorksCard = ({ banner, title, description, type, twitterUrl, ctaUrl }: Wor
 				mr={{ mobS: '0', tabS: 'wxs' }}
 				mb={{ mobS: 'mxl', tabS: '0' }}
 			>
-				<Image alt="Error Occured" src={banner.url} layout="fill" objectFit="cover" />
+				<Image
+					alt="Error Occured"
+					src={banner.url}
+					fill
+					sizes="100vw"
+					style={{
+						objectFit: 'cover',
+					}}
+				/>
 			</Box>
 			<Box>
 				<Box row alignItems="center" justifyContent="flex-start" borderRadius="2px" mb="mxs">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, type JSX } from 'react';
 import theme from 'src/styleguide/theme';
 import Box, { BoxProps } from './Box';
 import Text from './Text';

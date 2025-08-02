@@ -1,6 +1,6 @@
 import Box from 'src/components/Box';
 import Text from 'src/components/Text';
-import { AnimationControls, motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import If from 'src/components/If';
 
@@ -16,7 +16,7 @@ import Link from 'next/link';
 import { useQuery } from '@apollo/client';
 import GET_PROJECTS, { IProject } from 'src/gql/query/GetProjects';
 
-const HomeContainer = ({ control }: { control?: AnimationControls }) => {
+const HomeContainer = ({ control }: { control?: any }) => {
 	const [PROJECTS, setPROJECTS] = useState<IProject[]>([]);
 	const [loaded, setLoaded] = useState(true);
 	const controls = useAnimation();
@@ -185,7 +185,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 									animate="visible"
 									transition={{ duration: 0.6, delay: 1.5, ease: 'easeOut' }}
 								>
-									<Link href="/contact" passHref>
+									<Link href="/contact" passHref legacyBehavior>
 										<Box
 											bg="green-200"
 											py={{ mobS: 'ms', tabS: '1.75rem' }}
@@ -389,7 +389,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 						<Text as="h2" color="green-200" textAlign={{ mobS: 'center', tabS: 'start' }}>
 							Have a problem for us to solve?
 						</Text>
-						<Link href="/contact" passHref>
+						<Link href="/contact" passHref legacyBehavior>
 							<Box
 								bg="green-200"
 								py={{ mobS: 'ms', tabS: '1.75rem' }}
@@ -413,12 +413,7 @@ const HomeContainer = ({ control }: { control?: AnimationControls }) => {
 
 const SpanText = ({ duration, mr, children }) => {
 	return (
-		<motion.span
-			initial="hidden"
-			animate="visible"
-			variants={variants.header}
-			transition={{ duration, ease: eases.header, delay: 1 }}
-		>
+		<motion.span initial="hidden" animate="visible" variants={variants.header} transition={{ duration, delay: 1 }}>
 			<Box as="span" mr={mr}>
 				{children}
 			</Box>

@@ -80,8 +80,11 @@ const OuterContainer = ({ children, bg }) => {
 								<Image
 									alt="Error Occured"
 									src="https://ik.imagekit.io/chainlabs/Website_Media/Chain_Labs_Logos/logo-footer-tablet_42hhHVYTlB.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1655915174616"
-									layout="fill"
-									objectFit="cover"
+									fill
+									sizes="100vw"
+									style={{
+										objectFit: 'cover',
+									}}
 								/>
 							</Box>
 							<Box width="36rem" display={{ mobS: 'block', deskM: 'none' }} mt="mxl" row>

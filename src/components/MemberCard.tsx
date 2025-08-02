@@ -81,7 +81,15 @@ const MemberCard = ({ image, name, role, twitterUrl, linkedInUrl, portfolioUrl }
 					/>
 				</Box>
 				<Box opacity={opacity} zIndex={0}>
-					<Image alt="Error Occured" src={image} layout="fill" objectFit="cover" />
+					<Image
+						alt="Error Occured"
+						src={image}
+						fill
+						sizes="100vw"
+						style={{
+							objectFit: 'cover',
+						}}
+					/>
 				</Box>
 			</Box>
 			<Text as="h5" width={{ mobS: '14rem', tabS: '18.7rem', deskM: '24rem' }} color="white-10" mb="mxs">

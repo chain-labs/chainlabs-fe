@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, MutableRefObject } from 'react';
 
-export default function useOuterClick(callback) {
-	const callbackRef = useRef(); // initialize mutable ref, which stores callback
-	const innerRef = useRef(); // returned to client, who marks "border" element
+export default function useOuterClick(callback: (event: MouseEvent) => void): MutableRefObject<HTMLDivElement | null> {
+	const callbackRef = useRef<((event: MouseEvent) => void) | undefined>(undefined); // initialize mutable ref, which stores callback
+	const innerRef = useRef<HTMLDivElement | null>(null); // returned to client, who marks "border" element
 
 	// update cb on each render, so second useEffect has access to current value
 	useEffect(() => {
@@ -12,11 +12,9 @@ export default function useOuterClick(callback) {
 	useEffect(() => {
 		document.addEventListener('click', handleClick);
 		return () => document.removeEventListener('click', handleClick);
-		function handleClick(e) {
-			// @ts-expect-error ts-migrate(2339) FIXME: Property 'current' does not exist on type 'RefObject<HTMLElement>'.
-			if (innerRef.current && callbackRef.current && !innerRef?.current?.contains(e.target))
-				// @ts-expect-error ts-migrate(2339) FIXME: Property 'current' does not exist on type 'RefObject<HTMLElement>'.
-				callbackRef?.current(e);
+		function handleClick(e: MouseEvent) {
+			if (innerRef.current && callbackRef.current && !innerRef.current.contains(e.target as Node))
+				callbackRef.current(e);
 		}
 	}, []); // no dependencies -> stable click listener
 

@@ -18,7 +18,15 @@ const Blogcard = ({ imageUrl, url, title }: BlogCardProps) => {
 				position="relative"
 				mb="mm"
 			>
-				<Image alt="Error Occured" src={imageUrl} layout="fill" objectFit="cover" />
+				<Image
+					alt="Error Occured"
+					src={imageUrl}
+					fill
+					sizes="100vw"
+					style={{
+						objectFit: 'cover',
+					}}
+				/>
 			</Box>
 			<Box>
 				<Text as="h6" color="grey-100" width={{ mobS: '34.3rem', tabL: '27.6rem', deskM: '35.4rem' }}>

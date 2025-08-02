@@ -42,7 +42,8 @@ const About = () => {
 					<Image
 						alt="Error Occured"
 						src="https://ik.imagekit.io/chainlabs/Website_Media/Desktop/About/Illustration/Illustrtation_Desktop_EPQXlY8OU.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656949181206"
-						layout="fill"
+						fill
+						sizes="100vw"
 					/>
 				</Box>
 			</Box>

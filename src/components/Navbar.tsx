@@ -16,7 +16,7 @@ const Navbar = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const [expandMenu, setExpandMenu] = useState(false);
 	const controls = useAnimation();
-	const navbarRef = useRef();
+	const navbarRef = useRef(undefined);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -86,7 +86,7 @@ const Navbar = () => {
 				initial={router.pathname === '/' ? 'hidden' : 'visible'}
 				transition={{ duration: 0.6, ease: 'easeInOut' }}
 			>
-				<Link href="/" passHref>
+				<Link href="/" passHref legacyBehavior>
 					<Box
 						color={scrolled ? 'purple-500' : 'green-100'}
 						css={`
@@ -149,7 +149,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.4 }}
 				>
-					<Link href="/about" passHref>
+					<Link href="/about" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -166,7 +166,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.6 }}
 				>
-					<Link href="/services" passHref>
+					<Link href="/services" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -183,7 +183,7 @@ const Navbar = () => {
 					animate={controls}
 					transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.8 }}
 				>
-					<Link href="/contact" passHref>
+					<Link href="/contact" passHref legacyBehavior>
 						<Text
 							as="c1"
 							ml="wm"
@@ -204,7 +204,7 @@ const Navbar = () => {
 					then={
 						<Box bg="purple-400" width="100vw" position="absolute" left="0" top="0" as={motion.div}>
 							<Box row alignItems="center" justifyContent="space-between" px="mxl" pt="ms">
-								<Link href="/" passHref>
+								<Link href="/" passHref legacyBehavior>
 									<Box color="green-100">
 										<LogoSVG />
 									</Box>
@@ -233,19 +233,19 @@ const Navbar = () => {
 									</Box>
 									<ArrowRight color={theme.colors['green-200']} size={20} />
 								</Box>
-								<Link href="/about" passHref>
+								<Link href="/about" passHref legacyBehavior>
 									<Box row between width="12rem" mb="mm">
 										<Text as="l1">ABOUT</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
 									</Box>
 								</Link>
-								<Link href="/services" passHref>
+								<Link href="/services" passHref legacyBehavior>
 									<Box row between width="12rem" mb="mm">
 										<Text as="l1">SERVICES</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
 									</Box>
 								</Link>
-								<Link href="/contact" passHref>
+								<Link href="/contact" passHref legacyBehavior>
 									<Box row between width="12rem">
 										<Text as="l1">CONTACT</Text>
 										<ArrowRight color={theme.colors['green-200']} size={20} />
